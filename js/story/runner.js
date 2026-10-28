@@ -58,6 +58,9 @@ const Story = {
     } else if (a.reveal) {
       G.s.revealed[a.reveal] = true;
       if (sc && sc.wmap) sc.wmap.showProp(a.reveal, true);
+      // dig spots: point the camera at them so Jana knows where to go
+      const sp = sc && sc.place && sc.place.spots.find(s => s.id === a.reveal && s.kind === 'dig');
+      if (sp) { Dialog.hide(true); DigMarks.update(sc); await sc.showSpot(sp.x, sp.y); }
     } else if (a.flag) {
       G.setFlag(a.flag);
     } else if (a.minigame) {

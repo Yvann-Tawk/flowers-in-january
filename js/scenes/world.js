@@ -57,6 +57,7 @@ class WorldScene extends Phaser.Scene {
     HUD.setArea(this.wmap.kind === 'interior' ? ROOM_LABELS[roomOf(key)] || '' : (AREAS[key] || {}).label || '');
     HUD.refresh();
     if (this.handlers.setup) this.handlers.setup(this);
+    DigMarks.setup(this);
 
     Input.world = (name) => this.onKey(name);
     this.lastTile = this.player.tx + ',' + this.player.ty;
@@ -235,6 +236,19 @@ class WorldScene extends Phaser.Scene {
     }
   }
 
+  // show Jana where a newly revealed spot is: pan there, hold, come back
+  async showSpot(tx, ty) {
+    if (this.fixedCam) return;
+    const cam = this.cameras.main, x = (tx + 0.5) * TILE, y = (ty + 0.5) * TILE;
+    const wv = cam.worldView;
+    if (x > wv.x + 40 && x < wv.right - 40 && y > wv.y + 40 && y < wv.bottom - 120) return;   // already on screen
+    cam.stopFollow();
+    await new Promise(r => cam.pan(x, y + 40, 900, 'Sine.easeInOut', false, (c, k) => { if (k === 1) r(); }));
+    await new Promise(r => setTimeout(r, 1400));
+    await new Promise(r => cam.pan(this.player.spr.x, this.player.spr.y + 12, 700, 'Sine.easeInOut', false, (c, k) => { if (k === 1) r(); }));
+    cam.startFollow(this.player.spr, true, 1, 1, 0, -12);
+  }
+
   // If the speaker is out of view (the owl on her tower), pan so both are on screen above the box.
   frameSpeaker(spr) {
     if (this.fixedCam) return false;
@@ -311,6 +325,7 @@ class WorldScene extends Phaser.Scene {
       this.icon.setVisible(true).setPosition(Math.round(ix), Math.round(iy - 8 + Math.sin(time / 220) * 2));
     } else this.icon.setVisible(false);
     if (this.handlers.update) this.handlers.update(this, time, delta);
+    DigMarks.update(this);
     Snd.fire(this.fireLevel());
     if (DEBUG) Debug.update(this);
   }
