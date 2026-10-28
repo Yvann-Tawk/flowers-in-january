@@ -43,6 +43,14 @@ class AudioScene extends Phaser.Scene {
     ev.on('audio:duck', ms => this.duck(ms));
     ev.on('audio:mute', m => { this.sound.mute = m; });
     ev.on('audio:musicOn', on => this.setMusicOn(on));
+    // the rest of the music and sounds load in the background; a track asked for
+    // before its file has arrived starts as soon as it does
+    this.load.setPath('assets/');
+    LATE_AUDIO.forEach(([k, p]) => { if (!this.cache.audio.exists(k)) this.load.audio(k, p); });
+    this.load.on('filecomplete', key => {
+      if (key === this.waiting) { this.waiting = null; this.currentKey = undefined; this.playMusic(key); }
+    });
+    this.load.start();
     // catch up on anything asked for before this scene existed
     if (Snd.want.music !== undefined) this.playMusic(Snd.want.music);
     if (Snd.want.fire) this.setFire(Snd.want.fire);
@@ -69,6 +77,12 @@ class AudioScene extends Phaser.Scene {
   // crossfade to `key` (800 ms); the same key keeps playing without a restart
   playMusic(key, fade = 800) {
     if (key === this.currentKey) return;
+    if (key && !this.cache.audio.exists(key)) {     // still downloading: fade out, start when it lands
+      if (this.current) { const o = this.current; this.ramp(o.gain.gain, 0, fade); setTimeout(() => { try { o.src.stop(); } catch (e) {} o.src.disconnect(); o.gain.disconnect(); }, fade + 50); this.current = null; }
+      this.currentKey = key; this.waiting = key;
+      return;
+    }
+    this.waiting = null;
     const old = this.current;
     if (old) {
       this.ramp(old.gain.gain, 0, fade);
@@ -107,7 +121,7 @@ class AudioScene extends Phaser.Scene {
   }
 
   playSfx(key, { volume = 1, detune = 0 } = {}) {
-    if (this.ctx.state !== 'running') return;
+    if (this.ctx.state !== 'running' || !this.cache.audio.exists(key)) return;
     let s = this.sfx[key];
     if (!s) s = this.sfx[key] = this.sound.add(key);
     if (key === 'dialogue' && s.isPlaying) return;   // blips never stack

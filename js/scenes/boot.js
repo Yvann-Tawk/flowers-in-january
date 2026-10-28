@@ -3,7 +3,15 @@
 //  then launches the AudioScene, which runs for the rest of the game.
 // ═══════════════════════════════════════════════════════════════
 let bootResolve;
-window.bootReady = new Promise(r => { bootResolve = r; });
+window.bootReady = new Promise(r => { bootResolve = () => { window.bootDone = true; r(); }; });
+
+// loaded in the background by the AudioScene once the game is running (keeps the first load small)
+const LATE_AUDIO = [
+  ['beach_theme', 'music/beach_theme.mp3'], ['forest_theme', 'music/forest_theme.mp3'], ['games', 'music/games.mp3'],
+  ['blossom_theme', 'music/blossom_theme.mp3'], ['gramophone', 'music/gramophone.mp3'], ['plains_theme', 'music/plains_theme.mp3'],
+  ['wedding_outro', 'music/wedding_outro.mp3'],
+  ['new_area', 'audio/new_area.wav'], ['game-win', 'audio/game-win.wav'], ['gamelose', 'audio/gamelose.wav'], ['gate-unlock', 'audio/gate-unlock.wav'],
+];
 
 const INTERIORS = ['garden_cabin', 'beach_hut', 'snow_cabin', 'blossom_house', 'plains_house'];
 const ATLASES = ['garden_village', 'beach_village', 'forest_village', 'blossom_village', 'dark_plains_village'];
@@ -15,6 +23,7 @@ class BootScene extends Phaser.Scene {
     const L = this.load;
     L.setPath('assets/');
     L.on('loaderror', f => console.warn('asset failed:', f.key, f.src));
+    L.on('progress', p => Title.progress(p));
     const img = k => { if (!this.textures.exists(k)) L.image(k, k); };
 
     L.json('placements', '../data/placements.json');
@@ -67,8 +76,9 @@ class BootScene extends Phaser.Scene {
     L.spritesheet('minigames/sleeves.png', 'minigames/sleeves.png', { frameWidth: 32, frameHeight: 32 });
 
     // audio
-    ['garden_theme', 'beach_theme', 'forest_theme', 'blossom_theme', 'plains_theme', 'wedding_outro', 'games', 'gramophone'].forEach(m => L.audio(m, 'music/' + m + '.mp3'));
-    ['dialogue', 'got-item', 'gate-unlock', 'new_area', 'game-win', 'gamelose'].forEach(k => L.audio(k, 'audio/' + k + '.wav'));
+    // first load: the garden's music and the everyday sounds; the rest is LATE_AUDIO
+    L.audio('garden_theme', 'music/garden_theme.mp3');
+    ['dialogue', 'got-item'].forEach(k => L.audio(k, 'audio/' + k + '.wav'));
     L.audio('flower', 'audio/flower.mp3');
     L.audio('door', 'audio/door.mp3');
     L.audio('fire', 'audio/fire.ogg');

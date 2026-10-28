@@ -2,6 +2,13 @@
 //  TITLE + INTRO — "Press any key", Continue / New game, the original intro
 // ═══════════════════════════════════════════════════════════════
 const Title = {
+  // loading bar on the title screen (Boot progress, 0–1)
+  progress(p) {
+    const bar = document.querySelector('#title-load div');
+    if (bar) bar.style.width = Math.round(p * 100) + '%';
+    if (p >= 1) document.getElementById('title-load').classList.add('done');
+  },
+
   start() {
     const title = document.getElementById('title');
     const press = document.getElementById('title-press');
@@ -63,7 +70,15 @@ const Title = {
         const l = document.getElementById('il' + i);
         if (l) { l.textContent = txt; l.classList.remove('on'); setTimeout(() => l.classList.add('on'), 600 + i * 2500); }
       });
-      setTimeout(() => { document.getElementById('il_skip').classList.add('on'); ready = true; }, 600 + INTRO.length * 2500);
+      // the original "press any key to begin", or "loading…" until the game has finished loading
+      const skip = document.getElementById('il_skip');
+      const original = skip.textContent;
+      setTimeout(() => {
+        skip.classList.add('on');
+        if (window.bootDone) { ready = true; return; }
+        skip.textContent = 'loading…';
+        window.bootReady.then(() => { skip.textContent = original; ready = true; });
+      }, 600 + INTRO.length * 2500);
       const go = () => {
         if (!ready) return;
         pop(); el.removeEventListener('pointerdown', go);
