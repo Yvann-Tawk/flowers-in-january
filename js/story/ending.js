@@ -8,7 +8,7 @@ const Ending = {
   stage: null,               // 'home' while the garden shows the ending_home block
   wait: ms => new Promise(r => setTimeout(r, ms)),
 
-  // 28/01/2026 entered: no dialogue. The gate swings open, then the path.
+  // 18/01/2026 entered: no dialogue. The gate swings open, then the path.
   async openGate() {
     const sc = Story.scene;
     G.s.swapped.gate = true;

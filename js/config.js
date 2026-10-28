@@ -41,13 +41,13 @@ function areaOf(key) {
 // Note order: Gilmour, Phoebe, Calabar, Spike → Day / Month / Year (first half) / Year (second half).
 // signs.png frames: 0 Phoebe (sun), 1 Gilmour (moon), 2 Spike (heart), 3 Calabar (eye).
 const FRAGMENTS = {
-  fragment_gilmour: { digits: '28', sign: 1, guardian: 'Gilmour', field: 'day' },
+  fragment_gilmour: { digits: '18', sign: 1, guardian: 'Gilmour', field: 'day' },
   fragment_phoebe:  { digits: '01', sign: 0, guardian: 'Phoebe',  field: 'month' },
   fragment_calabar: { digits: '20', sign: 3, guardian: 'Calabar', field: 'year1' },
   fragment_spike:   { digits: '26', sign: 2, guardian: 'Spike',   field: 'year2' },
 };
 const NOTE_ORDER = ['fragment_gilmour', 'fragment_phoebe', 'fragment_calabar', 'fragment_spike'];
-const GATE_ANSWER = { day: '28', month: '01', year: '2026' };
+const GATE_ANSWER = { day: '18', month: '01', year: '2026' };   // 18 / 01 / 2026
 
 // ── Items (names exactly as the spreadsheet's GIVE / TAKE actions) ─
 const ITEMS = {
@@ -61,7 +61,7 @@ const ITEMS = {
   carrot:           { name: 'Carrot',             icon: 'items/item_carrot.png' },
   kindling:         { name: 'Kindling',           icon: 'items/item_kindling.png' },
   bandaid:          { name: 'Band-aid',           icon: 'items/keepsake_bandaid.png' },
-  fragment_gilmour: { name: 'Fragment 28',        icon: 'items/fragment_gilmour.png', fragment: true },
+  fragment_gilmour: { name: 'Fragment 18',        icon: 'items/fragment_gilmour.png', fragment: true },
   seed:             { name: 'Seed',               icon: 'items/item_seed.png' },
   key:              { name: 'Winding key',        icon: 'items/item_key.png' },
   tea:              { name: 'Tea',                icon: 'items/item_tea.png' },
@@ -76,7 +76,8 @@ const ITEMS = {
   fragment_calabar: { name: 'Fragment 20',        icon: 'items/fragment_calabar.png', fragment: true },
 };
 // spreadsheet item name → id ("TAKE Flask" is the empty flask)
-const ITEM_BY_NAME = { Flask: 'flask' };
+// the sheet's Gilmour fragment is still named "Fragment 28" (the date is now 18/01/2026)
+const ITEM_BY_NAME = { Flask: 'flask', 'Fragment 28': 'fragment_gilmour' };
 Object.keys(ITEMS).forEach(id => { ITEM_BY_NAME[ITEMS[id].name] = id; });
 
 // ── Flowers → poems: read from the spreadsheet's "FLOWER n (poem p)" actions ─
