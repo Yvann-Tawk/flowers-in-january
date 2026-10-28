@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
    Flowers in January — page + DOM UI styles
    ═══════════════════════════════════════════════════════════════ */
-@font-face{font-family:"PixelAE";src:url(../assets/ui/PixelAE-Regular.ttf) format("truetype");font-display:block;}
+@font-face{font-family:"PixelAE";src:url(../assets/ui/PixelAE-Regular.ttf?v=3) format("truetype");font-display:swap;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{width:100%;height:100%;}
 body{background:#0d0a10;overflow:hidden;font-family:"PixelAE",monospace;color:#3b2230;
@@ -36,7 +36,7 @@ button{font-family:inherit;}
 #dlg-box{position:relative;min-height:calc(46px + 46px * var(--px));}
 #dlg-body{font-size:calc(14px + 7px * var(--px));line-height:1.18;color:var(--ink);padding:2px 6px calc(6px * var(--px));
   white-space:pre-wrap;word-wrap:break-word;}
-#dlg-body.narr{font-style:italic;color:#5b3a4a;}
+#dlg-body.narr{color:#5b3a4a;}
 #dlg-next{position:absolute;right:calc(4px * var(--px));bottom:calc(2px * var(--px));width:calc(8px * var(--px) * 2);height:calc(8px * var(--px) * 2);
   background:url(../assets/ui/dialog_next.png) center/contain no-repeat;image-rendering:pixelated;opacity:0;}
 #dlg-next.on{opacity:1;animation:bob .7s ease-in-out infinite alternate;}
@@ -94,25 +94,26 @@ button{font-family:inherit;}
   background:url(../assets/ui/note_page.png) center/100% 100% no-repeat;image-rendering:pixelated;
   padding:calc(var(--nh) * .08) calc(var(--nh) * .07) calc(var(--nh) * .05);display:flex;flex-direction:column;
   box-shadow:6px 6px 0 rgba(0,0,0,.35);}
-#note-date{font-family:"IM Fell English",serif;font-style:italic;font-size:calc(var(--nh) * .026);color:#7a5820;text-align:right;}
-#note-num{font-family:"IM Fell English",serif;font-size:calc(var(--nh) * .04);color:#7a5820;margin:calc(var(--nh) * .015) 0;}
-#note-text{flex:1;font-family:"IM Fell English",serif;font-size:calc(var(--nh) * .036);line-height:1.75;color:#261406;white-space:pre-line;overflow:auto;-webkit-user-select:text;user-select:text;}
+#note-date{font-family:"PixelAE",monospace;font-size:calc(var(--nh) * .026);color:#7a5820;text-align:right;}
+#note-num{font-family:"PixelAE",monospace;font-size:calc(var(--nh) * .04);color:#7a5820;margin:calc(var(--nh) * .015) 0;}
+#note-text{flex:1;font-family:"PixelAE",monospace;font-size:calc(var(--nh) * .036);line-height:1.75;color:#261406;white-space:pre-line;overflow:auto;-webkit-user-select:text;user-select:text;}
 #note-text .sig{display:block;margin-top:1em;}
 #note-nav{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(130,95,35,.35);padding-top:calc(var(--nh) * .015);}
 #note-nav button{background:none;border:1px solid rgba(130,95,35,.45);color:#5a3c14;font-size:calc(var(--nh) * .03);padding:0 .7em;cursor:pointer;}
 #note-nav button:disabled{opacity:.3;cursor:default;}
-#note-pnum{font-family:"IM Fell English",serif;font-size:calc(var(--nh) * .028);color:#8a6028;}
+#note-pnum{font-family:"PixelAE",monospace;font-size:calc(var(--nh) * .028);color:#8a6028;}
 
-/* poem (kept from the original game) */
-#poem-ov{background:rgba(2,6,2,.94);padding:2rem;}
-.ov-x{position:absolute;top:.7rem;right:1rem;background:none;border:none;color:rgba(90,60,18,.45);font-size:20px;cursor:pointer;}
-#poem-card{max-width:520px;width:100%;border:1px solid rgba(140,205,100,.16);background:rgba(4,12,4,.99);padding:2.6rem 3rem 2rem;position:relative;max-height:84vh;overflow-y:auto;}
-#poem-dt{font-family:"IM Fell English",serif;font-style:italic;font-size:11px;color:rgba(140,205,100,.35);letter-spacing:1px;margin-bottom:.8rem;}
-#poem-ti{font-family:"IM Fell English",serif;font-style:italic;font-size:1.65rem;color:rgba(190,238,158,.95);margin-bottom:1.5rem;line-height:1.2;}
-#poem-bd{font-family:"IM Fell English",serif;font-size:.98rem;line-height:2.1;color:rgba(180,228,148,.8);white-space:pre-wrap;-webkit-user-select:text;user-select:text;}
-#poem-card .ov-x{color:rgba(140,205,100,.32);}
-#poem-ft{margin-top:1.1rem;text-align:center;font-size:10px;font-family:"Cormorant Garamond",serif;color:rgba(140,205,100,.25);letter-spacing:2px;text-transform:uppercase;}
-@media (max-height:520px){ #poem-card{padding:1.4rem 1.6rem 1rem;} #poem-ti{margin-bottom:.8rem;font-size:1.3rem;} }
+/* poem: the pink UI (dialog frame 9-slice, cream fill, dark ink) */
+#poem-ov{background:rgba(13,10,16,.6);padding:1.2rem;}
+.ov-x{position:absolute;top:.2rem;right:.4rem;background:none;border:none;color:var(--ink-soft);font-size:26px;cursor:pointer;font-family:"PixelAE",monospace;}
+#poem-card{width:min(600px,94vw);max-height:86vh;overflow-y:auto;position:relative;image-rendering:pixelated;border-style:solid;
+  border-width:calc(16px * var(--px));border-image:url(../assets/ui/dialog_frame.png) 16 fill / calc(16px * var(--px)) stretch;
+  padding:calc(4px * var(--px)) calc(10px * var(--px)) calc(4px * var(--px));color:var(--ink);}
+#poem-dt{font-family:"PixelAE",monospace;font-size:calc(11px + 3px * var(--px));color:#8a6b74;letter-spacing:1px;margin-bottom:.4rem;}
+#poem-ti{font-family:"PixelAE",monospace;font-size:calc(20px + 8px * var(--px));color:var(--ink-soft);margin-bottom:1rem;line-height:1.1;}
+#poem-bd{font-family:"PixelAE",monospace;font-size:calc(14px + 5px * var(--px));line-height:1.6;color:var(--ink);white-space:pre-wrap;-webkit-user-select:text;user-select:text;}
+#poem-ft{margin-top:1rem;text-align:center;font-size:calc(11px + 3px * var(--px));font-family:"PixelAE",monospace;color:#8a6b74;letter-spacing:1px;}
+@media (max-height:520px){ #poem-ti{margin-bottom:.5rem;} }
 
 /* gate panel: 320×200 art, positions in art pixels × --g */
 #gate-panel{--g:2;position:relative;width:calc(320px * var(--g));height:calc(200px * var(--g));
@@ -136,7 +137,7 @@ button{font-family:inherit;}
 /* soft card ("To be continued") */
 #card{background:rgba(20,12,22,.9);opacity:0;transition:opacity 1s;}
 #card.show{opacity:1;}
-#card-text{font-family:"IM Fell English",serif;font-style:italic;font-size:clamp(1.3rem,4vw,2.2rem);color:rgba(255,236,240,.9);letter-spacing:1px;text-align:center;}
+#card-text{font-family:"PixelAE",monospace;font-size:clamp(1.3rem,4vw,2.2rem);color:rgba(255,236,240,.9);letter-spacing:1px;text-align:center;}
 
 /* fade */
 #fade{position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:60;transition:opacity .3s linear;}
@@ -160,9 +161,9 @@ button{font-family:inherit;}
 /* ── Intro (kept from the original game) ─────────────────────── */
 #intro{position:fixed;inset:0;background:#000;z-index:65;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.8rem;transition:opacity 1.2s ease;}
 #intro.out{opacity:0;pointer-events:none;}
-.iline{font-family:"IM Fell English",serif;font-style:italic;color:rgba(215,240,185,0);font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:.5px;text-align:center;max-width:540px;line-height:1.9;transition:color 1s ease;padding:0 1rem;}
+.iline{font-family:"PixelAE",monospace;color:rgba(215,240,185,0);font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:.5px;text-align:center;max-width:540px;line-height:1.9;transition:color 1s ease;padding:0 1rem;}
 .iline.on{color:rgba(215,240,185,0.9);}
-.iline.sm{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;font-family:"Cormorant Garamond",serif;}
+.iline.sm{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;font-family:"PixelAE",monospace;}
 .iline.sm.on{color:rgba(170,215,130,0.45)!important;}
 
 /* ── Touch controls ──────────────────────────────────────────── */
@@ -200,3 +201,15 @@ body.touch #dlg{left:calc(196px + env(safe-area-inset-left));right:calc(160px + 
 /* bouquet in Jana's hands (hidden path) */
 .bouquet-hud{width:calc(16px * var(--px) + 8px);height:calc(16px * var(--px) + 8px);background:url(../assets/items/bouquet.png) center/contain no-repeat;image-rendering:pixelated;}
 #note-ov.letter{background:#0d0a10;}
+
+/* flower book (same look as the bag) */
+#hud-flowers{pointer-events:all;cursor:pointer;}
+#hud-flowers:hover{background:rgba(142,58,85,.6);}
+#flw{background:rgba(13,10,16,.55);}
+#flw-panel{min-width:min(520px,92vw);max-width:94vw;max-height:92vh;overflow:auto;}
+#flw-grid{display:grid;grid-template-columns:repeat(6, calc(36px * var(--px) + 8px));gap:4px;justify-content:center;}
+@media (max-width:420px){ #flw-grid{grid-template-columns:repeat(4, calc(36px * var(--px) + 8px));} }
+#flw-desc{font-size:calc(16px + 6px * var(--px));text-align:center;margin-top:8px;min-height:1.2em;}
+#flw-desc .sub{color:#8a6b74;}
+#flw-count{color:#8a6b74;font-size:.8em;}
+.slot.empty .num{font-size:calc(12px + 4px * var(--px));color:rgba(142,58,85,.45);}

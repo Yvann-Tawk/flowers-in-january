@@ -62,7 +62,7 @@ const Gate = {
     if (all) G.s.gateWrong++;
     G.save();
     this.f = 0;   // back to DAY for the next try
-    Snd.lose();
+    Snd.tick();
     const p = document.getElementById('gate-panel');
     p.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-8px)' }, { transform: 'translateX(8px)' }, { transform: 'translateX(0)' }], { duration: 260 });
     // the spreadsheet's answer lines, shown over the panel ("The gate doesn't move." / the signs light up)

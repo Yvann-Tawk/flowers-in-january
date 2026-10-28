@@ -15,8 +15,8 @@ const Poem = {
     const ar = this.isArabic(p.body);
     bd.style.direction = ar ? 'rtl' : 'ltr';
     bd.style.textAlign = ar ? 'right' : 'left';
-    bd.style.fontFamily = ar ? '"Noto Naskh Arabic","Amiri",serif' : '"IM Fell English",serif';
-    bd.style.fontSize = ar ? '1.25rem' : '1rem';
+    bd.style.fontFamily = ar ? '"Noto Naskh Arabic","Amiri",serif' : '"PixelAE",monospace';
+    bd.style.fontSize = ar ? '1.3rem' : '';
     document.getElementById('poem-card').scrollTop = 0;
     ov.classList.add('open');
     return new Promise(resolve => {

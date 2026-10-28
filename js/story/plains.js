@@ -13,7 +13,7 @@
     async use(scene) {
       G.s.swapped[id] = true;
       scene.wmap.swapProp(id);
-      Snd.tick(); Snd.sfx('got-item', { volume: 0.4, detune: 300 + lampsLit() * 120 });
+      Snd.tick();
       G.save();
     },
   });

@@ -77,6 +77,7 @@ window.game = new Phaser.Game({
 });
 
 HUD.init();
+FlowerBook.init();
 Dialog.init();
 Touch.init();
 document.getElementById('fade').style.opacity = 1; // the first map fades in

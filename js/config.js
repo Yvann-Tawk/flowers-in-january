@@ -87,6 +87,12 @@ function flowerSprite(n) { return 'items/flowers/flower_' + String(n).padStart(2
 // Map fixes: tiles that sit on top of a placement and hide it.
 // blossom: a weeping sakura (cols 33–35, rows 26–29) stands exactly where the gramophone and the
 // record stall keeper are placed, so its tiles, canopy and trunk collision are cleared.
+// Path overlays for exits that have none in the kit: the forest's west exit (1, 27) back to the
+// garden had no visible opening, so a packed-snow trail runs from the plaza to the map edge.
+const EXTRA_OVERLAYS = {
+  forest: [0, 1, 2, 3, 4, 5, 6, 7, 8].map(x => ({ x, y: 27, atlas: 'forest_village', frame: 'trail_packed_ew' })),
+};
+
 const MAP_FIXES = {
   blossom: [{ clear: [33, 26, 35, 29] }],
 };

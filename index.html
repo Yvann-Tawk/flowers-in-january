@@ -8,8 +8,9 @@
 <title>Flowers in January</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Amiri:ital@0;1&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/ui/PixelAE-Regular.ttf?v=3" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=3">
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
 </head>
 <body>
@@ -38,7 +39,7 @@
 
 <!-- HUD -->
 <div id="hud" class="hidden">
-  <div id="hud-flowers"><span class="px-icon flower-icon"></span><span id="hud-fn">0</span>&nbsp;/ 24</div>
+  <div id="hud-flowers" title="Flowers"><span class="px-icon flower-icon"></span><span id="hud-fn">0</span>&nbsp;/ 24</div>
   <div id="area-lbl"></div>
   <div id="hud-right">
     <button id="inv-btn" class="hud-btn" title="Inventory (I)">Bag</button>
@@ -63,6 +64,16 @@
   </div>
 </div>
 
+<!-- Flower book (click the flower counter) -->
+<div id="flw" class="ov">
+  <div id="flw-panel" class="nine">
+    <div class="panel-title">Flowers <span id="flw-count"></span></div>
+    <div id="flw-grid"></div>
+    <div id="flw-desc">&nbsp;</div>
+    <div class="panel-hint">Arrows to choose · E to read · Esc to close</div>
+  </div>
+</div>
+
 <!-- Note -->
 <div id="note-ov" class="ov">
   <div id="note-bk">
@@ -77,7 +88,7 @@
   </div>
 </div>
 
-<!-- Poem (the original poem overlay) -->
+<!-- Poem (pink UI) -->
 <div id="poem-ov" class="ov">
   <div id="poem-card">
     <button class="ov-x" id="poem-x">&times;</button>
@@ -127,6 +138,7 @@
 <script src="js/ui/poem.js"></script>
 <script src="js/ui/note.js"></script>
 <script src="js/ui/inventory.js"></script>
+<script src="js/ui/flowers.js"></script>
 <script src="js/ui/gate.js"></script>
 <script src="js/ui/title.js"></script>
 <script src="js/ui/touch.js"></script>

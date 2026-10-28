@@ -128,7 +128,7 @@ class SledScene extends Phaser.Scene {
       if (o.hit) continue;
       if (Math.abs(this.jx - o.spr.x) < 20 && Math.abs(this.jy - o.spr.y) < 17) {
         o.hit = true; this.slow = this.SLOW_MS; this.boost = 0;
-        Snd.sfx('gamelose', { volume: 0.35 });
+        Snd.tick();
         this.cameras.main.shake(120, 0.004);
         this.tweens.add({ targets: o.spr, angle: { from: -12, to: 12 }, duration: 70, yoyo: true, repeat: 2, onComplete: () => o.spr.setAngle(0) });
       }
@@ -154,6 +154,7 @@ class SledScene extends Phaser.Scene {
       return;
     }
     this.big.setText('2nd');
+    Snd.lose();
     this.busy = true;
     await new Promise(r => this.time.delayedCall(900, r));
     this.big.setText('');

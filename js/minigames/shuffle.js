@@ -105,7 +105,7 @@ class ShuffleScene extends Phaser.Scene {
     this.ember.setPosition(this.slotX[this.slotOf[this.under]], this.baseY - 8 * this.k).setVisible(true);
     this.tweens.add({ targets: [p, this.pots[this.under]], y: this.baseY - 26 * this.k, duration: 260, ease: 'Quad.easeOut' });
     if (right) {
-      Snd.got();
+      Snd.tick();
       this.round++;
       G.s.shuffleRound = this.round; G.save();
       this.time.delayedCall(1000, () => {

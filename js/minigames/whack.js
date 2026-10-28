@@ -114,7 +114,7 @@ class WhackScene extends Phaser.Scene {
   hit() {
     if (!this.playing || !this.up) return;
     this.hits++;
-    Snd.got();
+    Snd.tick();
     const [x, y] = this.holePos[this.hole];
     for (let i = 0; i < 6; i++) {
       const s = this.add.star(x, y - 14 * this.k, 5, 3, 7, 0xffd97a);
@@ -131,12 +131,14 @@ class WhackScene extends Phaser.Scene {
     this.round++;
     G.s.whackRound = this.round; G.save();
     if (this.round >= 3) {
+      Snd.win();
       this.showBanner('3 / 3', () => this.finish('win'));
     } else this.time.delayedCall(500, () => this.startRound());
   }
 
   async roundLost() {
     this.playing = false;
+    Snd.lose();
     if (this.popTimer) this.popTimer.remove();
     this.duck(false);
     this.busy = true;

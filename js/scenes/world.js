@@ -53,7 +53,7 @@ class WorldScene extends Phaser.Scene {
 
     // music (interiors keep their area's track) + fire loop + HUD
     Snd.music(AREAS[areaOf(key)].music);
-    Snd.loop('fire', !!(this.place && this.place.audioLoop === 'fire'));
+    this.buildFires();
     HUD.setArea(this.wmap.kind === 'interior' ? ROOM_LABELS[roomOf(key)] || '' : (AREAS[key] || {}).label || '');
     HUD.refresh();
     if (this.handlers.setup) this.handlers.setup(this);
@@ -62,6 +62,35 @@ class WorldScene extends Phaser.Scene {
     this.lastTile = this.player.tx + ',' + this.player.ty;
     if (DEBUG) Debug.attach(this);
     if (Game._created) { const r = Game._created; Game._created = null; r(this); }
+  }
+
+  // ── fire nearby: the fire loop gets louder the closer Jana is ──
+  buildFires() {
+    const F = this.fires = [];
+    const add = (x, y, r, max) => F.push({ x, y, r: r * TILE, max });
+    if (this.wmap.kind === 'tiled') {
+      const tb = this.wmap.tb;
+      this.wmap.map.layers.forEach(ld => ld.data.forEach(row => row.forEach(t => {
+        if (!t || t.index < 0) return;
+        const a = (tb[t.index] || {}).asset || '';
+        if (/campfire|bonfire|brazier|fireplace/.test(a)) add((t.x + 0.5) * TILE, (t.y + 0.5) * TILE, 7, 1);
+        else if (/torch/.test(a)) add((t.x + 0.5) * TILE, (t.y + 0.5) * TILE, 4, 0.45);
+      })));
+    } else Object.values(this.wmap.props).forEach(p => {
+      if (/fireplace/.test(p.def.frame || '')) add(p.img.x + p.img.width / 2, p.img.y - 16, 9, 1);
+    });
+  }
+  fireLevel() {
+    const p = this.player;
+    let lvl = 0;
+    const src = this.fires.slice();
+    const kiln = this.mapKey === 'plains' && G.s.swapped.kiln && this.wmap.props.kiln;
+    if (kiln) src.push({ x: (kiln.def.x + 1) * TILE, y: kiln.def.y * TILE, r: 6 * TILE, max: 0.8 });
+    src.forEach(f => {
+      const d = Math.hypot(p.x - f.x, p.y - f.y);
+      lvl = Math.max(lvl, f.max * Phaser.Math.Clamp(1 - (d - TILE) / (f.r - TILE), 0, 1));
+    });
+    return lvl;
   }
 
   // closest walkable tile within r tiles (prefers the same row, then nearer columns)
@@ -232,7 +261,13 @@ class WorldScene extends Phaser.Scene {
       this.scene.pause();
       HUD.show(false);
       if (key !== 'Sled') Touch.show(false);   // tap-based minigames: keep the arrows out of the way
-      this.scene.launch(key, { done: r => { this.scene.resume(); HUD.show(true); Touch.show(true); Input.clearHeld(); res(r); } });
+      // the guardians' minigames are the boss fights: boss music, then back to the area's track
+      Snd.music(Snd.BOSS_MUSIC); Snd.fire(0);
+      this.scene.launch(key, { done: r => {
+        this.scene.resume(); HUD.show(true); Touch.show(true); Input.clearHeld();
+        Snd.music(AREAS[areaOf(this.mapKey)].music);
+        res(r);
+      } });
     });
   }
 
@@ -276,6 +311,7 @@ class WorldScene extends Phaser.Scene {
       this.icon.setVisible(true).setPosition(Math.round(ix), Math.round(iy - 8 + Math.sin(time / 220) * 2));
     } else this.icon.setVisible(false);
     if (this.handlers.update) this.handlers.update(this, time, delta);
+    Snd.fire(this.fireLevel());
     if (DEBUG) Debug.update(this);
   }
 }

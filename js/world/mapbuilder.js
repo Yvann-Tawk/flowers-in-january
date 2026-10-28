@@ -53,7 +53,7 @@ class WorldMap {
 
     // layers in file order at depth 0; path / lake overlays go right after the path (or lake) layer,
     // so they sit above the ground and paths but below objects
-    const overlays = col.overlays || [];
+    const overlays = (col.overlays || []).concat(EXTRA_OVERLAYS[key] || []);
     const names = map.layers.map(l => l.name);
     let after = names.findIndex(n => /lake/i.test(n));
     if (after < 0) after = names.findIndex(n => /path/i.test(n));

@@ -93,7 +93,7 @@ class SleevesScene extends Phaser.Scene {
     if (this.faces[a] === this.faces[b]) {
       this.matched[a] = this.matched[b] = true;
       this.found++;
-      Snd.got();
+      Snd.tick();
       this.hud();
       if (this.found === this.PAIRS) { this.lock = true; Snd.win(); this.time.delayedCall(900, () => this.finish('win')); }
       return;

@@ -37,7 +37,7 @@ const Story = {
     if (a.give) {
       if (G.give(a.give)) { Snd.got(); HUD.popup('Got', a.give); G.save(); }
     } else if (a.take) {
-      if (G.take(a.take)) { Snd.gave(); HUD.popup('Gave', a.take); G.save(); }
+      if (G.take(a.take)) { Snd.tick(); HUD.popup('Gave', a.take); G.save(); }
     } else if (a.flower) {
       if (!G.addFlower(a.flower)) return;
       G.save();

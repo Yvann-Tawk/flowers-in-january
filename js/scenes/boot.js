@@ -67,7 +67,7 @@ class BootScene extends Phaser.Scene {
     L.spritesheet('minigames/sleeves.png', 'minigames/sleeves.png', { frameWidth: 32, frameHeight: 32 });
 
     // audio
-    ['garden_theme', 'beach_theme', 'forest_theme', 'blossom_theme', 'plains_theme', 'wedding_outro'].forEach(m => L.audio(m, 'music/' + m + '.mp3'));
+    ['garden_theme', 'beach_theme', 'forest_theme', 'blossom_theme', 'plains_theme', 'wedding_outro', 'games', 'gramophone'].forEach(m => L.audio(m, 'music/' + m + '.mp3'));
     ['dialogue', 'got-item', 'gate-unlock', 'new_area', 'game-win', 'gamelose'].forEach(k => L.audio(k, 'audio/' + k + '.wav'));
     L.audio('flower', 'audio/flower.mp3');
     L.audio('door', 'audio/door.mp3');

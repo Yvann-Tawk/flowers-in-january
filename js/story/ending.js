@@ -21,6 +21,7 @@ const Ending = {
 
 // ── the hidden path: a wordless walk east ─────────────────────
 Story.handlers.hidden_path = {
+  enter() { if (!G.flag('path_arrived')) { G.setFlag('path_arrived'); Snd.newArea(); } },
   setup(scene) {
     const m = scene.wmap.markers;
     scene.pathSections = m.section_notes || {};
@@ -85,7 +86,6 @@ function holdBouquet(scene) {
   setTimeout(() => fly.remove(), 1000);
   scene.bouquet = scene.add.image(p.x, p.y, 'items/bouquet_2x.png').setScale(0.5).setOrigin(0.5, 0.5).setAlpha(0);
   scene.tweens.add({ targets: scene.bouquet, alpha: 1, duration: 700, delay: 500 });
-  Snd.flower();
 }
 Story.hooks.bouquet = sc => { if (sc && sc.mapKey === 'hidden_path') holdBouquet(sc); };
 
@@ -104,6 +104,7 @@ function mote(scene, kind) {
 
 // ── the wedding vision ─────────────────────────────────────────
 Story.handlers.wedding = {
+  enter() { Snd.newArea(); },
   setup(scene) {
     const m = scene.wmap.markers;
     HUD.show(false);
@@ -167,7 +168,6 @@ function showRing(scene) {
     const a = (i / 10) * Math.PI * 2;
     scene.tweens.add({ targets: s, alpha: { from: 1, to: 0 }, x: x + Math.cos(a) * 22, y: y + Math.sin(a) * 22, delay: 500 + i * 40, duration: 900, onComplete: () => s.destroy() });
   }
-  Snd.unlock();
 }
 Story.hooks.ring = sc => { if (sc && sc.mapKey === 'wedding') showRing(sc); };
 
