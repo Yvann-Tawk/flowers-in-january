@@ -2,53 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" type="image/png" href="assets/ui/flower_icon.png">
 <title>For Jana — June 18th</title>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Amiri:ital@0;1&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Amiri:ital@0;1&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#5a6e7a;overflow:hidden;width:100vw;height:100vh;font-family:"Cormorant Garamond",serif;}
-#game-canvas{display:block;position:fixed;top:0;left:0;}
-#intro{position:fixed;inset:0;background:#000;z-index:50;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.8rem;transition:opacity 1.2s ease;}
-#intro.out{opacity:0;pointer-events:none;}
-.iline{font-family:"IM Fell English",serif;font-style:italic;color:rgba(215,240,185,0);font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:.5px;text-align:center;max-width:540px;line-height:1.9;transition:color 1s ease;}
-.iline.on{color:rgba(215,240,185,0.9);}
-.iline.sm{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;}
-.iline.sm.on{color:rgba(170,215,130,0.45)!important;}
-#area-lbl{position:fixed;top:13px;left:50%;transform:translateX(-50%);font-family:"IM Fell English",serif;font-style:italic;font-size:13px;color:rgba(200,235,165,0.4);letter-spacing:3px;text-transform:uppercase;pointer-events:none;z-index:20;}
-#found{position:fixed;top:13px;left:14px;font-family:"IM Fell English",serif;font-style:italic;font-size:12px;color:rgba(200,235,165,0.35);pointer-events:none;z-index:20;}
-#mus-btn{position:fixed;top:12px;right:14px;background:none;border:1px solid rgba(155,215,110,0.25);color:rgba(155,215,110,0.45);font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;cursor:pointer;border-radius:2px;transition:all .3s;z-index:20;}
-#mus-btn:hover{border-color:rgba(155,215,110,.6);color:rgba(155,215,110,.9);}
-#ctrl-hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(155,215,110,0.25);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;pointer-events:none;z-index:20;}
-#interact-prompt{position:fixed;z-index:20;pointer-events:none;display:none;background:rgba(4,10,4,0.94);padding:4px 14px;font-family:"Cormorant Garamond",serif;font-size:12px;color:rgba(205,242,175,0.95);letter-spacing:1px;border:1px solid rgba(140,205,100,0.18);border-radius:1px;}
-#dlg{position:fixed;bottom:34px;left:50%;transform:translateX(-50%);width:min(660px,90vw);background:rgba(5,12,6,.97);border:1px solid rgba(140,205,100,.22);border-radius:2px;padding:1.2rem 1.6rem 1rem;display:none;pointer-events:all;z-index:30;}
-#dlg-name{font-family:"IM Fell English",serif;font-style:italic;font-size:11px;color:rgba(140,205,100,.55);letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;}
-#dlg-body{font-family:"IM Fell English",serif;font-size:1.08rem;line-height:1.85;color:rgba(210,240,185,.9);}
-#dlg-hint{text-align:right;margin-top:.5rem;font-size:10px;color:rgba(140,205,100,.3);letter-spacing:2px;text-transform:uppercase;}
-.ov{position:fixed;inset:0;background:rgba(2,6,2,.94);z-index:40;display:none;align-items:center;justify-content:center;pointer-events:all;padding:2rem;}
-.ov.open{display:flex;}
-#note-bk{width:min(560px,86vw);background:#f0e6c4;border:3px solid #8a6428;border-radius:2px;padding:2.2rem 2.8rem;position:relative;box-shadow:4px 4px 0 #5a3e0c,8px 8px 0 #3a2608,0 20px 60px rgba(0,0,0,.85);min-height:290px;display:flex;flex-direction:column;justify-content:space-between;}
-#note-bk::before{content:"";position:absolute;left:2.2rem;top:0;bottom:0;width:1.5px;background:rgba(195,95,75,.28);}
-.npage{display:none;}.npage.active{display:block;}
-.nptitle{font-family:"IM Fell English",serif;font-style:italic;font-size:11px;color:#7a5820;letter-spacing:1px;margin-bottom:1rem;}
-.nptext{font-family:"IM Fell English",serif;font-size:1.02rem;line-height:2.1;color:#261406;white-space:pre-line;}
-#note-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.3rem;border-top:1px solid rgba(130,95,35,.25);padding-top:.85rem;}
-#note-nav button{background:none;border:1px solid rgba(130,95,35,.35);color:#5a3c14;font-family:"IM Fell English",serif;font-size:13px;padding:3px 9px;cursor:pointer;}
-#note-pnum{font-family:"IM Fell English",serif;font-size:11px;color:#8a6028;}
-.ov-x{position:absolute;top:.7rem;right:1rem;background:none;border:none;color:rgba(90,60,18,.45);font-size:20px;cursor:pointer;}
-#poem-card{max-width:520px;width:100%;border:1px solid rgba(140,205,100,.16);background:rgba(4,12,4,.99);padding:2.6rem 3rem 2rem;position:relative;max-height:80vh;overflow-y:auto;}
-#poem-dt{font-family:"IM Fell English",serif;font-style:italic;font-size:11px;color:rgba(140,205,100,.35);letter-spacing:1px;margin-bottom:.8rem;}
-#poem-ti{font-family:"IM Fell English",serif;font-style:italic;font-size:1.65rem;color:rgba(190,238,158,.95);margin-bottom:1.5rem;line-height:1.2;}
-#poem-bd{font-family:"IM Fell English",serif;font-size:.98rem;line-height:2.1;color:rgba(180,228,148,.8);white-space:pre-wrap;}
-#poem-card .ov-x{color:rgba(140,205,100,.32);}
-#poem-ft{margin-top:1.1rem;text-align:center;font-size:10px;color:rgba(140,205,100,.18);letter-spacing:2px;text-transform:uppercase;}
-</style>
 </head>
 <body>
-<canvas id="game-canvas"></canvas>
+<div id="game"></div>
 
-<div id="intro">
+<!-- Title -->
+<div id="title" class="screen">
+  <div id="title-art">
+    <div id="title-plaque"><div id="title-name">Jana's Garden</div><div id="title-sub">Definitive Edition</div></div>
+  </div>
+  <div id="title-press" class="blink">Press any key</div>
+  <div id="title-menu" class="hidden">
+    <button class="menu-btn" data-act="continue">Continue</button>
+    <button class="menu-btn" data-act="new">New game</button>
+  </div>
+</div>
+
+<!-- Intro (the original intro screen) -->
+<div id="intro" class="hidden">
   <p class="iline" id="il0"></p>
   <p class="iline" id="il1"></p>
   <p class="iline" id="il2"></p>
@@ -56,35 +36,117 @@ body{background:#5a6e7a;overflow:hidden;width:100vw;height:100vh;font-family:"Co
   <p class="iline sm" id="il_skip">press any key to begin</p>
 </div>
 
-<div id="area-lbl">Jana's Garden</div>
-<div id="found">Poems found: <span id="fn">0</span> / 24</div>
-<button id="mus-btn" onclick="toggleMusic()">&#9834; Music</button>
-<div id="ctrl-hint">Arrow keys / WASD &nbsp;&middot;&nbsp; E to interact</div>
-<div id="interact-prompt"></div>
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="hud-flowers"><span class="px-icon flower-icon"></span><span id="hud-fn">0</span>&nbsp;/ 24</div>
+  <div id="area-lbl"></div>
+  <div id="hud-right">
+    <button id="inv-btn" class="hud-btn" title="Inventory (I)">Bag</button>
+    <button id="mus-btn" class="hud-btn">&#9834; Music</button>
+  </div>
+</div>
+<div id="popups"></div>
 
-<div id="dlg"><div id="dlg-name"></div><div id="dlg-body"></div><div id="dlg-hint">E to close</div></div>
+<!-- Dialogue box (Undertale style) -->
+<div id="dlg" class="hidden">
+  <div id="dlg-name" class="hidden"></div>
+  <div id="dlg-box"><div id="dlg-body"></div><div id="dlg-next"></div></div>
+</div>
 
+<!-- Inventory -->
+<div id="inv" class="ov">
+  <div id="inv-panel" class="nine">
+    <div class="panel-title">Bag</div>
+    <div id="inv-grid"></div>
+    <div id="inv-desc">&nbsp;</div>
+    <div class="panel-hint">Arrows to choose · E to use · I or Esc to close</div>
+  </div>
+</div>
+
+<!-- Note -->
 <div id="note-ov" class="ov">
   <div id="note-bk">
-    <button class="ov-x" onclick="closeNote()">&times;</button>
-    <div id="npages"></div>
+    <div id="note-date">June 18th</div>
+    <div id="note-num"></div>
+    <div id="note-text"></div>
     <div id="note-nav">
-      <button onclick="npage(-1)">&#9664; Prev</button>
+      <button id="note-prev">&#9664;</button>
       <span id="note-pnum">1/3</span>
-      <button onclick="npage(1)">Next &#9654;</button>
+      <button id="note-next">&#9654;</button>
     </div>
   </div>
 </div>
 
+<!-- Poem (the original poem overlay) -->
 <div id="poem-ov" class="ov">
   <div id="poem-card">
-    <button class="ov-x" onclick="closePoem()">&times;</button>
+    <button class="ov-x" id="poem-x">&times;</button>
     <div id="poem-dt"></div><div id="poem-ti"></div><div id="poem-bd"></div>
     <div id="poem-ft">E or click outside to close</div>
   </div>
 </div>
 
+<!-- Gate panel -->
+<div id="gate-ov" class="ov">
+  <div id="gate-panel">
+    <div id="gate-slots"></div>
+    <div id="gate-hintrow" class="hidden"></div>
+    <div id="gate-fields"></div>
+    <div id="gate-msg"></div>
+  </div>
+</div>
+
+<!-- Soft full-screen card -->
+<div id="card" class="ov"><div id="card-text"></div></div>
+
+<!-- Fade layer -->
+<div id="fade"></div>
+
+<!-- Touch controls -->
+<div id="touch" class="hidden">
+  <div id="dpad">
+    <button data-k="up" class="tbtn t-up">&#9650;</button>
+    <button data-k="left" class="tbtn t-left">&#9664;</button>
+    <button data-k="right" class="tbtn t-right">&#9654;</button>
+    <button data-k="down" class="tbtn t-down">&#9660;</button>
+  </div>
+  <div id="tact">
+    <button data-k="inv" class="tbtn t-inv">Bag</button>
+    <button data-k="act" class="tbtn t-act">E</button>
+  </div>
+</div>
+
+<div id="debug-panel" class="hidden"></div>
+
 <script src="js/data.js"></script>
-<script src="js/game.js"></script>
+<script src="js/config.js"></script>
+<script src="js/dialogue.js"></script>
+<script src="js/state.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/input.js"></script>
+<script src="js/ui/fade.js"></script>
+<script src="js/ui/hud.js"></script>
+<script src="js/ui/dialogue_box.js"></script>
+<script src="js/ui/poem.js"></script>
+<script src="js/ui/note.js"></script>
+<script src="js/ui/inventory.js"></script>
+<script src="js/ui/gate.js"></script>
+<script src="js/ui/title.js"></script>
+<script src="js/ui/touch.js"></script>
+<script src="js/world/mapbuilder.js"></script>
+<script src="js/world/actors.js"></script>
+<script src="js/world/player.js"></script>
+<script src="js/story/runner.js"></script>
+<script src="js/story/garden.js"></script>
+<script src="js/story/beach.js"></script>
+<script src="js/story/forest.js"></script>
+<script src="js/minigames/fishing.js"></script>
+<script src="js/minigames/dig.js"></script>
+<script src="js/minigames/whack.js"></script>
+<script src="js/minigames/sled.js"></script>
+<script src="js/scenes/boot.js"></script>
+<script src="js/scenes/world.js"></script>
+<script src="js/debug.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,2375 @@
+{
+"width": 50,
+"height": 50,
+"legend": "solid rows: '#' blocked, '.' walkable; above rows: '^' = draw this cell's tiles over the player",
+"solid": [
+"##################################################",
+"##################################################",
+"##..########...........................######...##",
+"##..########...........................######...##",
+"##..########..........#.#..#.#.........######...##",
+"##..########.#......#....##....#.......######...##",
+"##..########..........##.##.##.........######.#.##",
+"##....#..##............#.##............#..##....##",
+"##.............#....#..........#....#...........##",
+"##......................#..#....................##",
+"##...................................##.........##",
+"##...........................................#..##",
+"##......#......#...............#................##",
+"##...........................#..................##",
+"##...#......##.........#.....................#..##",
+"##..............................................##",
+"##.........####.####..###..####.####............##",
+"##..#......####.####..###..####.####.#.......#..##",
+"##.........####.####..###..####.####...#........##",
+"##....##...####.####..###..####.####......#.....##",
+"##.......................................#...#..##",
+"##.....####.........................####........##",
+"##.....####.........................####........##",
+"##.....####....................##...####.....#..##",
+"##....#####....###.###.##...#.......####........##",
+"##....##........................................##",
+"##................................##....#.#.....##",
+"#...............................................##",
+"##.......#.###.###....###....###.....#..........##",
+"##..............................................##",
+"##..................#...........................##",
+"##...#..........................................##",
+"##.........######.......#..............###......##",
+"##....#....######.................##............##",
+"##.........######............#..................##",
+"##........#######.#....##.....##................##",
+"##.......########..........#....................##",
+"##............#.................................##",
+"##....#...#.....................#...............##",
+"##..................#.#.##......................##",
+"##.................................##.###..##...##",
+"##..............................................##",
+"##..............................................##",
+"##...........................#......#.....#.....##",
+"##....#.....#.....#...................##........##",
+"##......................#.......................##",
+"##..............................................##",
+"##..............................................##",
+"##################################################",
+"##################################################"
+],
+"above": [
+"........................^..^......................",
+"....................^..^^^^^^..^..................",
+"............^^.....^^^.^^^^^^.^^^.................",
+"............^^.....^^^^^^^^^^^^^^............^^...",
+"............^^.....^^^........^^^............^^...",
+"...........^.......^^^........^^^............^^...",
+"......^.......^^...^^^........^^^..^^..^..........",
+"..............^^...^^^........^^^..^^.............",
+"..................................................",
+".....................................^^.....^^....",
+"..............^^............^^^^............^^....",
+"....^^........^^......^^....^^^^..................",
+"....^^................^^....^^..............^^....",
+"....^^......^^........^^....................^^....",
+"..................................................",
+"............................................^^....",
+".....................................^......^^....",
+".......................................^..........",
+"......^^......^....^..^....^....^.........^.^^....",
+"............................................^^....",
+"............................^.....................",
+".....^^....................^^^..............^^....",
+".....^^....................^^^.^^...........^^....",
+".....^^........^^^.^^^.^^..^^^......^..^^^^.......",
+".......................................^^^^.......",
+"..................................^^...^^^^.......",
+"..................................................",
+".........^...........................^............",
+"..................................................",
+"....^^..............^.............................",
+"....^^.................^^.........................",
+".......................^^................^........",
+".........^^......^^...............^^..............",
+".........^^......^^...............................",
+".........^^......^^....^^.^^......................",
+"..........................^^...^^.................",
+".....^^..^^...^................^^.................",
+".....^^..^^....................^^.................",
+"....................^.^.^^........................",
+"..................................................",
+"..................................................",
+"............................^^.....^^....^^.......",
+".....^^....^^....^^.........^^.....^^....^^.......",
+".....^^....^^....^^....^^.............^^..........",
+".......................^^.........................",
+"..................................................",
+"..................................................",
+"..................................................",
+"..................................................",
+".................................................."
+],
+"overlays": [
+{
+"x": 42,
+"y": 28,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_tl"
+},
+{
+"x": 43,
+"y": 28,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 44,
+"y": 28,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 45,
+"y": 28,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_tr"
+},
+{
+"x": 42,
+"y": 29,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 43,
+"y": 29,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 29,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 29,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 36,
+"y": 30,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_tl"
+},
+{
+"x": 37,
+"y": 30,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 38,
+"y": 30,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_tr"
+},
+{
+"x": 42,
+"y": 30,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 43,
+"y": 30,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 30,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 30,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 36,
+"y": 31,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 37,
+"y": 31,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 31,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 42,
+"y": 31,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 43,
+"y": 31,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 31,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 31,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 36,
+"y": 32,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 37,
+"y": 32,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 32,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 42,
+"y": 32,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 43,
+"y": 32,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 32,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 32,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 36,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 37,
+"y": 33,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_in_tr"
+},
+{
+"x": 39,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 40,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 41,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 42,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_in_tl"
+},
+{
+"x": 43,
+"y": 33,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 33,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 33,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 36,
+"y": 34,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 37,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 39,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 40,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 41,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 42,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 43,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 34,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 34,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 36,
+"y": 35,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 37,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 39,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 40,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 41,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 42,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 43,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 35,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 35,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 33,
+"y": 36,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_tl"
+},
+{
+"x": 34,
+"y": 36,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 35,
+"y": 36,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_t"
+},
+{
+"x": 36,
+"y": 36,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_in_tl"
+},
+{
+"x": 37,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 39,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 40,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 41,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 42,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 43,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 36,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 36,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 33,
+"y": 37,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 34,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 35,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 36,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 37,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 39,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 40,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 41,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 42,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 43,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 37,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 37,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 33,
+"y": 38,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_l"
+},
+{
+"x": 34,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 35,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 36,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 37,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 38,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 39,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 40,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 41,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 42,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 43,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 44,
+"y": 38,
+"atlas": "forest_village",
+"frame": "river_ice_f1"
+},
+{
+"x": 45,
+"y": 38,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_r"
+},
+{
+"x": 33,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_bl"
+},
+{
+"x": 34,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 35,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 36,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 37,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 38,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 39,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 40,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 41,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 42,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 43,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 44,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_b"
+},
+{
+"x": 45,
+"y": 39,
+"atlas": "forest_village",
+"frame": "riverbank_ice_f1_br"
+}
+],
+"tiles_by_gid": {
+"1": {
+"asset": "winter_oak",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"2": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"3": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"4": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"5": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"6": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"7": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"8": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"9": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"10": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"11": {
+"asset": "pine_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"12": {
+"asset": "pine_snowy",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"13": {
+"asset": "pine_snowy",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"14": {
+"asset": "pine_snowy",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"15": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"16": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"17": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"18": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"19": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"20": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"21": {
+"asset": "pine_snowy_young",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"22": {
+"asset": "pine_snowy_young",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"23": {
+"asset": "spruce_snowy_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"24": {
+"asset": "spruce_snowy_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"25": {
+"asset": "spruce_snowy_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"26": {
+"asset": "spruce_snowy_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"27": {
+"asset": "spruce_snowy_small",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"28": {
+"asset": "spruce_snowy_small",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"29": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"30": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"31": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"32": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"33": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"34": {
+"asset": "dead_tree_snowy",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"35": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"36": {
+"asset": "dead_tree_snowy",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"37": {
+"asset": "bush_snowy_large",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"38": {
+"asset": "bush_snowy_large",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"39": {
+"asset": "bush_snowy_large",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"40": {
+"asset": "bush_snowy_large",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"41": {
+"asset": "rock_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"42": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"43": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"44": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"45": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"46": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"47": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"48": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"49": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"50": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"51": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"52": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"53": {
+"asset": "pine_snowy_bright",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"54": {
+"asset": "pine_snowy_bright",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"55": {
+"asset": "riverbank_open_f2_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"56": {
+"asset": "riverbank_open_f2_l",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"57": {
+"asset": "river_open_f1",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"58": {
+"asset": "riverbank_open_f1_l",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"59": {
+"asset": "riverbank_open_f1_in_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"60": {
+"asset": "riverbank_open_f1_t",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"61": {
+"asset": "riverbank_open_f1_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"62": {
+"asset": "riverbank_open_f1_bl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"63": {
+"asset": "riverbank_open_f1_b",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"64": {
+"asset": "riverbank_open_f1_br",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"65": {
+"asset": "riverbank_open_f1_r",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"66": {
+"asset": "riverbank_open_f1_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"67": {
+"asset": "riverbank_open_f1_in_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"68": {
+"asset": "riverbank_open_f2_t",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"69": {
+"asset": "skis",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"70": {
+"asset": "skis",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"71": {
+"asset": "lantern_post_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"72": {
+"asset": "lantern_post_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"73": {
+"asset": "bench_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"74": {
+"asset": "bench_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"75": {
+"asset": "woodshed_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"76": {
+"asset": "woodshed_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"77": {
+"asset": "woodshed_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"78": {
+"asset": "woodshed_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"79": {
+"asset": "cart_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"80": {
+"asset": "cart_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"81": {
+"asset": "cart_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"82": {
+"asset": "cart_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"83": {
+"asset": "well_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"84": {
+"asset": "well_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"85": {
+"asset": "well_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"86": {
+"asset": "well_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"87": {
+"asset": "ice_fishing_hole",
+"solid": false,
+"above": false,
+"kind": "ice"
+},
+"88": {
+"asset": "campfire_f3",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"89": {
+"asset": "cocoa_table",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"90": {
+"asset": "chopping_block_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"91": {
+"asset": "firewood_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"92": {
+"asset": "signpost_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"93": {
+"asset": "signpost_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"94": {
+"asset": "notice_board_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"95": {
+"asset": "notice_board_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"96": {
+"asset": "notice_board_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"97": {
+"asset": "notice_board_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"98": {
+"asset": "sled",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"99": {
+"asset": "sled",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"100": {
+"asset": "ice_fishing_hole_rod",
+"solid": false,
+"above": false,
+"kind": "ice"
+},
+"101": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"102": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"103": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"104": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"105": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"106": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"107": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"108": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"109": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"110": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"111": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"112": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"113": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"114": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"115": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"116": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"117": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"118": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"119": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"120": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"121": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"122": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"123": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"124": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"125": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"126": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"127": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"128": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"129": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"130": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"131": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"132": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"133": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"134": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"135": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"136": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"137": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"138": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"139": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"140": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"141": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"142": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"143": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"144": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"145": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"146": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"147": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"148": {
+"asset": "bld_forest_lodge",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"149": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"150": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"151": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"152": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"153": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"154": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"155": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"156": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"157": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"158": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"159": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"160": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"161": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"162": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"163": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"164": {
+"asset": "bld_log_cabin",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"165": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"166": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"167": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"168": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"169": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"170": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"171": {
+"asset": "bld_fishing_hut",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"172": {
+"asset": "bld_fishing_hut",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"173": {
+"asset": "bld_fishing_hut",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"174": {
+"asset": "bld_fishing_hut",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"175": {
+"asset": "bld_fishing_hut",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"176": {
+"asset": "bld_storage_shed",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"177": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"178": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"179": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"180": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"181": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"182": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"183": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"184": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"185": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"186": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"187": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"188": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"189": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"190": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"191": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"192": {
+"asset": "bld_herbalist",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"193": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"194": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"195": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"196": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"197": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"198": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"199": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"200": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"201": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"202": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"203": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"204": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"205": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"206": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"207": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"208": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"209": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"210": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"211": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"212": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"213": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"214": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"215": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"216": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"217": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"218": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"219": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"220": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"221": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"222": {
+"asset": "bld_lumber_mill",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"223": {
+"asset": "market_stall_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"224": {
+"asset": "market_stall_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"225": {
+"asset": "market_stall_snowy",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"226": {
+"asset": "market_stall_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"227": {
+"asset": "market_stall_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"228": {
+"asset": "market_stall_snowy",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"229": {
+"asset": "snowman",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"230": {
+"asset": "snowman",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"231": {
+"asset": "snow_angel",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"232": {
+"asset": "snow_angel",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"233": {
+"asset": "snow_angel",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"234": {
+"asset": "snow_angel",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"235": {
+"asset": "cobble_snowy",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"236": {
+"asset": "snow_cobble_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"237": {
+"asset": "snow_cobble_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"238": {
+"asset": "snow_cobble_t",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"239": {
+"asset": "snow_cobble_r",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"240": {
+"asset": "snow_cobble_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"241": {
+"asset": "snow_cobble_b",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"242": {
+"asset": "snow_packed",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"243": {
+"asset": "snow_cobble_in_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"244": {
+"asset": "snow_cobble_in_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"245": {
+"asset": "snow_cobble_in_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"246": {
+"asset": "snow_cobble_in_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"247": {
+"asset": "snow_3",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"248": {
+"asset": "snow_cobble_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"249": {
+"asset": "trail_cobble_ns",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"250": {
+"asset": "trail_cobble_nw",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"251": {
+"asset": "trail_cobble_ew",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"252": {
+"asset": "trail_cobble_ne",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"253": {
+"asset": "snow_dirt_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"254": {
+"asset": "snow_dirt_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"255": {
+"asset": "snow_dirt_b",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"256": {
+"asset": "snow_dirt_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"257": {
+"asset": "snow_dirt_r",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"258": {
+"asset": "snow_dirt_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"259": {
+"asset": "snow_dirt_t",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"260": {
+"asset": "snow_dirt_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"261": {
+"asset": "snow_1",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"262": {
+"asset": "frozen_dirt",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"263": {
+"asset": "snow_dirt_in_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"264": {
+"asset": "snow_dirt_in_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"265": {
+"asset": "snow_dirt_in_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"266": {
+"asset": "snow_dirt_in_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+}
+}
+}

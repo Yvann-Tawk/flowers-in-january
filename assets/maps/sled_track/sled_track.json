@@ -1,0 +1,373 @@
+{
+ "name": "sled_track",
+ "tileSize": 32,
+ "width": 100,
+ "height": 12,
+ "image": "sled_track.png",
+ "blockedRows": [
+  0,
+  1,
+  10,
+  11
+ ],
+ "lanes": {
+  "min": 2,
+  "max": 9
+ },
+ "start": {
+  "x": 3,
+  "jana": 4,
+  "gilmour": 7
+ },
+ "finishX": 94,
+ "obstacleSheet": {
+  "file": "../../minigames/sled_obstacles.png",
+  "frame": 32,
+  "index": {
+   "rock": 0,
+   "stump": 1,
+   "snowman": 2
+  }
+ },
+ "obstacles": [
+  {
+   "type": "rock",
+   "x": 14,
+   "y": 5
+  },
+  {
+   "type": "stump",
+   "x": 20,
+   "y": 3
+  },
+  {
+   "type": "snowman",
+   "x": 26,
+   "y": 7
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 4
+  },
+  {
+   "type": "stump",
+   "x": 37,
+   "y": 2
+  },
+  {
+   "type": "snowman",
+   "x": 37,
+   "y": 6
+  },
+  {
+   "type": "snowman",
+   "x": 42,
+   "y": 5
+  },
+  {
+   "type": "rock",
+   "x": 42,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 47,
+   "y": 3
+  },
+  {
+   "type": "stump",
+   "x": 47,
+   "y": 4
+  },
+  {
+   "type": "stump",
+   "x": 52,
+   "y": 6
+  },
+  {
+   "type": "snowman",
+   "x": 52,
+   "y": 9
+  },
+  {
+   "type": "snowman",
+   "x": 57,
+   "y": 2
+  },
+  {
+   "type": "rock",
+   "x": 57,
+   "y": 5
+  },
+  {
+   "type": "rock",
+   "x": 62,
+   "y": 7
+  },
+  {
+   "type": "stump",
+   "x": 62,
+   "y": 8
+  },
+  {
+   "type": "stump",
+   "x": 68,
+   "y": 2
+  },
+  {
+   "type": "snowman",
+   "x": 68,
+   "y": 3
+  },
+  {
+   "type": "rock",
+   "x": 68,
+   "y": 4
+  },
+  {
+   "type": "stump",
+   "x": 68,
+   "y": 5
+  },
+  {
+   "type": "snowman",
+   "x": 68,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 68,
+   "y": 9
+  },
+  {
+   "type": "snowman",
+   "x": 74,
+   "y": 4
+  },
+  {
+   "type": "rock",
+   "x": 74,
+   "y": 5
+  },
+  {
+   "type": "stump",
+   "x": 74,
+   "y": 6
+  },
+  {
+   "type": "snowman",
+   "x": 74,
+   "y": 7
+  },
+  {
+   "type": "rock",
+   "x": 74,
+   "y": 8
+  },
+  {
+   "type": "stump",
+   "x": 74,
+   "y": 9
+  },
+  {
+   "type": "rock",
+   "x": 80,
+   "y": 2
+  },
+  {
+   "type": "stump",
+   "x": 80,
+   "y": 3
+  },
+  {
+   "type": "snowman",
+   "x": 80,
+   "y": 4
+  },
+  {
+   "type": "rock",
+   "x": 80,
+   "y": 5
+  },
+  {
+   "type": "stump",
+   "x": 80,
+   "y": 6
+  },
+  {
+   "type": "snowman",
+   "x": 80,
+   "y": 7
+  },
+  {
+   "type": "stump",
+   "x": 86,
+   "y": 2
+  },
+  {
+   "type": "snowman",
+   "x": 86,
+   "y": 3
+  },
+  {
+   "type": "rock",
+   "x": 86,
+   "y": 6
+  },
+  {
+   "type": "stump",
+   "x": 86,
+   "y": 7
+  },
+  {
+   "type": "snowman",
+   "x": 86,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 86,
+   "y": 9
+  }
+ ],
+ "icePatches": [
+  {
+   "x": 9,
+   "y": 4,
+   "w": 3,
+   "h": 2
+  },
+  {
+   "x": 33,
+   "y": 6,
+   "w": 3,
+   "h": 1
+  },
+  {
+   "x": 64,
+   "y": 6,
+   "w": 3,
+   "h": 2
+  },
+  {
+   "x": 89,
+   "y": 4,
+   "w": 4,
+   "h": 2
+  }
+ ],
+ "gilmourPath": [
+  [
+   3,
+   7
+  ],
+  [
+   25,
+   7
+  ],
+  [
+   26,
+   8
+  ],
+  [
+   41,
+   8
+  ],
+  [
+   42,
+   7
+  ],
+  [
+   61,
+   7
+  ],
+  [
+   62,
+   6
+  ],
+  [
+   71,
+   6
+  ],
+  [
+   72,
+   5
+  ],
+  [
+   73,
+   4
+  ],
+  [
+   74,
+   3
+  ],
+  [
+   75,
+   3
+  ],
+  [
+   76,
+   4
+  ],
+  [
+   77,
+   5
+  ],
+  [
+   78,
+   6
+  ],
+  [
+   79,
+   7
+  ],
+  [
+   80,
+   8
+  ],
+  [
+   83,
+   8
+  ],
+  [
+   84,
+   7
+  ],
+  [
+   85,
+   6
+  ],
+  [
+   86,
+   5
+  ],
+  [
+   94,
+   5
+  ]
+ ],
+ "sections": {
+  "warmup": [
+   0,
+   11
+  ],
+  "easy": [
+   12,
+   35
+  ],
+  "medium": [
+   36,
+   65
+  ],
+  "hard": [
+   66,
+   88
+  ],
+  "sprint": [
+   89,
+   99
+  ]
+ },
+ "notes": "Coordinates in tiles. Lanes are rows 2-9. Ice patches speed the sled up. Steering: at most 1 lane per column at full speed; every column has a reachable gap."
+}

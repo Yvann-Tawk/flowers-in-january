@@ -1,0 +1,444 @@
+{
+ "_readme": "Tile coordinates on each 50x50 map (32 px tiles). Props/NPCs are anchored by their BOTTOM-LEFT tile (x,y = the bottom row). 'png' paths are relative to assets/. 'atlas'+'frame' = a named frame in assets/atlases/<atlas>_atlas.png via <atlas>_phaser_atlas.json. 'alt' = the second state of a two-state prop. 'replaces_map_tile' = remove the map's own tiles under this prop's footprint (all layers above ground) before drawing it. Spots are interaction tiles (Jana stands on or next to them and presses E). 'hidden' spots show nothing until unlocked. Exits: walking onto any tile in 'tiles' moves to map 'to' at arrival point 'arrive'.",
+ "maps": {
+  "garden": {
+   "arrivals": {
+    "from_cabin": [
+     5,
+     41,
+     "down"
+    ],
+    "from_beach": [
+     47,
+     25,
+     "left"
+    ],
+    "from_forest": [
+     46,
+     15,
+     "left"
+    ],
+    "new_game": [
+     5,
+     41,
+     "down"
+    ]
+   },
+   "exits": [
+    {
+     "id": "to_beach",
+     "tiles": [
+      [
+       49,
+       25
+      ]
+     ],
+     "to": "beach",
+     "arrive": "from_garden"
+    },
+    {
+     "id": "to_forest",
+     "tiles": [
+      [
+       49,
+       15
+      ]
+     ],
+     "to": "forest",
+     "arrive": "from_garden",
+     "requires": "fragment_phoebe"
+    },
+    {
+     "id": "cabin_door",
+     "tiles": [
+      [
+       5,
+       40
+      ]
+     ],
+     "to": "cabin",
+     "arrive": "from_garden",
+     "interact": true
+    }
+   ],
+   "props": [
+    {
+     "id": "gate",
+     "png": "props/gate_locked.png",
+     "alt": "props/gate_open.png",
+     "x": 15,
+     "y": 48,
+     "solid": true,
+     "tw": 3,
+     "th": 3
+    }
+   ],
+   "npcs": [],
+   "spots": [
+    {
+     "id": "gate",
+     "x": 16,
+     "y": 45,
+     "kind": "gate"
+    },
+    {
+     "id": "forest_path_hint",
+     "x": 47,
+     "y": 15,
+     "kind": "hint"
+    },
+    {
+     "id": "island_bridge_block",
+     "x": 12,
+     "y": 40,
+     "kind": "block",
+     "active_until": "note_read",
+     "push_back_to": [
+      11,
+      40
+     ]
+    }
+   ],
+   "start_area": {
+    "name": "the island",
+    "tiles": [
+     2,
+     35,
+     14,
+     47
+    ],
+    "note": "Moated plot bottom-left; Jana's cabin (HOUSE layer) with its door at (5,40); bridge off the island at (12-14,40)."
+   }
+  },
+  "beach": {
+   "arrivals": {
+    "from_garden": [
+     23,
+     47,
+     "up"
+    ]
+   },
+   "exits": [
+    {
+     "id": "to_garden",
+     "tiles": [
+      [
+       23,
+       49
+      ],
+      [
+       24,
+       49
+      ]
+     ],
+     "to": "garden",
+     "arrive": "from_beach"
+    }
+   ],
+   "props": [
+    {
+     "id": "food_stall",
+     "png": "props/food_stall_closed.png",
+     "x": 26,
+     "y": 45,
+     "solid": true,
+     "tw": 3,
+     "th": 3
+    },
+    {
+     "id": "bean_bags",
+     "png": "props/bean_bags_pair.png",
+     "x": 35,
+     "y": 30,
+     "solid": true,
+     "tw": 2,
+     "th": 1
+    },
+    {
+     "id": "sandcastle",
+     "png": "props/sandcastle_flower_flag.png",
+     "alt": "props/sandcastle_plain_flag.png",
+     "x": 43,
+     "y": 29,
+     "solid": true,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "rock_big",
+     "atlas": "beach_village",
+     "frame": "rock_shore_large",
+     "x": 2,
+     "y": 23,
+     "solid": true,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "rock_small",
+     "atlas": "beach_village",
+     "frame": "rock_shore",
+     "x": 6,
+     "y": 23,
+     "solid": true,
+     "tw": 1,
+     "th": 1
+    }
+   ],
+   "npcs": [
+    {
+     "id": "beach_A",
+     "name": "Old fisherman",
+     "sheet": "characters/beach_A.png",
+     "x": 29,
+     "y": 17,
+     "face": "down"
+    },
+    {
+     "id": "beach_B",
+     "name": "Kid",
+     "sheet": "characters/beach_B.png",
+     "x": 42,
+     "y": 30,
+     "face": "right"
+    },
+    {
+     "id": "beach_C",
+     "name": "Guinea pig",
+     "sheet": "characters/beach_C.png",
+     "x": 39,
+     "y": 42,
+     "face": "down"
+    },
+    {
+     "id": "beach_D",
+     "name": "Owl",
+     "sheet": "characters/beach_D.png",
+     "x": 40,
+     "y": 23,
+     "face": "down",
+     "perched_on": "lifeguard tower",
+     "talk_from": [
+      40,
+      27
+     ]
+    },
+    {
+     "id": "beach_E",
+     "name": "Bottle collector",
+     "sheet": "characters/beach_E.png",
+     "x": 4,
+     "y": 23,
+     "face": "right"
+    },
+    {
+     "id": "phoebe",
+     "name": "Phoebe",
+     "sheet": "animals/phoebe.png",
+     "x": 25,
+     "y": 15,
+     "face": "down"
+    }
+   ],
+   "spots": [
+    {
+     "id": "fishing",
+     "x": 27,
+     "y": 17,
+     "face": "down",
+     "kind": "fishing"
+    },
+    {
+     "id": "dig_owl",
+     "x": 5,
+     "y": 17,
+     "kind": "dig",
+     "hidden": true
+    },
+    {
+     "id": "bean_bag_sit",
+     "x": 35,
+     "y": 31,
+     "kind": "sit"
+    },
+    {
+     "id": "stall_sign",
+     "x": 27,
+     "y": 46,
+     "kind": "look"
+    }
+   ]
+  },
+  "forest": {
+   "arrivals": {
+    "from_garden": [
+     4,
+     27,
+     "right"
+    ]
+   },
+   "exits": [
+    {
+     "id": "to_garden",
+     "tiles": [
+      [
+       1,
+       27
+      ]
+     ],
+     "to": "garden",
+     "arrive": "from_forest"
+    }
+   ],
+   "props": [
+    {
+     "id": "ice_hole_fisher",
+     "png": "props/ice_fishing_hole_rod.png",
+     "x": 40,
+     "y": 36,
+     "solid": false,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "ice_hole_jana",
+     "png": "props/ice_fishing_hole.png",
+     "x": 43,
+     "y": 34,
+     "solid": false,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "snowman",
+     "png": "props/snowman_nose.png",
+     "alt": "props/snowman_no_nose.png",
+     "x": 22,
+     "y": 39,
+     "solid": true,
+     "replaces_map_tile": true,
+     "tw": 1,
+     "th": 2
+    },
+    {
+     "id": "angel_snowed",
+     "png": "props/snow_angel_snowed_over.png",
+     "x": 20,
+     "y": 14,
+     "solid": false,
+     "replaces_map_tile": true,
+     "tw": 2,
+     "th": 2
+    },
+    {
+     "id": "drift_l",
+     "atlas": "forest_village",
+     "frame": "snowdrift_l",
+     "x": 26,
+     "y": 46,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "drift_m",
+     "atlas": "forest_village",
+     "frame": "snowdrift_m",
+     "x": 27,
+     "y": 46,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "drift_r",
+     "atlas": "forest_village",
+     "frame": "snowdrift_r",
+     "x": 28,
+     "y": 46,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "padded_table",
+     "png": "props/table_cloth_corners.png",
+     "x": 18,
+     "y": 39,
+     "solid": true,
+     "tw": 2,
+     "th": 2
+    }
+   ],
+   "npcs": [
+    {
+     "id": "forest_A",
+     "name": "Ice fisher",
+     "sheet": "characters/forest_A.png",
+     "x": 39,
+     "y": 36,
+     "face": "right"
+    },
+    {
+     "id": "forest_B",
+     "name": "Kid",
+     "sheet": "characters/forest_B.png",
+     "x": 23,
+     "y": 40,
+     "face": "left"
+    },
+    {
+     "id": "forest_C",
+     "name": "Horse",
+     "sheet": "characters/forest_C.png",
+     "x": 14,
+     "y": 46,
+     "face": "down"
+    },
+    {
+     "id": "forest_D",
+     "name": "Sheep",
+     "sheet": "characters/forest_D.png",
+     "x": 32,
+     "y": 41,
+     "face": "down"
+    },
+    {
+     "id": "forest_E",
+     "name": "Cabin keeper",
+     "sheet": "characters/forest_E.png",
+     "x": 17,
+     "y": 37,
+     "face": "down"
+    },
+    {
+     "id": "gilmour",
+     "name": "Gilmour",
+     "sheet": "animals/gilmour.png",
+     "x": 30,
+     "y": 15,
+     "face": "down",
+     "asleep": true
+    }
+   ],
+   "spots": [
+    {
+     "id": "ice_fishing",
+     "x": 43,
+     "y": 34,
+     "kind": "fishing"
+    },
+    {
+     "id": "dig_drift",
+     "x": 27,
+     "y": 46,
+     "kind": "dig",
+     "hidden": true
+    },
+    {
+     "id": "angels_lie",
+     "x": 19,
+     "y": 15,
+     "kind": "lie"
+    }
+   ]
+  }
+ }
+}

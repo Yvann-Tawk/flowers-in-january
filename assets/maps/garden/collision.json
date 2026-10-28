@@ -1,0 +1,2068 @@
+{
+"width": 50,
+"height": 50,
+"legend": "solid rows: '#' blocked, '.' walkable; above rows: '^' = draw this cell's tiles over the player",
+"solid": [
+"##################################################",
+"#...#######...........................########...#",
+"#...#######...........................########...#",
+"#...#######..............##...........########...#",
+"#...#######...........................########...#",
+"#...#######.#.##......................########...#",
+"#.....#....................................#.....#",
+"#.####...........#.#......#.#.......#............#",
+"#.####...........................................#",
+"#.####...........................................#",
+"#.####.............##.......#####.#####.#####....#",
+"#.####......................#####.#####.#####....#",
+"#.####......##..............#####.#####.#####....#",
+"#.####......................#####.#####.#####....#",
+"#.......#...............#...#.....#.....#........#",
+"#.................................................",
+"#................................................#",
+"#..........#.............#.......................#",
+"#...........###......###.........................#",
+"#.................##..##.........................#",
+"#.......##..##.......................#...........#",
+"#....#......###...##..##.........................#",
+"#..........#.............#.......................#",
+"#................................................#",
+"#.......#.........#......#.###..#....#...#...#...#",
+"#.................................................",
+"#..............#.#...............................#",
+"#..............#.................................#",
+"#..............#.#...............................#",
+"#..............#.#...............................#",
+"#..............#.#..#...........##...............#",
+"#.....##...##....#..........................##...#",
+"#..............#.#..##.................#.........#",
+"#..............#.#...............................#",
+"#........#.....#.#.......#...#...................#",
+"#.##############.#.....................#######...#",
+"#.##############.#..............##.....#######...#",
+"#.######.....###.#.....................#######...#",
+"#.######.....###.#.....................#######...#",
+"#.#######.#..###.#.....................#######...#",
+"#.######.........#.............#.......#######...#",
+"#.###........#####.......................#.......#",
+"#.##.........##............#.......#.............#",
+"#.##.........##..................................#",
+"#.###...#..####..................................#",
+"#.##.......####.....##...........................#",
+"#.#############..........#...##..................#",
+"#.#############................................#.#",
+"#................................................#",
+"##################################################"
+],
+"above": [
+"..................................................",
+"..................................................",
+"...........^^^...........^^.......................",
+"...........^^^....................................",
+"...........^^^^^..^^^....^^^.......^^^............",
+"..................^^^....^^^.......^^^............",
+".................^^^^....^^^^......^^^............",
+"..................................................",
+"..................................................",
+"...................^^.............................",
+"..................................................",
+"............^^....................................",
+"..................................................",
+"........^.........................................",
+"..........^^............^^........................",
+"..........^^............^^........................",
+"..........^^............^^........................",
+".....................^^^............^^^...........",
+"....^^^.............................^^^...........",
+"....^^^.^^^^^^..........^^..........^^^...........",
+"....^^^...^^............^^......^^................",
+"..........^^............^^.....^^^..........^^^...",
+"...............................^^^..........^^^...",
+"........^.........^........^^^.^^^...^......^^^...",
+"..................................................",
+"..................................................",
+"..................................................",
+".................^.^^.............................",
+"...................^^.............................",
+"...................^^...........^^....^^^.........",
+"......^^...^^.........................^^^...^^....",
+"........^^^....^....^^.^^^^.^^^.......^^^.........",
+"........^^^............^^^^.^^^...................",
+"........^^^............^^^^.^^^...................",
+"..................................................",
+"................................^^................",
+"..................................................",
+"..............................^^^.................",
+"..........^...................^^^.................",
+"..............................^^^.................",
+"..................................................",
+".......^^^.................^.......^..............",
+".......^^^........................................",
+".......^^^.............^^^^.......................",
+"....................^^.^^^^...................^^^.",
+".......................^^^^..^^...............^^^.",
+"..............................................^^^.",
+"..................................................",
+"..................................................",
+".................................................."
+],
+"overlays": [],
+"tiles_by_gid": {
+"1": {
+"asset": "notice_board",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"2": {
+"asset": "notice_board",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"3": {
+"asset": "notice_board",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"4": {
+"asset": "notice_board",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"5": {
+"asset": "fountain",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"6": {
+"asset": "fountain",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"7": {
+"asset": "fountain",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"8": {
+"asset": "fountain",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"9": {
+"asset": "mailbox_red",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"10": {
+"asset": "mailbox_blue",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"11": {
+"asset": "bench",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"12": {
+"asset": "bench",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"13": {
+"asset": "unknown",
+"solid": true,
+"above": false,
+"kind": "unknown"
+},
+"14": {
+"asset": "unknown",
+"solid": true,
+"above": false,
+"kind": "unknown"
+},
+"15": {
+"asset": "street_lamp",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"16": {
+"asset": "street_lamp",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"17": {
+"asset": "well",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"18": {
+"asset": "well",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"19": {
+"asset": "well",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"20": {
+"asset": "well",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"21": {
+"asset": "market_stall_green",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"22": {
+"asset": "market_stall_green",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"23": {
+"asset": "market_stall_green",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"24": {
+"asset": "market_stall_red",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"25": {
+"asset": "market_stall_red",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"26": {
+"asset": "market_stall_red",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"27": {
+"asset": "table_set",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"28": {
+"asset": "table_set",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"29": {
+"asset": "crate_apples",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"30": {
+"asset": "signpost",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"31": {
+"asset": "trail_dirt_ns",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"32": {
+"asset": "trail_dirt_nes",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"33": {
+"asset": "trail_dirt_ew",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"34": {
+"asset": "trail_dirt_nw",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"35": {
+"asset": "trail_dirt_w",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"36": {
+"asset": "trail_dirt_new",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"37": {
+"asset": "trail_dirt_esw",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"38": {
+"asset": "trail_dirt_nesw",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"39": {
+"asset": "grass_dirt_join_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"40": {
+"asset": "dirt_1",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"41": {
+"asset": "trail_dirt_none",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"42": {
+"asset": "trail_dirt_ne",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"43": {
+"asset": "trail_dirt_es",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"44": {
+"asset": "grass_cobble_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"45": {
+"asset": "grass_cobble_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"46": {
+"asset": "grass_cobble_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"47": {
+"asset": "grass_cobble_t",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"48": {
+"asset": "grass_cobble_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"49": {
+"asset": "grass_cobble_r",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"50": {
+"asset": "grass_cobble_b",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"51": {
+"asset": "grass_cobble_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"52": {
+"asset": "cobble_1",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"53": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"54": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"55": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"56": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"57": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"58": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"59": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"60": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"61": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"62": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"63": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"64": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"65": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"66": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"67": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"68": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"69": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"70": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"71": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"72": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"73": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"74": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"75": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"76": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"77": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"78": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"79": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"80": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"81": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"82": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"83": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"84": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"85": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"86": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"87": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"88": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"89": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"90": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"91": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"92": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"93": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"94": {
+"asset": "bld_inn_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"95": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"96": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"97": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"98": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"99": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"100": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"101": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"102": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"103": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"104": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"105": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"106": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"107": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"108": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"109": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"110": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"111": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"112": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"113": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"114": {
+"asset": "bld_workshop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"115": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"116": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"117": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"118": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"119": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"120": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"121": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"122": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"123": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"124": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"125": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"126": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"127": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"128": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"129": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"130": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"131": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"132": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"133": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"134": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"135": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"136": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"137": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"138": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"139": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"140": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"141": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"142": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"143": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"144": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"145": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"146": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"147": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"148": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"149": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"150": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"151": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"152": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"153": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"154": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"155": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"156": {
+"asset": "bld_house_large",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"157": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"158": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"159": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"160": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"161": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"162": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"163": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"164": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"165": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"166": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"167": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"168": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"169": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"170": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"171": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"172": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"173": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"174": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"175": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"176": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"177": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"178": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"179": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"180": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"181": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"182": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"183": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"184": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"185": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"186": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"187": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"188": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"189": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"190": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"191": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"192": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"193": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"194": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"195": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"196": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"197": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"198": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"199": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"200": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"201": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"202": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"203": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"204": {
+"asset": "bld_village_hall",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"205": {
+"asset": "stump",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"206": {
+"asset": "flowers_gold",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"207": {
+"asset": "garden_bed_pumpkins",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"208": {
+"asset": "mushrooms_red",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"209": {
+"asset": "flower_pot_pink",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"210": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"211": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"212": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"213": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"214": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"215": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"216": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"217": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"218": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"219": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"220": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"221": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"222": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"223": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"224": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"225": {
+"asset": "bld_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"226": {
+"asset": "bridge_wood_h_l",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"227": {
+"asset": "bridge_wood_h_m",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"228": {
+"asset": "bridge_wood_h_r",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"229": {
+"asset": "grass_pond_in_br",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"230": {
+"asset": "grass_pond_t",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"231": {
+"asset": "grass_pond_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"232": {
+"asset": "grass_pond_l",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"233": {
+"asset": "grass_pond_bl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"234": {
+"asset": "grass_pond_b",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"235": {
+"asset": "grass_pond_br",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"236": {
+"asset": "grass_pond_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"237": {
+"asset": "grass_pond_r",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"238": {
+"asset": "grass_pond_in_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"239": {
+"asset": "grass_pond_in_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"240": {
+"asset": "grass_pond_in_bl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"241": {
+"asset": "grass_dirt_r",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"242": {
+"asset": "grass_dirt_b",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"243": {
+"asset": "grass_dirt_in_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"244": {
+"asset": "grass_dirt_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"245": {
+"asset": "grass_dirt_in_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"246": {
+"asset": "grass_dirt_t",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"247": {
+"asset": "grass_dirt_in_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"248": {
+"asset": "grass_short_1",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"249": {
+"asset": "grass_dirt_in_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"250": {
+"asset": "hedge_flowering_ns",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"251": {
+"asset": "hedge_flowering_n",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"252": {
+"asset": "hedge_flowering_s",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"253": {
+"asset": "hedge_flowering_nw",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"254": {
+"asset": "hedge_flowering_ew",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"255": {
+"asset": "hedge_flowering_e",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"256": {
+"asset": "bush_large",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"257": {
+"asset": "bush_large",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"258": {
+"asset": "bush_large",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"259": {
+"asset": "bush_large",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"260": {
+"asset": "rock_large",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"261": {
+"asset": "rock_large",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"262": {
+"asset": "rock_large",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"263": {
+"asset": "rock_large",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"264": {
+"asset": "vine",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"265": {
+"asset": "vine",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"266": {
+"asset": "garden_bed_greens",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"267": {
+"asset": "flowers_blue",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"268": {
+"asset": "flowers_red",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"269": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"270": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"271": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"272": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"273": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"274": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"275": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"276": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"277": {
+"asset": "tree_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"278": {
+"asset": "tree_willow",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"279": {
+"asset": "tree_willow",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"280": {
+"asset": "tree_willow",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"281": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"282": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"283": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"284": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"285": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"286": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"287": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"288": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"289": {
+"asset": "tree_orange",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"290": {
+"asset": "tree_oak",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"291": {
+"asset": "tree_orange",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"292": {
+"asset": "tree_oak",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"293": {
+"asset": "tree_poplar",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"294": {
+"asset": "tree_poplar",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"295": {
+"asset": "tree_poplar",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"296": {
+"asset": "tree_poplar",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"297": {
+"asset": "tree_poplar",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"298": {
+"asset": "tree_poplar",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"299": {
+"asset": "tree_poplar",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"300": {
+"asset": "tree_poplar",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"301": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"302": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"303": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"304": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"305": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"306": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"307": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"308": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"309": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"310": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"311": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"312": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"313": {
+"asset": "tree_oak",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"314": {
+"asset": "tree_oak_wide",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"315": {
+"asset": "tree_oak_wide",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"316": {
+"asset": "tree_oak",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"317": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"318": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"319": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"320": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"321": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"322": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"323": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"324": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"325": {
+"asset": "tree_maple_autumn",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"326": {
+"asset": "tree_maple_autumn",
+"solid": true,
+"above": false,
+"kind": "tree"
+}
+}
+}

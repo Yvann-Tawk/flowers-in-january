@@ -1,0 +1,1690 @@
+{
+"width": 50,
+"height": 50,
+"legend": "solid rows: '#' blocked, '.' walkable; above rows: '^' = draw this cell's tiles over the player",
+"solid": [
+"##################################################",
+"##################################################",
+"#####.....................................########",
+"#####.....................................########",
+"#####..#................................###.######",
+"##..##....#####.................##.#.........#####",
+"##........#####..............................#####",
+"##........#####..............................#####",
+"##........#####.....#####......#.............#####",
+"##........#####..#..#####....................#####",
+"##..................#####...............##...#####",
+"##..................#####..#.................#####",
+"##.....................................##...######",
+"##...........................................#####",
+"##......................................##...#####",
+"##...........................................#####",
+"##..........#.....................##.........#####",
+"##..........................................######",
+"##########..####################..################",
+"##########..####################..################",
+"##########..####################..################",
+"##...........................................#####",
+"##..........................................######",
+"##.......................................##..#####",
+"##...........................................#####",
+"##...........................................#####",
+"##............#.........................##..######",
+"##.................#######...................#####",
+"##.................#######...................#####",
+"##.................#######...................#####",
+"##.................#######...................#####",
+"##.................#######...................#####",
+"##................#########..................#####",
+"##...........................................#####",
+"##..........................................######",
+"##.................................###.......#####",
+"##.......####..........#..........##.##......#####",
+"##.......####...............................######",
+"##.......####...###.................##..##...#####",
+"##.......####...##...........................#####",
+"##...........#....##.........................#####",
+"##.......................................##..#####",
+"##..............##.........................#.#####",
+"##..##.......................................#####",
+"#####.....................................########",
+"#####....#................................########",
+"#####...................................##########",
+"#####.....................................########",
+"#######################..#########################",
+"#######################..#########################"
+],
+"above": [
+"................................^^................",
+"......^^^......................^^^................",
+"......^^^......................^^^^^^.............",
+"..^....^^......................^^^^^^...^^........",
+"....^^.........................^^^.^^.............",
+"..................................................",
+"................^^^...............................",
+"................^^^............^..................",
+".................^^.......^^^...........^^........",
+"..........................^^^...........^^.^^^....",
+"...........................^^..............^^^....",
+".......................................^^..^^.....",
+"..................................................",
+"........................................^^........",
+"...........................................^^^....",
+"............^.....................^^.......^^^....",
+"...........................................^^.....",
+"..................................................",
+"..................................................",
+"..................................................",
+"..................................................",
+"..................................................",
+".........................................^^.......",
+".............^^^...........................^^.....",
+".............^^^........................^^.^^.....",
+"..............^^........................^^.^^.....",
+"..................................................",
+"..................................................",
+"..................................................",
+"..................................................",
+"..................................................",
+"..................^.......^................^^.....",
+"...........................................^^.....",
+"...........................................^^.....",
+"...................................^^^............",
+".......................^..........................",
+"........................................^^........",
+"................^^^.....................^^........",
+"...........^......................................",
+"..........................................^^......",
+".........................................^^^......",
+"...........................................^......",
+"....^^..^^^.......................................",
+"........^^^.......................................",
+".........^^.......................................",
+"........................................^^........",
+"..................................................",
+"..................................................",
+"..................................................",
+".................................................."
+],
+"overlays": [],
+"tiles_by_gid": {
+"1": {
+"asset": "seaweed_washed",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"2": {
+"asset": "starfish_pink",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"3": {
+"asset": "starfish",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"4": {
+"asset": "palm_dark",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"5": {
+"asset": "palm_dark",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"6": {
+"asset": "palm_dark",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"7": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"8": {
+"asset": "palm_tall",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"9": {
+"asset": "palm_tall_left",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"10": {
+"asset": "palm_dark",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"11": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"12": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"13": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"14": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"15": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"16": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"17": {
+"asset": "palm_tall_left",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"18": {
+"asset": "palm_tall",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"19": {
+"asset": "palm_coconut",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"20": {
+"asset": "palm_coconut",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"21": {
+"asset": "palm_coconut",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"22": {
+"asset": "palm_coconut",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"23": {
+"asset": "palm_coconut",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"24": {
+"asset": "palm_coconut",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"25": {
+"asset": "palm_tall",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"26": {
+"asset": "palm_tall",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"27": {
+"asset": "palm_tall",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"28": {
+"asset": "bush_large_flowering",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"29": {
+"asset": "bush_large_flowering",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"30": {
+"asset": "bush_large_flowering",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"31": {
+"asset": "bush_large_flowering",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"32": {
+"asset": "driftwood",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"33": {
+"asset": "driftwood",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"34": {
+"asset": "notice_board",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"35": {
+"asset": "notice_board",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"36": {
+"asset": "notice_board",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"37": {
+"asset": "notice_board",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"38": {
+"asset": "tiki_torch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"39": {
+"asset": "tiki_torch",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"40": {
+"asset": "sandcastle",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"41": {
+"asset": "bucket_spade",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"42": {
+"asset": "rowboat_blue",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"43": {
+"asset": "rowboat_blue",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"44": {
+"asset": "rowboat_orange",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"45": {
+"asset": "rowboat_orange",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"46": {
+"asset": "surfboards",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"47": {
+"asset": "surfboards",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"48": {
+"asset": "market_stall_teal",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"49": {
+"asset": "market_stall_teal",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"50": {
+"asset": "market_stall_teal",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"51": {
+"asset": "market_stall_teal",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"52": {
+"asset": "market_stall_teal",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"53": {
+"asset": "market_stall_teal",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"54": {
+"asset": "unknown",
+"solid": true,
+"above": false,
+"kind": "unknown"
+},
+"55": {
+"asset": "unknown",
+"solid": true,
+"above": false,
+"kind": "unknown"
+},
+"56": {
+"asset": "fishing_net",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"57": {
+"asset": "fishing_net",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"58": {
+"asset": "fishing_net",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"59": {
+"asset": "fishing_net",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"60": {
+"asset": "table_set",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"61": {
+"asset": "table_set",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"62": {
+"asset": "signpost",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"63": {
+"asset": "signpost",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"64": {
+"asset": "life_ring_wall",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"65": {
+"asset": "umbrella_teal",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"66": {
+"asset": "umbrella_teal",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"67": {
+"asset": "umbrella_red",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"68": {
+"asset": "umbrella_red",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"69": {
+"asset": "towel_blue",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"70": {
+"asset": "towel_red",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"71": {
+"asset": "towel_blue",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"72": {
+"asset": "towel_red",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"73": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"74": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"75": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"76": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"77": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"78": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"79": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"80": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"81": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"82": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"83": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"84": {
+"asset": "bld_beach_hut_teal",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"85": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"86": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"87": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"88": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"89": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"90": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"91": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"92": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"93": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"94": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"95": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"96": {
+"asset": "bld_beach_hut_coral",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"97": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"98": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"99": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"100": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"101": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"102": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"103": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"104": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"105": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"106": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"107": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"108": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"109": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"110": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"111": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"112": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"113": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"114": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"115": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"116": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"117": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"118": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"119": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"120": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"121": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"122": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"123": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"124": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"125": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"126": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"127": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"128": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"129": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"130": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"131": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"132": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"133": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"134": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"135": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"136": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"137": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"138": {
+"asset": "bld_harbour_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"139": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"140": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"141": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"142": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"143": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"144": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"145": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"146": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"147": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"148": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"149": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"150": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"151": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"152": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"153": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"154": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"155": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"156": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"157": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"158": {
+"asset": "bld_beach_cafe",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"159": {
+"asset": "palm_tall",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"160": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"161": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"162": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"163": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"164": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"165": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"166": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"167": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"168": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"169": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"170": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"171": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"172": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"173": {
+"asset": "lighthouse",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"174": {
+"asset": "lighthouse",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"175": {
+"asset": "lighthouse",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"176": {
+"asset": "lighthouse",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"177": {
+"asset": "lifeguard_tower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"178": {
+"asset": "lifeguard_tower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"179": {
+"asset": "lifeguard_tower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"180": {
+"asset": "lifeguard_tower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"181": {
+"asset": "lifeguard_tower",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"182": {
+"asset": "lifeguard_tower",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"183": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"184": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"185": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"186": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"187": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"188": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"189": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"190": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"191": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"192": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"193": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"194": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"195": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"196": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"197": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"198": {
+"asset": "bld_fishing_shack",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"199": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"200": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"201": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"202": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"203": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"204": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"205": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"206": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"207": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"208": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"209": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"210": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"211": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"212": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"213": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"214": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"215": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"216": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"217": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"218": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"219": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"220": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"221": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"222": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"223": {
+"asset": "bld_seafood_shop",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"224": {
+"asset": "grass_sand_r",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"225": {
+"asset": "grass_sand_in_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"226": {
+"asset": "grass_sand_b",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"227": {
+"asset": "grass_sand_in_bl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"228": {
+"asset": "grass_sand_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"229": {
+"asset": "grass_sand_in_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"230": {
+"asset": "grass_sand_in_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"231": {
+"asset": "grass_sand_t",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"232": {
+"asset": "dune_grass_ground",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"233": {
+"asset": "trail_boardwalk_ns",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"234": {
+"asset": "trail_boardwalk_none",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"235": {
+"asset": "trail_boardwalk_ew",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"236": {
+"asset": "trail_boardwalk_new",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"237": {
+"asset": "trail_boardwalk_nsw",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"238": {
+"asset": "trail_boardwalk_es",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"239": {
+"asset": "trail_boardwalk_nesw",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"240": {
+"asset": "trail_boardwalk_s",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"241": {
+"asset": "trail_boardwalk_sw",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"242": {
+"asset": "trail_boardwalk_esw",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"243": {
+"asset": "trail_boardwalk_nes",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"244": {
+"asset": "trail_boardwalk_nw",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"245": {
+"asset": "trail_boardwalk_ne",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"246": {
+"asset": "trail_boardwalk_w",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"247": {
+"asset": "trail_wet_ns",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"248": {
+"asset": "trail_boardwalk_e",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"249": {
+"asset": "unknown",
+"solid": true,
+"above": false,
+"kind": "unknown"
+},
+"250": {
+"asset": "bridge_wood_v_t",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"251": {
+"asset": "bridge_wood_v_m",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"252": {
+"asset": "bridge_wood_v_b",
+"solid": false,
+"above": false,
+"kind": "bridge"
+},
+"253": {
+"asset": "sand_lagoon_l",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"254": {
+"asset": "sand_lagoon_in_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"255": {
+"asset": "sand_lagoon_in_bl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"256": {
+"asset": "sand_3",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"257": {
+"asset": "shore_f2_t",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"258": {
+"asset": "shore_f2_in_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"259": {
+"asset": "shore_f2_r",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"260": {
+"asset": "shore_f2_in_br",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"261": {
+"asset": "shore_f2_b",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"262": {
+"asset": "deep_f1",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"263": {
+"asset": "lagoon_f1",
+"solid": true,
+"above": false,
+"kind": "water"
+}
+}
+}
