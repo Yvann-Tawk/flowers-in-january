@@ -1,0 +1,4 @@
+{
+ "note": "Image props drawn after the tile layers; x,y = pixel bottom-left. depth 'ysort' sorts with characters, 'floor' draws under them.",
+ "props": []
+}

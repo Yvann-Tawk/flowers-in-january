@@ -1,9 +1,9 @@
-# Jana's Garden — Definitive Edition
+# Flowers in January
 
 A cozy top-down Phaser 3 game. Jana wakes on June 18th, finds Eevie's note, and follows his trail
-through the garden, Nowhere Beach and the Snowy Forest, collecting flowers (each one carries a poem)
-and the guardians' cipher fragments. This branch is the first playable slice: Opening + Garden,
-Area 1 (Phoebe) and Area 2 (Gilmour).
+through the garden, Nowhere Beach, the Snowy Forest, the Cherry Blossoms and the Dark Plains,
+collecting 24 flowers (each one carries a poem) and the four guardians' cipher fragments, until the
+gate at the bottom of the garden opens.
 
 Plain JavaScript, Phaser 3.60.0 from the CDN, no build step. It runs as static files on GitHub Pages.
 
@@ -17,36 +17,47 @@ then open http://localhost:8765/ (add `?debug=1` for the debug tools).
 Arrows / WASD to move · E, Space or Enter to talk / advance · I for the bag · Esc to leave a minigame.
 On touch screens: on-screen arrows, E and Bag buttons; tap the dialogue box to advance.
 
+## Dialogue
+Every line comes from `Flowers_in_January_Dialogue.xlsx` (tab `Dialogue`). After editing the sheet:
+```
+node tools/xlsx_to_dialogue.js path/to/Flowers_in_January_Dialogue.xlsx
+```
+This rewrites `js/dialogue.js` (one row = one box; no dependencies, the xlsx is read with Node's zlib).
+
 ## Where things live
 ```
-index.html            entry point + DOM UI (dialogue box, bag, note, poem, gate panel)
-css/style.css         UI styles (9-slice frames are CSS border-images, pixelated)
-data/placements.json  NPCs, props, spots, exits, arrivals per map (tile coordinates)
+index.html            entry point + DOM UI (dialogue box, bag, note / letter, poem, gate panel)
+css/style.css         UI styles (9-slice frames are CSS border-images, pixelated; PixelAE font)
+data/placements.json  NPCs, props, spots, exits, arrivals, interiors, guardian houses, ending home
+tools/                xlsx_to_dialogue.js
 js/
-  data.js             the 24 poems + intro lines (unchanged from the original game)
-  config.js           tile size, area registry, items, flowers → poems, cipher
-  dialogue.js         every line of this slice (verbatim from the dialogue doc) + the note
+  data.js             the 24 poems (unchanged from the original game)
+  dialogue.js         GENERATED from the spreadsheet
+  config.js           tile size, areas, items, cipher, flowers → poems (read from the sheet), map fixes
   state.js            flags, inventory, flowers, fragments, autosave (localStorage)
-  audio.js            music crossfades, sound effects, synthesized chimes
+  audio.js            front end that sends audio events to the AudioScene
   input.js            keyboard / touch router
-  ui/                 HUD, dialogue box, poem, note, bag, gate panel, title, touch, fades
-  world/              map builder (layers, draw-above, collision, props), actors, player
-  story/              runner (scripts + NPC state machine) and garden / beach / forest logic
-  minigames/          fishing, digging, whack-a-Phoebe, sled race
-  scenes/             boot (asset loading) and the world scene
+  ui/                 HUD, dialogue box, poem, note + letter, bag, gate panel, title, touch, fades, credits
+  world/              map builder (outdoor maps, interiors, ending maps), actors, player, lighting
+  story/              lines (sheet lookup), runner, guardians, garden / beach / forest / blossom / plains, ending
+  minigames/          fishing, digging, whack-a-Phoebe, sled race, sleeve match, vase shuffle
+  scenes/             boot, audio (the one persistent audio manager), world
   debug.js            ?debug=1 tools
-assets/               maps, characters, animals, items, props, UI, music, sounds, minigame art
+assets/               maps, interiors, characters, animals, items, props, UI, music, sounds, minigame art
 ```
+
+## Audio
+All music and sound goes through one `AudioScene` (`js/scenes/audio_scene.js`), launched once from Boot
+and never stopped. Other code only emits `audio:music`, `audio:sfx`, `audio:loop` events.
 
 ## Debug mode (`?debug=1`)
 - Collision grid (red), exits (cyan), spots (magenta), arrivals (green), talk-from tiles (yellow).
-- F1 beach items · F2 forest items · F3 note + fragments 01 & 28 · F4 all four fragments (gate panel).
-- Teleport buttons for every map / arrival, buttons to launch each minigame and the gate panel.
+- F1 beach items · F2 forest items · F3 blossom items · F4 plains items.
+- Buttons: teleports to every map, interior and ending map; every minigame; gate panel; letter; credits;
+  "4 fragments + 24 flowers" to try the gate and the ending.
 - URL shortcuts: `&map=beach&x=23&y=47&dir=up` jumps straight in, `&fresh=1` starts a clean save,
-  `&grid=0` hides the overlay, `&mini=Whack` / `&mini=Sled` opens a minigame.
+  `&grid=0` hides the overlay, `&mini=Whack|Sled|Sleeves|Shuffle` opens a minigame.
 
-## Hooks for later builds
-- `AREAS` in `js/config.js` lists Cherry Blossoms and Dark Plains (guardian, fragment, flowers) with `ready:false`.
-- Fragment slots 3 and 4 (`fragment_calabar`, `fragment_spike`) and the full gate cipher are in place;
-  `Story.handlers.garden.spot.gate` has a TODO where the ending starts.
-- The cabin keeper's interior map: TODO in `js/story/forest.js`.
+## Hooks for later
+- The cabin keeper's own interior (`js/story/forest.js`, TODO).
+- The gramophone can play one of Eevie's tracks once one exists (`js/story/blossom.js`).

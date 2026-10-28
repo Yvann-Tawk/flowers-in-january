@@ -1,0 +1,237 @@
+{
+ "width": 23,
+ "height": 20,
+ "legend": "'#' blocked, '.' walkable. Layer 'Above' draws over characters.",
+ "solid": [
+  "#######################",
+  "#######################",
+  "#######################",
+  "#.....................#",
+  "#.....................#",
+  "#......#..#.#..#......#",
+  "##......#.....#.......#",
+  "#........#...#........#",
+  "#......#.......#......#",
+  "#....#...#...#...#....#",
+  "##.....#.......#......#",
+  "#........#...#........#",
+  "#......#.......#......#",
+  "#........#...#........#",
+  "##..#..#.......#......#",
+  "#..##....#...#...###..#",
+  "#..............#......#",
+  "#.....................#",
+  "##....................#",
+  "#########.....#########"
+ ],
+ "markers": {
+  "eevie": {
+   "x": 11,
+   "y": 5,
+   "face": "down",
+   "sheet": "characters/eevie.png",
+   "note": "waiting under the arch"
+  },
+  "jana_start": {
+   "x": 11,
+   "y": 18,
+   "face": "up",
+   "note": "Jana walks the aisle herself"
+  },
+  "jana_stop": {
+   "x": 11,
+   "y": 6,
+   "face": "up",
+   "note": "in front of Eevie: his 5-6 boxes, then the ring"
+  },
+  "guest_beach_A": {
+   "x": 9,
+   "y": 7,
+   "face": "right",
+   "sheet": "characters/beach_A.png",
+   "name": "Old fisherman",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_beach_B": {
+   "x": 13,
+   "y": 7,
+   "face": "left",
+   "sheet": "characters/beach_B.png",
+   "name": "Kid (beach)",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_beach_C": {
+   "x": 9,
+   "y": 9,
+   "face": "right",
+   "sheet": "characters/beach_C.png",
+   "name": "Guinea pig",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_beach_D": {
+   "x": 13,
+   "y": 9,
+   "face": "left",
+   "sheet": "characters/beach_D.png",
+   "name": "Owl",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_beach_E": {
+   "x": 9,
+   "y": 11,
+   "face": "right",
+   "sheet": "characters/beach_E.png",
+   "name": "Bottle collector",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_forest_A": {
+   "x": 13,
+   "y": 11,
+   "face": "left",
+   "sheet": "characters/forest_A.png",
+   "name": "Ice fisher",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_forest_B": {
+   "x": 9,
+   "y": 13,
+   "face": "right",
+   "sheet": "characters/forest_B.png",
+   "name": "Kid (forest)",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_forest_C": {
+   "x": 13,
+   "y": 13,
+   "face": "left",
+   "sheet": "characters/forest_C.png",
+   "name": "Horse",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_forest_D": {
+   "x": 9,
+   "y": 15,
+   "face": "right",
+   "sheet": "characters/forest_D.png",
+   "name": "Sheep",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_forest_E": {
+   "x": 13,
+   "y": 15,
+   "face": "left",
+   "sheet": "characters/forest_E.png",
+   "name": "Cabin keeper",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_blossoms_A": {
+   "x": 7,
+   "y": 8,
+   "face": "right",
+   "sheet": "characters/blossoms_A.png",
+   "name": "Gardener",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_blossoms_B": {
+   "x": 15,
+   "y": 8,
+   "face": "left",
+   "sheet": "characters/blossoms_B.png",
+   "name": "Tea-house owner",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_blossoms_C": {
+   "x": 7,
+   "y": 10,
+   "face": "right",
+   "sheet": "characters/blossoms_C.png",
+   "name": "Musician",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_blossoms_D": {
+   "x": 15,
+   "y": 10,
+   "face": "left",
+   "sheet": "characters/blossoms_D.png",
+   "name": "Tortoise",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_blossoms_E": {
+   "x": 7,
+   "y": 12,
+   "face": "right",
+   "sheet": "characters/blossoms_E.png",
+   "name": "Record stall keeper",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_plains_A": {
+   "x": 15,
+   "y": 12,
+   "face": "left",
+   "sheet": "characters/plains_A.png",
+   "name": "Lamplighter",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_plains_B": {
+   "x": 7,
+   "y": 14,
+   "face": "right",
+   "sheet": "characters/plains_B.png",
+   "name": "Stargazer",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_plains_C": {
+   "x": 15,
+   "y": 14,
+   "face": "left",
+   "sheet": "characters/plains_C.png",
+   "name": "Butterfly",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_plains_D": {
+   "x": 5,
+   "y": 9,
+   "face": "right",
+   "sheet": "characters/plains_D.png",
+   "name": "Fox",
+   "frame_size": 52,
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "guest_plains_E": {
+   "x": 17,
+   "y": 9,
+   "face": "left",
+   "sheet": "characters/plains_E.png",
+   "name": "Potter",
+   "react": "turn to face Jana as she passes (face down once she is above them)"
+  },
+  "animal_phoebe": {
+   "x": 8,
+   "y": 6,
+   "face": "down",
+   "sheet": "animals/phoebe.png",
+   "note": "front row, can't sit still"
+  },
+  "animal_spike": {
+   "x": 14,
+   "y": 6,
+   "face": "down",
+   "sheet": "animals/spike.png"
+  },
+  "animal_calabar": {
+   "x": 4,
+   "y": 14,
+   "face": "down",
+   "sheet": "animals/calabar.png",
+   "note": "beside the vase table he set up"
+  },
+  "animal_gilmour": {
+   "x": 15,
+   "y": 16,
+   "face": "down",
+   "sheet": "animals/gilmour.png",
+   "asleep": true,
+   "note": "asleep at the end of a row, curled up on the grass; opens one eye at the ring"
+  }
+ }
+}

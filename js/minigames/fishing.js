@@ -19,9 +19,9 @@ const Fishing = {
         return [p.x + d[0] * 12, p.y - 10 + d[1] * 6];
       };
       const g = scene.add.graphics().setDepth(DEPTH.ABOVE - 1);
-      const label = scene.add.text(p.x, p.y - 44, '', { fontFamily: 'VT323', fontSize: '14px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 3, align: 'center' })
+      const label = scene.add.text(p.x, p.y - 44, '', { fontFamily: 'PixelAE', fontSize: '14px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 3, align: 'center' })
         .setOrigin(0.5, 1).setDepth(DEPTH.ICON).setResolution(2);
-      const bang = scene.add.text(p.x, p.y - 40, '!', { fontFamily: 'VT323', fontSize: '28px', color: '#ffd97a', stroke: '#8e3a55', strokeThickness: 4 })
+      const bang = scene.add.text(p.x, p.y - 40, '!', { fontFamily: 'PixelAE', fontSize: '28px', color: '#ffd97a', stroke: '#8e3a55', strokeThickness: 4 })
         .setOrigin(0.5, 1).setDepth(DEPTH.ICON).setResolution(2).setVisible(false);
 
       let state = 'ready', timer = null, castT = 0, dip = 0;
@@ -30,16 +30,16 @@ const Fishing = {
       const gotAway = () => {
         state = 'lost'; bang.setVisible(false); dip = 0;
         say('It got away');
-        Snd.gateWrong();
+        Snd.lose();
         if (timer) timer.remove();
         timer = scene.time.delayedCall(1000, ready);
       };
       const cast = () => {
         state = 'wait'; castT = scene.time.now; say('...');
-        Snd.blipSoft();
+        Snd.tick();
         timer = scene.time.delayedCall(Phaser.Math.Between(1500, 4000), () => {
           state = 'bite'; bang.setVisible(true); dip = 1; say('');
-          Snd.sfx('talk', 0.5);
+          Snd.blip();
           timer = scene.time.delayedCall(this.WINDOW, () => { if (state === 'bite') gotAway(); });
         });
       };
@@ -55,7 +55,7 @@ const Fishing = {
         };
         if (!ok) return end();
         state = 'caught'; bang.setVisible(false); say('');
-        Snd.catchPing();
+        Snd.win();
         const fish = scene.add.image(bx, by, 'items/item_fish.png').setDepth(DEPTH.ICON);
         scene.tweens.add({ targets: fish, x: p.x, y: p.y - 46, duration: 450, ease: 'Quad.easeOut' });
         scene.time.delayedCall(1100, () => { fish.destroy(); end(); });

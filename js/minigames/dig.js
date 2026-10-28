@@ -11,7 +11,7 @@ const Dig = {
     return new Promise(resolve => {
       for (let k = 0; k < 3; k++) {
         scene.time.delayedCall(k * 330, () => {
-          Snd.blipSoft();
+          Snd.tick();
           for (let i = 0; i < 9; i++) {
             const a = Math.PI + (i / 8) * Math.PI + Phaser.Math.FloatBetween(-.2, .2);
             const r = Phaser.Math.Between(2, 4);

@@ -11,9 +11,10 @@ const Fade = {
     this.el.style.opacity = opacity;
     return new Promise(r => setTimeout(r, ms + 20));
   },
-  out(ms = 300) { document.getElementById('fade').classList.add('block'); return this._set(1, ms); },
+  out(ms = 300) { const f = document.getElementById('fade'); f.classList.add('block'); f.classList.remove('white'); return this._set(1, ms); },
+  white(ms = 1200) { const f = document.getElementById('fade'); f.classList.add('block', 'white'); return this._set(1, ms); },
   in(ms = 300) {
-    return this._set(0, ms).then(() => document.getElementById('fade').classList.remove('block'));
+    return this._set(0, ms).then(() => { const f = document.getElementById('fade'); f.classList.remove('block', 'white'); });
   },
   wait(ms) { return new Promise(r => setTimeout(r, ms)); },
 };

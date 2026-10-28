@@ -36,7 +36,7 @@ class SledScene extends Phaser.Scene {
 
     this.jana = this.add.image(0, 0, 'minigames/sled_jana.png').setOrigin(0.5, 0.82);
     this.gil = this.add.image(0, 0, 'minigames/sled_gilmour.png').setOrigin(0.5, 0.8);
-    const style = { fontFamily: 'VT323', fontSize: '22px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 4 };
+    const style = { fontFamily: 'PixelAE', fontSize: '22px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 4 };
     this.ui = this.add.text(0, 0, '', style).setScrollFactor(0).setDepth(9999);
     this.big = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '64px', strokeThickness: 6 })).setOrigin(0.5).setScrollFactor(0).setDepth(9999);
     this.help = this.add.text(0, 0, Touch.enabled ? '▲ ▼ steer   Bag: quit' : '↑ ↓ steer   Esc: quit', Object.assign({}, style, { fontSize: '18px' }))
@@ -75,11 +75,11 @@ class SledScene extends Phaser.Scene {
     this.place();
     let n = 3;
     this.big.setText(String(n));
-    Snd.blipSoft();
+    Snd.tick();
     this.countT = this.time.addEvent({ delay: 650, repeat: 3, callback: () => {
       n--;
-      if (n > 0) { this.big.setText(String(n)); Snd.blipSoft(); }
-      else if (n === 0) { this.big.setText('GO!'); Snd.catchPing(); this.state = 'race'; this.t0 = this.time.now; }
+      if (n > 0) { this.big.setText(String(n)); Snd.tick(); }
+      else if (n === 0) { this.big.setText('GO!'); Snd.tick(); this.state = 'race'; this.t0 = this.time.now; }
       else this.big.setText('');
     } });
   }
@@ -110,7 +110,7 @@ class SledScene extends Phaser.Scene {
 
   spawnZ() {
     if (!this.gil) return;
-    const z = this.add.text(this.gil.x + 8, this.gil.y - 18, 'z', { fontFamily: 'VT323', fontSize: '14px', color: '#e6eefc', stroke: '#3b2230', strokeThickness: 2 }).setDepth(9000);
+    const z = this.add.text(this.gil.x + 8, this.gil.y - 18, 'z', { fontFamily: 'PixelAE', fontSize: '14px', color: '#e6eefc', stroke: '#3b2230', strokeThickness: 2 }).setDepth(9000);
     this.tweens.add({ targets: z, x: z.x + 10, y: z.y - 18, alpha: 0, duration: 1100, onComplete: () => z.destroy() });
   }
 
@@ -128,7 +128,7 @@ class SledScene extends Phaser.Scene {
       if (o.hit) continue;
       if (Math.abs(this.jx - o.spr.x) < 20 && Math.abs(this.jy - o.spr.y) < 17) {
         o.hit = true; this.slow = this.SLOW_MS; this.boost = 0;
-        Snd.gateWrong();
+        Snd.sfx('gamelose', { volume: 0.35 });
         this.cameras.main.shake(120, 0.004);
         this.tweens.add({ targets: o.spr, angle: { from: -12, to: 12 }, duration: 70, yoyo: true, repeat: 2, onComplete: () => o.spr.setAngle(0) });
       }
@@ -149,7 +149,7 @@ class SledScene extends Phaser.Scene {
     this.state = 'over';
     if (won) {
       this.big.setText('1st!');
-      Snd.chimeGot();
+      Snd.win();
       this.time.delayedCall(1200, () => this.finish('win'));
       return;
     }
@@ -157,7 +157,7 @@ class SledScene extends Phaser.Scene {
     this.busy = true;
     await new Promise(r => this.time.delayedCall(900, r));
     this.big.setText('');
-    await Story.run(DLG.forest.gilmour.retry);
+    await Story.run(L('Forest', 'Gilmour', 'retry'));
     this.busy = false;
     if (!this.finished) this.reset();
   }

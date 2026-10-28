@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" type="image/png" href="assets/ui/flower_icon.png">
-<title>For Jana — June 18th</title>
+<title>Flowers in January</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Amiri:ital@0;1&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Amiri:ital@0;1&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
 </head>
@@ -18,7 +18,7 @@
 <!-- Title -->
 <div id="title" class="screen">
   <div id="title-art">
-    <div id="title-plaque"><div id="title-name">Jana's Garden</div><div id="title-sub">Definitive Edition</div></div>
+    <div id="title-plaque" role="img" aria-label="Flowers in January"></div>
   </div>
   <div id="title-press" class="blink">Press any key</div>
   <div id="title-menu" class="hidden">
@@ -96,9 +96,6 @@
   </div>
 </div>
 
-<!-- Soft full-screen card -->
-<div id="card" class="ov"><div id="card-text"></div></div>
-
 <!-- Fade layer -->
 <div id="fade"></div>
 
@@ -119,8 +116,8 @@
 <div id="debug-panel" class="hidden"></div>
 
 <script src="js/data.js"></script>
-<script src="js/config.js"></script>
 <script src="js/dialogue.js"></script>
+<script src="js/config.js"></script>
 <script src="js/state.js"></script>
 <script src="js/audio.js"></script>
 <script src="js/input.js"></script>
@@ -133,17 +130,27 @@
 <script src="js/ui/gate.js"></script>
 <script src="js/ui/title.js"></script>
 <script src="js/ui/touch.js"></script>
+<script src="js/ui/credits.js"></script>
 <script src="js/world/mapbuilder.js"></script>
 <script src="js/world/actors.js"></script>
 <script src="js/world/player.js"></script>
+<script src="js/world/lighting.js"></script>
+<script src="js/story/lines.js"></script>
 <script src="js/story/runner.js"></script>
 <script src="js/story/garden.js"></script>
+<script src="js/story/guardian.js"></script>
 <script src="js/story/beach.js"></script>
 <script src="js/story/forest.js"></script>
+<script src="js/story/blossom.js"></script>
+<script src="js/story/plains.js"></script>
+<script src="js/story/ending.js"></script>
 <script src="js/minigames/fishing.js"></script>
 <script src="js/minigames/dig.js"></script>
 <script src="js/minigames/whack.js"></script>
 <script src="js/minigames/sled.js"></script>
+<script src="js/minigames/sleeves.js"></script>
+<script src="js/minigames/shuffle.js"></script>
+<script src="js/scenes/audio_scene.js"></script>
 <script src="js/scenes/boot.js"></script>
 <script src="js/scenes/world.js"></script>
 <script src="js/debug.js"></script>

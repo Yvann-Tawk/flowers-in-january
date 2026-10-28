@@ -13,7 +13,7 @@ const Inventory = {
     this.sel = Math.min(this.sel, Math.max(0, G.s.inv.length - 1));
     this.render();
     ov.classList.add('open');
-    Snd.blipSoft();
+    Snd.tick();
     this._click = e => { if (e.target === ov) this.close(); };
     ov.addEventListener('click', this._click);
     this._pop = Input.push({ onKey: name => this.key(name) });
@@ -36,7 +36,7 @@ const Inventory = {
     else if (name === 'down') this.sel = (this.sel + c) % n;
     else if (name === 'act') return this.use();
     else return;
-    Snd.blipSoft();
+    Snd.tick();
     this.render();
   },
   use() {

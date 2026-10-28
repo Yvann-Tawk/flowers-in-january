@@ -22,7 +22,7 @@ class WhackScene extends Phaser.Scene {
     this.phoebe.setInteractive({ useHandCursor: true });
     this.phoebe.on('pointerdown', () => this.hit());
     this.selBox = this.add.graphics();
-    const style = { fontFamily: 'VT323', fontSize: '28px', color: '#fff7ed', stroke: '#8e3a55', strokeThickness: 5 };
+    const style = { fontFamily: 'PixelAE', fontSize: '28px', color: '#fff7ed', stroke: '#8e3a55', strokeThickness: 5 };
     this.tRound = this.add.text(0, 0, '', style).setOrigin(0, 0);
     this.tHits = this.add.text(0, 0, '', style).setOrigin(0.5, 0);
     this.tTime = this.add.text(0, 0, '', style).setOrigin(1, 0);
@@ -95,7 +95,7 @@ class WhackScene extends Phaser.Scene {
       this.up = true;
       if (this.popTween) this.popTween.stop();
       this.popTween = this.tweens.add({ targets: this.phoebe, y: y + 3 * k, duration: 170, ease: 'Back.easeOut' });
-      Snd.blipSoft();
+      Snd.tick();
       this.hideTimer = this.time.delayedCall(this.VISIBLE[this.round], () => this.duck(false));
     });
   }
@@ -114,7 +114,7 @@ class WhackScene extends Phaser.Scene {
   hit() {
     if (!this.playing || !this.up) return;
     this.hits++;
-    Snd.chimeGot();
+    Snd.got();
     const [x, y] = this.holePos[this.hole];
     for (let i = 0; i < 6; i++) {
       const s = this.add.star(x, y - 14 * this.k, 5, 3, 7, 0xffd97a);
@@ -140,7 +140,7 @@ class WhackScene extends Phaser.Scene {
     if (this.popTimer) this.popTimer.remove();
     this.duck(false);
     this.busy = true;
-    await Story.run(DLG.beach.phoebe.retry);
+    await Story.run(L('Beach', 'Phoebe', 'retry'));
     this.busy = false;
     this.startRound();
   }

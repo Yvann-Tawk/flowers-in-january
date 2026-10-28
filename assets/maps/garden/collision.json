@@ -24,7 +24,7 @@
 "#...........###......###.........................#",
 "#.................##..##.........................#",
 "#.......##..##.......................#...........#",
-"#....#......###...##..##.........................#",
+".....#......###...##..##.........................#",
 "#..........#.............#.......................#",
 "#................................................#",
 "#.......#.........#......#.###..#....#...#...#...#",
@@ -106,7 +106,29 @@
 "..................................................",
 ".................................................."
 ],
-"overlays": [],
+"overlays": [
+{
+"x": 2,
+"y": 21,
+"atlas": "garden_village",
+"frame": "trail_dirt_nsw",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+},
+{
+"x": 1,
+"y": 21,
+"atlas": "garden_village",
+"frame": "trail_dirt_ew",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+},
+{
+"x": 0,
+"y": 21,
+"atlas": "garden_village",
+"frame": "trail_dirt_ew",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+}
+],
 "tiles_by_gid": {
 "1": {
 "asset": "notice_board",

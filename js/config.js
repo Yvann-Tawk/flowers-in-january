@@ -1,10 +1,11 @@
 // ═══════════════════════════════════════════════════════════════
 //  CONFIG — constants, registries (areas, items, flowers, fragments)
 // ═══════════════════════════════════════════════════════════════
+const GAME_NAME = 'Flowers in January';
 const TILE = 32;          // world tile size (px)
 const ZOOM = 2;           // camera zoom (integer, crisp)
 const WALK_SPEED = 4.6;   // tiles per second
-const SAVE_KEY = 'janas-garden-de-v1';
+const SAVE_KEY = 'flowers-in-january-save';
 const DEBUG = /[?&]debug=1/.test(location.search);
 
 // LPC sheet layout (832×3456, 13 columns of 64×64). Rows above 25 are undressed: never use them.
@@ -16,14 +17,25 @@ const CREATURE_ROWS = { down: 0, left: 1, right: 2, up: 3 };
 const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 
 // ── Area registry ───────────────────────────────────────────────
-// Later areas are listed so their hooks exist (guardian, fragment, music); `ready:false` keeps them out of play.
 const AREAS = {
-  garden:   { label: "Jana's Garden",  music: 'garden_theme', ready: true },
-  beach:    { label: 'Nowhere Beach',  music: 'beach_theme',  ready: true, guardian: 'phoebe',  fragment: 'fragment_phoebe',  flowers: [1, 6] },
-  forest:   { label: 'Snowy Forest',   music: 'forest_theme', ready: true, guardian: 'gilmour', fragment: 'fragment_gilmour', flowers: [7, 12] },
-  blossoms: { label: 'Cherry Blossoms', music: null, ready: false, guardian: 'spike',   fragment: 'fragment_spike',   flowers: [13, 18] }, // TODO: Area 3
-  plains:   { label: 'Dark Plains',     music: null, ready: false, guardian: 'calabar', fragment: 'fragment_calabar', flowers: [19, 24] }, // TODO: Area 4
+  garden:  { label: 'The Garden',      music: 'garden_theme',  sheet: 'Garden' },
+  beach:   { label: 'Nowhere Beach',   music: 'beach_theme',   sheet: 'Beach',   guardian: 'phoebe',  fragment: 'fragment_phoebe',  flag: 'fragment_01' },
+  forest:  { label: 'Snowy Forest',    music: 'forest_theme',  sheet: 'Forest',  guardian: 'gilmour', fragment: 'fragment_gilmour', flag: 'fragment_28' },
+  blossom: { label: 'Cherry Blossoms', music: 'blossom_theme', sheet: 'Blossom', guardian: 'spike',   fragment: 'fragment_spike',   flag: 'fragment_26' },
+  plains:  { label: 'Dark Plains',     music: 'plains_theme',  sheet: 'Plains',  guardian: 'calabar', fragment: 'fragment_calabar', flag: 'fragment_20' },
+  hidden_path: { label: '', music: 'garden_theme' },
+  wedding: { label: '', music: 'wedding_outro' },
 };
+const MAPS = ['garden', 'beach', 'forest', 'blossom', 'plains'];
+const ROOM_LABELS = { garden_cabin: 'The Cabin', beach_hut: 'The Harbour Inn', snow_cabin: 'The Lodge', blossom_house: 'The Inn', plains_house: 'The Lantern Inn' };
+// area a map belongs to (interiors use their outside map's music)
+function areaOf(key) {
+  if (key.startsWith('interior:')) {
+    const pl = window.game && window.game.cache.json.get('placements');
+    return (pl && pl.interiors[key.slice(9)] || {}).exit_to || 'garden';
+  }
+  return key;
+}
 
 // ── Cipher (STORY.md) ───────────────────────────────────────────
 // Note order: Gilmour, Phoebe, Calabar, Spike → Day / Month / Year (first half) / Year (second half).
@@ -31,51 +43,55 @@ const AREAS = {
 const FRAGMENTS = {
   fragment_gilmour: { digits: '28', sign: 1, guardian: 'Gilmour', field: 'day' },
   fragment_phoebe:  { digits: '01', sign: 0, guardian: 'Phoebe',  field: 'month' },
-  fragment_calabar: { digits: '20', sign: 3, guardian: 'Calabar', field: 'year1' }, // hook: Area 4
-  fragment_spike:   { digits: '26', sign: 2, guardian: 'Spike',   field: 'year2' }, // hook: Area 3
+  fragment_calabar: { digits: '20', sign: 3, guardian: 'Calabar', field: 'year1' },
+  fragment_spike:   { digits: '26', sign: 2, guardian: 'Spike',   field: 'year2' },
 };
 const NOTE_ORDER = ['fragment_gilmour', 'fragment_phoebe', 'fragment_calabar', 'fragment_spike'];
 const GATE_ANSWER = { day: '28', month: '01', year: '2026' };
 
-// ── Items ───────────────────────────────────────────────────────
+// ── Items (names exactly as the spreadsheet's GIVE / TAKE actions) ─
 const ITEMS = {
-  note:             { name: 'The note',          icon: 'ui/note_page.png' },
-  bottle:           { name: 'Old bottle',        icon: 'items/item_bottle.png' },
-  shell:            { name: 'Big shell',         icon: 'items/item_shell.png' },
-  glasses:          { name: 'Borrowed glasses',  icon: 'items/item_glasses.png' },
-  keychain:         { name: 'Bean bag keychain', icon: 'items/keepsake_keychain.png' },
-  fragment_phoebe:  { name: 'Fragment 01',       icon: 'items/fragment_phoebe.png', fragment: true },
-  fish:             { name: 'Fish',              icon: 'items/item_fish.png' },
-  carrot:           { name: 'Carrot',            icon: 'items/item_carrot.png' },
-  kindling:         { name: 'Kindling',          icon: 'items/item_kindling.png' },
-  bandaid:          { name: 'Band-aid',          icon: 'items/keepsake_bandaid.png' },
-  fragment_gilmour: { name: 'Fragment 28',       icon: 'items/fragment_gilmour.png', fragment: true },
-  // hooks for later areas (debug only in this build)
-  fragment_spike:   { name: 'Fragment 26',       icon: 'items/fragment_spike.png', fragment: true },
-  fragment_calabar: { name: 'Fragment 20',       icon: 'items/fragment_calabar.png', fragment: true },
+  note:             { name: 'Note',               icon: 'items/item_note.png' },
+  bottle:           { name: 'Old bottle',         icon: 'items/item_bottle.png' },
+  shell:            { name: 'Big shell',          icon: 'items/item_shell.png' },
+  glasses:          { name: 'Borrowed glasses',   icon: 'items/item_glasses.png' },
+  keychain:         { name: 'Bean bag keychain',  icon: 'items/keepsake_keychain.png' },
+  fragment_phoebe:  { name: 'Fragment 01',        icon: 'items/fragment_phoebe.png', fragment: true },
+  fish:             { name: 'Fish',               icon: 'items/item_fish.png' },
+  carrot:           { name: 'Carrot',             icon: 'items/item_carrot.png' },
+  kindling:         { name: 'Kindling',           icon: 'items/item_kindling.png' },
+  bandaid:          { name: 'Band-aid',           icon: 'items/keepsake_bandaid.png' },
+  fragment_gilmour: { name: 'Fragment 28',        icon: 'items/fragment_gilmour.png', fragment: true },
+  seed:             { name: 'Seed',               icon: 'items/item_seed.png' },
+  key:              { name: 'Winding key',        icon: 'items/item_key.png' },
+  tea:              { name: 'Tea',                icon: 'items/item_tea.png' },
+  needle:           { name: 'Gramophone needle',  icon: 'items/item_needle.png' },
+  vinyl:            { name: 'Vinyl record',       icon: 'items/keepsake_vinyl.png' },
+  fragment_spike:   { name: 'Fragment 26',        icon: 'items/fragment_spike.png', fragment: true },
+  ember:            { name: 'Ember',              icon: 'items/item_ember.png' },
+  fireflies:        { name: 'Jar of fireflies',   icon: 'items/item_fireflies.png' },
+  flask:            { name: 'Empty flask',        icon: 'items/item_flask_empty.png' },
+  water:            { name: 'Spring water',       icon: 'items/item_water.png' },
+  vases:            { name: 'Two clay vases',     icon: 'items/keepsake_vases.png' },
+  fragment_calabar: { name: 'Fragment 20',        icon: 'items/fragment_calabar.png', fragment: true },
 };
+// spreadsheet item name → id ("TAKE Flask" is the empty flask)
+const ITEM_BY_NAME = { Flask: 'flask' };
+Object.keys(ITEMS).forEach(id => { ITEM_BY_NAME[ITEMS[id].name] = id; });
 
-// ── Flowers → poems (DIALOGUE.md table; poem = id in js/data.js) ─
-const FLOWERS = {
-  1: { poem: 1 },  2: { poem: 2 },  3: { poem: 3 },  4: { poem: 16 }, 5: { poem: 22 }, 6: { poem: 4 },
-  7: { poem: 6 },  8: { poem: 7 },  9: { poem: 8 },  10: { poem: 13 }, 11: { poem: 5 }, 12: { poem: 9 },
-};
+// ── Flowers → poems: read from the spreadsheet's "FLOWER n (poem p)" actions ─
+const FLOWERS = {};
+DIALOGUE.forEach(r => r.actions.forEach(a => { if (a.type === 'FLOWER') FLOWERS[a.n] = { poem: a.poem }; }));
 function flowerSprite(n) { return 'items/flowers/flower_' + String(n).padStart(2, '0') + '.png'; }
 
-// ── Maps ────────────────────────────────────────────────────────
-const MAPS = ['garden', 'beach', 'forest'];
-const CABIN = {
-  img: 'maps/cabin/map_inside.png', collision: 'maps/cabin/collision_inside.json', scale: 2,
-  spawn: [5, 6, 'down'],                 // by the bed
-  from_garden: [15, 29, 'up'],           // just inside the door
-  note: { x: 24, y: 6, zone: [20, 3, 29, 10] }, // the note on the dining table; zone = tiles Jana can read it from
+// Map fixes: tiles that sit on top of a placement and hide it.
+// blossom: a weeping sakura (cols 33–35, rows 26–29) stands exactly where the gramophone and the
+// record stall keeper are placed, so its tiles, canopy and trunk collision are cleared.
+const MAP_FIXES = {
+  blossom: [{ clear: [33, 26, 35, 29] }],
 };
 
-// Extra interaction tiles not in placements.json (see report)
+// garden signpost by the east exit (no spot for it in placements.json)
 const EXTRA_SPOTS = {
-  garden: [{ id: 'sign_beach', x: 41, y: 24, kind: 'look' }],   // the signpost by the east exit on row 25
-  forest: [],
-  beach: [],
+  garden: [{ id: 'sign_beach', x: 41, y: 24, kind: 'look' }],
 };
-
-const NPC_SPEAKER = {}; // filled by dialogue.js (npc id → name tab)

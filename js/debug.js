@@ -1,7 +1,8 @@
 // ═══════════════════════════════════════════════════════════════
 //  DEBUG (?debug=1) — collision grid, spot/exit tiles, item keys, teleports
-//    F1 beach items · F2 forest items · F3 garden: note + fragments 01 & 28 · F4 all four fragments
-//    URL: &map=beach&x=23&y=47  (jump straight in) · &fresh=1 (new state) · &mini=Whack|Sled
+//    F1 beach items · F2 forest items · F3 blossom items · F4 plains items (each area's keepsake included)
+//    Buttons: all four fragments + 24 flowers (to try the gate and the ending), teleports, minigames
+//    URL: &map=beach&x=23&y=47  (jump straight in) · &fresh=1 (new state) · &grid=0 · &mini=Whack|Sled|Sleeves|Shuffle
 // ═══════════════════════════════════════════════════════════════
 const Debug = {
   params: new URLSearchParams(location.search),
@@ -50,17 +51,25 @@ const Debug = {
     el.classList.remove('hidden');
     el.innerHTML = '<div id="dbg-pos"></div><div id="dbg-maps"></div><div id="dbg-mini"></div><div id="dbg-misc"></div>';
     const add = (box, label, fn) => { const b = document.createElement('button'); b.textContent = label; b.onclick = e => { e.currentTarget.blur(); fn(); }; document.getElementById(box).appendChild(b); };
-    add('dbg-maps', 'Cabin', () => Game.goto('cabin', 'spawn'));
+    INTERIORS.forEach(r => add('dbg-maps', r, () => Game.goto('interior:' + r, 'arrive')));
     const pl = window.game.cache.json.get('placements').maps;
     MAPS.forEach(m => Object.keys(pl[m].arrivals).forEach(a => add('dbg-maps', m + ':' + a, () => Game.goto(m, a))));
-    add('dbg-mini', 'Whack', () => scene.minigame('Whack'));
-    add('dbg-mini', 'Sled', () => scene.minigame('Sled'));
+    SCENIC.forEach(m => add('dbg-maps', m, () => Game.goto(m, m === 'wedding' ? 'jana_start' : 'start')));
+    ['Whack', 'Sled', 'Sleeves', 'Shuffle'].forEach(k => add('dbg-mini', k, () => scene.minigame(k)));
     add('dbg-mini', 'Gate panel', () => Gate.open());
+    add('dbg-mini', 'Letter', () => ClosingLetter.show());
+    add('dbg-mini', 'Credits', () => Credits.roll());
     add('dbg-misc', 'grid', () => { this.showGrid = !this.showGrid; this.grid.setVisible(this.showGrid); });
     add('dbg-misc', 'F1', () => this.fkey('f1', scene));
     add('dbg-misc', 'F2', () => this.fkey('f2', scene));
     add('dbg-misc', 'F3', () => this.fkey('f3', scene));
     add('dbg-misc', 'F4', () => this.fkey('f4', scene));
+    add('dbg-misc', '4 fragments + 24 flowers', () => {
+      G.setFlag('note_read'); G.give('note');
+      ['01', '28', '26', '20'].forEach(f => G.setFlag('fragment_' + f));
+      NOTE_ORDER.forEach(f => G.give(f));
+      G.s.flowers = Array.from({ length: 24 }, (_, i) => i + 1); HUD.refresh(); G.save();
+    });
     add('dbg-misc', 'reset save', () => { G.reset(); location.reload(); });
   },
 
@@ -73,13 +82,12 @@ const Debug = {
     const sets = {
       f1: ['bottle', 'shell', 'glasses', 'keychain'],
       f2: ['fish', 'carrot', 'kindling', 'bandaid'],
-      f3: ['note', 'fragment_phoebe', 'fragment_gilmour'],
-      f4: ['note', 'fragment_phoebe', 'fragment_gilmour', 'fragment_spike', 'fragment_calabar'],
+      f3: ['seed', 'key', 'tea', 'needle', 'vinyl'],
+      f4: ['ember', 'fireflies', 'flask', 'water', 'vases'],
     };
-    if (k === 'f3' || k === 'f4') { G.setFlag('note_read'); }
-    if (k === 'f3') { G.setFlag('phoebe_won'); G.setFlag('gilmour_won'); }
     sets[k].forEach(i => { if (G.give(i)) HUD.popup('Got', i); });
-    Snd.chimeGot();
+    Snd.got();
     G.save();
   },
+
 };

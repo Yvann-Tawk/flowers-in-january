@@ -1,0 +1,257 @@
+{
+ "note": "Image props drawn after the tile layers; x,y = pixel bottom-left. depth 'ysort' sorts with characters, 'floor' draws under them.",
+ "props": [
+  {
+   "id": "aisle_top",
+   "png": "props/aisle_top.png",
+   "x": 352,
+   "y": 224,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_7",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 256,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_8",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 288,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_9",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 320,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_10",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 352,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_11",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 384,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_12",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 416,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_13",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 448,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_14",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 480,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_15",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 512,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_16",
+   "png": "props/aisle_mid.png",
+   "x": 352,
+   "y": 544,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "aisle_bottom",
+   "png": "props/aisle_bottom.png",
+   "x": 352,
+   "y": 576,
+   "tw": 1,
+   "th": 1,
+   "depth": "floor"
+  },
+  {
+   "id": "altar_arch",
+   "png": "props/altar_arch.png",
+   "x": 320,
+   "y": 192,
+   "tw": 3,
+   "th": 3,
+   "depth": "ysort"
+  },
+  {
+   "id": "bunting_5",
+   "png": "props/bunting_l.png",
+   "x": 160,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_6",
+   "png": "props/bunting_m.png",
+   "x": 192,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_7",
+   "png": "props/bunting_m.png",
+   "x": 224,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_8",
+   "png": "props/bunting_m.png",
+   "x": 256,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_9",
+   "png": "props/bunting_m.png",
+   "x": 288,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_10",
+   "png": "props/bunting_m.png",
+   "x": 320,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_11",
+   "png": "props/bunting_m.png",
+   "x": 352,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_12",
+   "png": "props/bunting_m.png",
+   "x": 384,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_13",
+   "png": "props/bunting_m.png",
+   "x": 416,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_14",
+   "png": "props/bunting_m.png",
+   "x": 448,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_15",
+   "png": "props/bunting_m.png",
+   "x": 480,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_16",
+   "png": "props/bunting_m.png",
+   "x": 512,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "bunting_17",
+   "png": "props/bunting_r.png",
+   "x": 544,
+   "y": 128,
+   "tw": 1,
+   "th": 1,
+   "depth": "above"
+  },
+  {
+   "id": "food_stall",
+   "png": "props/food_stall_open.png",
+   "x": 544,
+   "y": 512,
+   "tw": 3,
+   "th": 3,
+   "depth": "ysort"
+  },
+  {
+   "id": "vase_table",
+   "png": "props/vase_table_2x2.png",
+   "x": 96,
+   "y": 512,
+   "tw": 2,
+   "th": 2,
+   "depth": "ysort"
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "atlas_image": "tileset.png",
+ "atlas_json": "atlas.json",
+ "note": "Draw after the tile layers. x,y are pixel coords of each frame's bottom-left corner. depth 'wall' = just above the Walls layer; 'ysort' = sort with Jana by y. 'anim' frames loop at fps.",
+ "props": [
+  {
+   "frame": "painting_landscape",
+   "x": 64,
+   "y": 70,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "hanging_lantern",
+   "x": 256,
+   "y": 68,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "wall_clock",
+   "x": 192,
+   "y": 70,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "bed_single_red",
+   "x": 32,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "bedside_candle",
+   "x": 64,
+   "y": 128,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "fireplace_f1",
+   "x": 128,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left",
+   "anim": [
+    "fireplace_f1",
+    "fireplace_f2",
+    "fireplace_f3"
+   ],
+   "fps": 6
+  },
+  {
+   "frame": "firewood_stack",
+   "x": 96,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "log_basket",
+   "x": 192,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "chest",
+   "x": 288,
+   "y": 128,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "table_small",
+   "x": 256,
+   "y": 224,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "chair_side_red",
+   "x": 224,
+   "y": 224,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "plant_pot",
+   "x": 288,
+   "y": 256,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "bookshelf",
+   "x": 32,
+   "y": 256,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  }
+ ]
+}

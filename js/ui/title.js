@@ -27,7 +27,7 @@ const Title = {
     render();
     const choose = act => { pop(); m.classList.add('hidden'); if (act === 'continue') this.cont(); else this.newGame(); };
     const pop = Input.push({ onKey: name => {
-      if (name === 'up' || name === 'down') { sel = 1 - sel; render(); Snd.blipSoft(); }
+      if (name === 'up' || name === 'down') { sel = 1 - sel; render(); Snd.tick(); }
       else if (name === 'act') choose(btns[sel].dataset.act);
     } });
     btns.forEach(b => b.onclick = () => choose(b.dataset.act));
@@ -57,11 +57,13 @@ const Title = {
       const el = document.getElementById('intro');
       el.classList.remove('hidden', 'out');
       let ready = false;
-      INTRO_LINES.forEach((txt, i) => {
+      // the opening lines (spreadsheet: Garden / Opening), on the original intro screen
+      const INTRO = Lines.rows('Garden', 'Opening', 'intro').map(r => r.line);
+      INTRO.forEach((txt, i) => {
         const l = document.getElementById('il' + i);
         if (l) { l.textContent = txt; l.classList.remove('on'); setTimeout(() => l.classList.add('on'), 600 + i * 2500); }
       });
-      setTimeout(() => { document.getElementById('il_skip').classList.add('on'); ready = true; }, 600 + INTRO_LINES.length * 2500);
+      setTimeout(() => { document.getElementById('il_skip').classList.add('on'); ready = true; }, 600 + INTRO.length * 2500);
       const go = () => {
         if (!ready) return;
         pop(); el.removeEventListener('pointerdown', go);

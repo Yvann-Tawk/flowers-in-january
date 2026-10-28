@@ -2,63 +2,43 @@
 //  NOWHERE BEACH (Phoebe) — flowers #1–#6
 // ═══════════════════════════════════════════════════════════════
 (() => {
-  const D = DLG.beach;
+  const A = 'Beach';
 
   Story.handlers.beach = {
     async enter() {
-      if (!G.flag('beach_arrived')) { G.setFlag('beach_arrived'); await Story.run(D.arrival); }
+      if (!G.flag('beach_arrived')) { G.setFlag('beach_arrived'); Snd.newArea(); await Story.run(L(A, 'Arrival', 'first time')); }
     },
 
     npc: {
       // A — task: catch a fish (done runs right after the catch, or on the next talk)
-      beach_A: () => Story.character('beach_A', D.beach_A, () => G.flag('caught_beach')),
+      beach_A: () => Story.character('beach_A', A, 'Old fisherman', () => G.flag('caught_beach')),
 
       // B — talking: everything on the first talk
       async beach_B() {
-        if (G.flag('done_beach_B')) return Story.run(D.beach_B.after);
+        if (G.flag('done_beach_B')) return Story.run(L(A, 'Kid with a sandcastle', 'after'));
         G.setFlag('done_beach_B');
-        return Story.run(D.beach_B.first);
+        return Story.run(L(A, 'Kid with a sandcastle', 'first'));
       },
 
       // C — needs the Big shell
-      beach_C: () => Story.character('beach_C', D.beach_C, () => G.has('shell')),
+      beach_C: () => Story.character('beach_C', A, 'Guinea pig', () => G.has('shell')),
 
       // D — needs the guinea pig's info; gives the glasses and reveals the dig spot
       async beach_D() {
-        if (!G.flag('owl_unlocked')) return Story.run(D.beach_D.before);
-        if (G.flag('dug_dig_owl')) return Story.run(D.beach_D.after);
+        if (!G.flag('owl_unlocked')) return Story.run(L(A, 'Owl', 'before info'));
+        if (G.flag('dug_dig_owl')) return Story.run(L(A, 'Owl', 'after'));
         const n = G.talk('beach_D');
-        if (n === 1) return Story.run(D.beach_D.first);
-        return Story.run(D.beach_D.hint[n === 2 ? 0 : 1]);
+        return Story.run(L(A, 'Owl', n === 1 ? 'first' : n === 2 ? 'hint 1' : 'hint 2'));
       },
 
       // E — needs Old bottle + Borrowed glasses; hints follow what Jana holds
-      beach_E: () => Story.character('beach_E', D.beach_E, () => G.has('bottle') && G.has('glasses'), {
+      beach_E: () => Story.character('beach_E', A, 'Bottle collector', () => G.has('bottle') && G.has('glasses'), {
         hint() {
           const b = G.has('bottle'), g = G.has('glasses');
-          if (!b && !g) return { lines: D.beach_E.hint_none };
-          return { lines: D.beach_E.hint_one, vars: { missing: b ? 'glasses' : 'bottle', ask: b ? 'owl' : 'fisherman' } };
+          if (!b && !g) return { state: 'hint 1' };
+          return { state: 'hint 2', vars: { missing: b ? 'glasses' : 'bottle', who: b ? 'owl' : 'fisherman' } };
         },
       }),
-
-      // Phoebe — guardian
-      async phoebe(scene) {
-        const P = D.phoebe;
-        if (G.flag('phoebe_won')) return Story.run(P.after);
-        if (G.flag('phoebe_challenge')) { await Story.run(P.retry); return Story.handlers.beach.whack(scene); }
-        if (G.has('keychain')) {
-          await Story.run(P.with);
-          if (Story.takeMinigame() === 'whack') return Story.handlers.beach.whack(scene);
-          return;
-        }
-        return Story.rotate('phoebe', P.without);
-      },
-    },
-
-    async whack(scene) {
-      const res = await scene.minigame('Whack');
-      if (res === 'win') await Story.run(D.phoebe.win);
-      else await Story.run(D.phoebe.retry);
     },
 
     spot: {
@@ -76,13 +56,13 @@
         async use(scene, spot) {
           await Dig.play(scene, spot, 0xe9d7a4);
           G.setFlag('dug_dig_owl');
-          return Story.run(D.beach_D.dig);
+          return Story.run(L(A, 'Dig spot (owl)', 'dig'));
         },
       },
       bean_bag_sit: {
         async use(scene) {
           let sat = null;
-          await Story.still(D.bean_bag_sit,
+          await Story.still(L(A, 'Bean bags', 'sit'),
             () => {
               scene.player.spr.setVisible(false);
               const bb = scene.wmap.props.bean_bags;
@@ -91,7 +71,14 @@
             () => { scene.player.spr.setVisible(true); if (sat) sat.destroy(); });
         },
       },
-      stall_sign: { use: () => Story.run(D.stall_sign) },
+      stall_sign: () => Story.run(L(A, 'Food stall', 'look')),
+    },
+  };
+
+  // Phoebe waits inside the harbour inn
+  Story.handlers['interior:beach_hut'] = {
+    npc: {
+      phoebe: sc => Guardian.talk(sc, { id: 'phoebe', area: A, scene: 'Phoebe', keepsake: 'keychain', winFlag: 'fragment_01', rotate: true, minigame: 'whack_a_phoebe' }),
     },
   };
 })();

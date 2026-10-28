@@ -14,8 +14,21 @@ const SHEETS = {
   'characters/forest_D.png': { kind: 'creature', fw: 48, fh: 48 },
   'characters/forest_C.png': { kind: 'creature', fw: 72, fh: 72 },
   'characters/beach_D.png':  { kind: 'creature', fw: 96, fh: 48, cols: 6 },
+  'characters/blossoms_A.png': { kind: 'lpc' },
+  'characters/blossoms_B.png': { kind: 'lpc' },
+  'characters/blossoms_C.png': { kind: 'lpc' },
+  'characters/blossoms_E.png': { kind: 'lpc' },
+  'characters/blossoms_D.png': { kind: 'creature', fw: 48, fh: 48 },   // tortoise
+  'characters/plains_A.png':   { kind: 'lpc' },
+  'characters/plains_B.png':   { kind: 'lpc' },
+  'characters/plains_E.png':   { kind: 'lpc' },
+  'characters/plains_C.png':   { kind: 'creature', fw: 48, fh: 48 },   // butterfly
+  'characters/plains_D.png':   { kind: 'creature', fw: 52, fh: 52 },   // fox
+  'characters/eevie.png':      { kind: 'lpc' },
   'animals/phoebe.png':      { kind: 'animal' },
   'animals/gilmour.png':     { kind: 'animal' },
+  'animals/spike.png':       { kind: 'animal' },
+  'animals/calabar.png':     { kind: 'animal' },
 };
 const LPC_FOOT = 62 / 64;   // feet line inside a 64×64 LPC frame
 const ROD_FOOT = 95 / 128;  // feet line inside a 128×128 rod frame
@@ -28,6 +41,8 @@ const Actors = {
     // fishermen sheets are loaded as plain images; their rod frames live below the LPC block
     ['characters/beach_A.png', 'characters/forest_A.png'].forEach(k => {
       const tex = scene.textures.get(k);
+      // their plain standing frames (wedding guests): walk rows, column 0
+      ['up', 'left', 'down', 'right'].forEach(d => tex.add('stand_' + d, 0, 0, LPC.walk[d] * 64, 64, 64));
       for (let r = 0; r < 4; r++) for (let c = 0; c < 13; c++)
         tex.add('rod_' + r + '_' + c, 0, c * 128, 3456 + r * 128, 128, 128);
     });
@@ -57,17 +72,21 @@ const Actors = {
       }
     });
     // animals: Phoebe idles facing down (row 2), Gilmour has still poses
-    A.create({ key: 'phoebe:idle', frames: A.generateFrameNumbers('animals/phoebe.png', { frames: [8, 9, 10] }), frameRate: 2.5, repeat: -1 });
+    ['phoebe', 'spike', 'calabar'].forEach(a =>
+      A.create({ key: a + ':idle', frames: A.generateFrameNumbers('animals/' + a + '.png', { frames: [8, 9, 10] }), frameRate: a === 'calabar' ? 1.2 : 2.5, repeat: -1 }));
   },
 
   // create an NPC from a placements.json entry
-  create(scene, npc) {
+  create(scene, npc, opts = {}) {
     const sh = SHEETS[npc.sheet] || { kind: 'lpc' };
     const cx = npc.x * TILE + TILE / 2;
     const feet = npc.y * TILE + TILE / 2 + FOOT_Y;
     let spr;
     const face = npc.face || 'down';
-    if (sh.kind === 'fisher') {
+    if (sh.kind === 'fisher' && opts.guest) {
+      spr = scene.add.sprite(cx, feet, npc.sheet, 'stand_' + face).setOrigin(0.5, LPC_FOOT);
+      spr.guest = true;
+    } else if (sh.kind === 'fisher') {
       spr = scene.add.sprite(cx, feet, npc.sheet, 'rod_' + ROD.dirs[face] + '_' + ROD.loop[0]).setOrigin(0.5, ROD_FOOT);
       spr.play(npc.sheet + ':rod_' + face);
     } else if (sh.kind === 'lpc') {
@@ -97,6 +116,7 @@ const Actors = {
   face(spr, dir) {
     if (!spr || !dir) return;
     const k = spr.npc.sheet;
+    if (spr.guest && spr.sheetKind === 'fisher') { spr.setFrame('stand_' + dir); return; }
     if (spr.sheetKind === 'lpc' || spr.sheetKind === 'creature') spr.play(k + ':idle_' + dir, true);
   },
   restore(spr) { this.face(spr, spr.face); },

@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════════
 const Dialog = {
   CPS: 40,            // characters per second
-  BLIP_EVERY: 3,      // talk.mp3 every few letters
+  BLIP_EVERY: 3,      // dialogue.wav every 3rd letter (never stacked)
   isOpen: false,
   _pop: null,
 
@@ -23,12 +23,13 @@ const Dialog = {
   // "Speaker: text" → {who, text}; "> text" → narration
   parse(line, vars) {
     let who = null, text = line;
-    if (line.startsWith('>')) text = line.replace(/^>\s*/, '');
+    if (typeof line === 'object') { who = line.who || null; text = line.text; }
+    else if (line.startsWith('>')) text = line.replace(/^>\s*/, '');
     else {
       const i = line.indexOf(': ');
       if (i > 0) { who = line.slice(0, i); text = line.slice(i + 2); }
     }
-    if (vars) text = text.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+    if (vars) text = String(text).replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
     return { who, text };
   },
 
@@ -69,13 +70,14 @@ const Dialog = {
         if (i >= chars.length) { this._finishTyping(); return; }
         const c = chars[i++];
         e.body.textContent += c;
-        if (c !== ' ' && ++since >= this.BLIP_EVERY) { since = 0; Snd.sfx('talk', 0.25); }
+        if (c !== ' ' && ++since >= this.BLIP_EVERY) { since = 0; Snd.blip(); }
       }, 1000 / this.CPS);
     });
   },
   _finishTyping() {
     clearInterval(this._timer);
     this.typing = false;
+    Snd.blipStop();
     this.els().body.textContent = this._full;
     this.els().next.classList.add('on');
   },

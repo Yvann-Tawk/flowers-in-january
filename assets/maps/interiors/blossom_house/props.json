@@ -1,0 +1,91 @@
+{
+ "atlas_image": "tileset.png",
+ "atlas_json": "atlas.json",
+ "note": "Draw after the tile layers. x,y are pixel coords of each frame's bottom-left corner. depth 'wall' = just above the Walls layer; 'ysort' = sort with Jana by y. 'anim' frames loop at fps.",
+ "props": [
+  {
+   "frame": "scroll_sakura",
+   "x": 96,
+   "y": 96,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "hanging_lantern",
+   "x": 320,
+   "y": 68,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "folding_screen",
+   "x": 32,
+   "y": 192,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "futon",
+   "x": 32,
+   "y": 288,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "chabudai",
+   "x": 160,
+   "y": 224,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "zabuton_red",
+   "x": 160,
+   "y": 256,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "zabuton_pink",
+   "x": 192,
+   "y": 256,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "zabuton_teal",
+   "x": 160,
+   "y": 192,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "record_shelf",
+   "x": 288,
+   "y": 192,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "dresser",
+   "x": 288,
+   "y": 288,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "ikebana",
+   "x": 352,
+   "y": 128,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "bonsai",
+   "x": 128,
+   "y": 128,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  }
+ ]
+}

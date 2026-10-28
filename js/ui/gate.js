@@ -1,8 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 //  GATE PANEL — four sign sockets + DAY / MONTH / YEAR (cipher in STORY.md)
-//  Only reachable with all four fragments; this build has two, so the story
-//  shows the "To be continued" card instead. The logic is complete and testable
-//  in debug mode (F4 gives all four fragments).
+//  Opens once all four fragments are held (Garden / The gate / all fragments).
 // ═══════════════════════════════════════════════════════════════
 const Gate = {
   SLOT_X: [37, 108, 179, 250], SLOT_Y: 33,
@@ -21,7 +19,7 @@ const Gate = {
     this.f = 0;
     this.render();
     ov.classList.add('open');
-    Snd.gateClunk();
+    Snd.tick();
     return new Promise(resolve => {
       this._done = solved => { ov.classList.remove('open'); pop(); resolve(!!solved); };
       const pop = Input.push({ onKey: (name, ev) => this.key(name, ev) });
@@ -29,6 +27,7 @@ const Gate = {
   },
 
   key(name, ev) {
+    if (this.busy) return;
     const F = this.FIELDS[this.f];
     let v = this.vals[F.id];
     if (name === 'back') return this._done(false);
@@ -46,7 +45,7 @@ const Gate = {
       this.vals[F.id] = v.slice(0, -1) + d;
     } else if (name === 'act') return this.submit();
     else return;
-    Snd.blipSoft();
+    Snd.tick();
     this.render();
   },
 
@@ -56,16 +55,22 @@ const Gate = {
       this.vals.month.padStart(2, '0') === GATE_ANSWER.month && this.vals.year === GATE_ANSWER.year;
     if (ok) {
       G.setFlag('gate_open'); G.save();
-      Snd.gateClunk();
+      Snd.unlock();
       setTimeout(() => this._done(true), 500);
       return;
     }
     if (all) G.s.gateWrong++;
     G.save();
-    Snd.gateWrong();
+    this.f = 0;   // back to DAY for the next try
+    Snd.lose();
     const p = document.getElementById('gate-panel');
     p.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-8px)' }, { transform: 'translateX(8px)' }, { transform: 'translateX(0)' }], { duration: 260 });
-    this.render();
+    // the spreadsheet's answer lines, shown over the panel ("The gate doesn't move." / the signs light up)
+    this.busy = true;
+    const dlg = document.getElementById('dlg');
+    dlg.classList.add('over');
+    Story.hooks.sign_slots = () => { G.setFlag('gate_signs'); this.render(); };
+    Story.run(GateLines.wrong(G.s.gateWrong)).then(() => { dlg.classList.remove('over'); this.busy = false; this.render(); });
   },
 
   render() {
@@ -86,7 +91,7 @@ const Gate = {
       slots.appendChild(s);
     });
     // fields (after three wrong attempts: the four signs as empty slots above them, in note order)
-    const showHint = G.s.gateWrong >= 3;
+    const showHint = G.flag('gate_signs');
     const fields = document.getElementById('gate-fields');
     fields.innerHTML = '';
     this.FIELDS.forEach((F, i) => {
@@ -115,28 +120,5 @@ const Gate = {
       fields.appendChild(w);
     });
     document.getElementById('gate-msg').textContent = 'E: try the gate · Esc: step back';
-  },
-};
-
-// Soft full-screen card ("To be continued.")
-const Card = {
-  show(text, ms = 2600) {
-    const c = document.getElementById('card');
-    document.getElementById('card-text').textContent = text;
-    c.classList.add('open');
-    void c.offsetWidth;
-    c.classList.add('show');
-    return new Promise(resolve => {
-      let done = false;
-      const pop = Input.push({ onKey: () => { if (performance.now() - t0 > 900) finish(); } });
-      const t0 = performance.now();
-      const finish = () => {
-        if (done) return; done = true; pop();
-        c.classList.remove('show');
-        setTimeout(() => { c.classList.remove('open'); resolve(); }, 1000);
-      };
-      c.onclick = () => { if (performance.now() - t0 > 900) finish(); };
-      setTimeout(finish, ms + 1000);
-    });
   },
 };

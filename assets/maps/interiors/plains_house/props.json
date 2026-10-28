@@ -1,0 +1,104 @@
+{
+ "atlas_image": "tileset.png",
+ "atlas_json": "atlas.json",
+ "note": "Draw after the tile layers. x,y are pixel coords of each frame's bottom-left corner. depth 'wall' = just above the Walls layer; 'ysort' = sort with Jana by y. 'anim' frames loop at fps.",
+ "props": [
+  {
+   "frame": "potion_shelf",
+   "x": 64,
+   "y": 72,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "star_chart",
+   "x": 128,
+   "y": 70,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "vase_shelf",
+   "x": 288,
+   "y": 72,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "potion_shelf_2",
+   "x": 320,
+   "y": 72,
+   "depth": "wall",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "fireplace_f1",
+   "x": 192,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left",
+   "anim": [
+    "fireplace_f1",
+    "fireplace_f2",
+    "fireplace_f3"
+   ],
+   "fps": 6
+  },
+  {
+   "frame": "velvet_armchair",
+   "x": 128,
+   "y": 192,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "crystal_ball_table",
+   "x": 192,
+   "y": 256,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "candelabra",
+   "x": 32,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "bed_plum",
+   "x": 32,
+   "y": 256,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "bookshelf",
+   "x": 288,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "grandfather_clock",
+   "x": 352,
+   "y": 160,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "cat_bed",
+   "x": 320,
+   "y": 288,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  },
+  {
+   "frame": "sofa_velvet",
+   "x": 288,
+   "y": 224,
+   "depth": "ysort",
+   "anchor": "bottom-left"
+  }
+ ]
+}

@@ -1,0 +1,1739 @@
+{
+"width": 50,
+"height": 51,
+"legend": "solid rows: '#' blocked, '.' walkable; above rows: '^' = draw this cell's tiles over the player",
+"solid": [
+"..................................................",
+"##################################################",
+"##################################################",
+"##.......#......................................##",
+"##..............#......#........................##",
+"##................#........#..#..#..#..#..#...#.##",
+"##.........................#####..#####..#####..##",
+"##.##...........#..#...#...#####..#####..#####..##",
+"##....#..#...#.............#####..#####..#####..##",
+"##.........................#####..#####..#####..##",
+"##.....#...#...............#####.######.######..##",
+"##..#...........#..#..#..#......................##",
+"##....####......................#...............##",
+"###...####....#.............#.........#.........##",
+"##....####.......###...###.......#...........#..##",
+"##....####....................#........#....#...##",
+"##...................................#..........##",
+"##...........................................##.##",
+"###...####.......###...###............#.........##",
+"##....####....#.............#...#........#......##",
+"##....####......................................##",
+"##....####...##.......#..............#.......#..##",
+"................................................##",
+"##..............................................##",
+"###.........####.........#..#...................##",
+"##..........####....................#...........##",
+"##...#.#....####..........................#.....##",
+"##......#..#####.#...#...........#..#...........##",
+"##.......................#.##...........##......##",
+"##...........###.................#...........#..##",
+"###......#...###..................#######.......##",
+"##...........###...####........#..#######.......##",
+"##.................####..#..#.....#######.......##",
+"##....#............####....#......#######.......##",
+"##.........#.......####........#..#######.......##",
+"###...#...........#####...........#######.....#.##",
+"##..#...#.....#..........####.#..#..#...........##",
+"##.........................................#....##",
+"##..............................................##",
+"##..........................#.#......#..........##",
+"##..............................................##",
+"##...#####.#####.#####............#.....#.......##",
+"##..###################.....#.#...##..........#.##",
+"##...#####.#####.#####...............#..........##",
+"##...#####.#####.#####....#.....................##",
+"##..........#....#..........#....#..........#...##",
+"##..............................................##",
+"##.....................................#........##",
+"##........#..............#..........#........#..##",
+"##################################################",
+"##################################################"
+],
+"above": [
+"........^^^.......................................",
+"...^^...^^^...^^^....^^^..........................",
+"...^^...^^^...^^^....^^^..^^^^^^^^^^^^^^^^^^^^^...",
+"...^^.........^^^....^^^..^^^^^^^^^^^^^^^^^^^^^...",
+"...^^.........^......^....^^^^^^^^^^^^^^^^^^^^^...",
+"...^^..^^^..^^^...........^.^^.^^.^^.^^.^^.^^.....",
+"...^^..^^^..^^^...............................^^^.",
+".......^^^..^^^.................^^^....^^^....^^^.",
+".......^.......^^^^^^^^^^^^.....^^^....^^^....^^^.",
+"...............^^^^^^^^^^^^.....^^^....^^^....^...",
+".^^^^........^^^^^^^^^^^^^^^^^..^.^....^.^........",
+".^^^.........^^^...........^^^....................",
+".^^^.........^^^...........^^^....................",
+".................^^^...^^^........................",
+"..............................^.............^.....",
+".....................................^............",
+".............^^^...........^^^....................",
+"..^..........^^^...........^^^....................",
+".............^^^...........^^^....................",
+"..................................................",
+".............^^.......^..............^.......^....",
+".^^^....................^^.^^.....................",
+".^^^....................^^^^^.....................",
+".^^^..^^^...............^^^^^...........^^^.......",
+"......^^^.^^....^^.......^^....^^^......^^^.......",
+"......^^^.^^....^^......^^^^^..^^^......^^^.......",
+"........^.^^....^^...^..^^^^^..^^^......^...^^^...",
+"........................^^^^^..^........^^..^^^...",
+"............................................^^^...",
+"..^.....................^^.^^.....................",
+"........................^^^^^.....................",
+".........^^^............^^^^^.....................",
+".^^^.....^^^.....^^.......^^.................^^^..",
+".^^^.....^^^.....^^.....^^.^^................^^^..",
+".^^^.....^....^..^^.....^^.^^.............^^^^^^..",
+"....^...^.....^.........^^^^^.^..^........^^^.....",
+"..........................................^^^.....",
+"............................^^^...................",
+"............................^^^.^^^....^^^........",
+"...^^^...^^^...^^^...^^^.....^..^^^....^^^..^^^...",
+"...^^^...^^^...^^^...^^^....^^^.^^^....^^^..^^^...",
+"...^^^...^^^...^^^...^^^.^^^^^^.^...........^^^...",
+"..........^^....^^.......^^^.^.............^^^....",
+"..........^^....^^.......^^^...............^^^....",
+"..........^^^...^^..........^........^^^...^^^....",
+".........^^^............^^^........^^^^^..........",
+".........^^^............^^^........^^^^^..........",
+".........^^^............^^^........^^^............",
+"..................................................",
+"..................................................",
+".................................................."
+],
+"overlays": [
+{
+"x": 3,
+"y": 22,
+"atlas": "dark_plains_village",
+"frame": "trail_earth_nesw",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+},
+{
+"x": 2,
+"y": 22,
+"atlas": "dark_plains_village",
+"frame": "trail_earth_ew",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+},
+{
+"x": 1,
+"y": 22,
+"atlas": "dark_plains_village",
+"frame": "trail_earth_ew",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+},
+{
+"x": 0,
+"y": 22,
+"atlas": "dark_plains_village",
+"frame": "trail_earth_ew",
+"note": "path extension for an exit; draw above the map's ground/path layers, below objects"
+}
+],
+"tiles_by_gid": {
+"115": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"118": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"121": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"122": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"124": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"128": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"203": {
+"asset": "mist",
+"solid": false,
+"above": true,
+"kind": "detail"
+},
+"207": {
+"asset": "signpost",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"208": {
+"asset": "signpost",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"220": {
+"asset": "market_stall",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"221": {
+"asset": "market_stall",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"222": {
+"asset": "market_stall",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"231": {
+"asset": "lamp_glow",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"268": {
+"asset": "crystal_ball_table",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"269": {
+"asset": "well",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"270": {
+"asset": "well",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"271": {
+"asset": "well",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"272": {
+"asset": "well",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"273": {
+"asset": "cart",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"274": {
+"asset": "cart",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"275": {
+"asset": "cart",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"276": {
+"asset": "cart",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"277": {
+"asset": "standing_stone_tall",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"278": {
+"asset": "standing_stone_tall",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"279": {
+"asset": "standing_stone_tall",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"280": {
+"asset": "notice_board",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"281": {
+"asset": "notice_board",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"282": {
+"asset": "notice_board",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"283": {
+"asset": "notice_board",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"284": {
+"asset": "ruined_arch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"285": {
+"asset": "ruined_arch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"286": {
+"asset": "ruined_arch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"287": {
+"asset": "ruined_arch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"288": {
+"asset": "ruined_arch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"289": {
+"asset": "ruined_arch",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"290": {
+"asset": "ruined_arch",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"291": {
+"asset": "ruined_arch",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"292": {
+"asset": "bog_f3_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"293": {
+"asset": "bog_f3_t",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"294": {
+"asset": "bog_f3_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"295": {
+"asset": "bog_f3_l",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"296": {
+"asset": "bog_f3",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"297": {
+"asset": "bog_f3_r",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"298": {
+"asset": "bog_f3_bl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"299": {
+"asset": "bog_f3_b",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"300": {
+"asset": "bog_f3_br",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"301": {
+"asset": "scarecrow",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"302": {
+"asset": "scarecrow",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"303": {
+"asset": "lamp_glow",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"304": {
+"asset": "market_stall",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"305": {
+"asset": "market_stall",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"306": {
+"asset": "market_stall",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"307": {
+"asset": "crate",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"308": {
+"asset": "crate_crystals",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"309": {
+"asset": "dusk_pine",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"310": {
+"asset": "dusk_pine",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"311": {
+"asset": "dusk_pine",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"312": {
+"asset": "dusk_pine",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"313": {
+"asset": "dusk_pine",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"314": {
+"asset": "dusk_pine",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"315": {
+"asset": "dusk_pine",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"316": {
+"asset": "dusk_pine",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"317": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"318": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"319": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"320": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"321": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"322": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"323": {
+"asset": "twisted_tree_small",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"324": {
+"asset": "twisted_tree_small",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"325": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"326": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"327": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"328": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"329": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"330": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"331": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"332": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"333": {
+"asset": "violet_tree",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"334": {
+"asset": "mist",
+"solid": false,
+"above": true,
+"kind": "detail"
+},
+"335": {
+"asset": "violet_tree",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"336": {
+"asset": "mist",
+"solid": false,
+"above": true,
+"kind": "detail"
+},
+"337": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"338": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"339": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"340": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"341": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"342": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"343": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"344": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"345": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"346": {
+"asset": "mist",
+"solid": false,
+"above": true,
+"kind": "detail"
+},
+"347": {
+"asset": "violet_tree_wide",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"348": {
+"asset": "violet_tree_wide",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"349": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"350": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"351": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"352": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"353": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"354": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"355": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"356": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"357": {
+"asset": "dusk_willow",
+"solid": false,
+"above": true,
+"kind": "tree"
+},
+"358": {
+"asset": "dusk_willow",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"359": {
+"asset": "dusk_willow",
+"solid": true,
+"above": false,
+"kind": "tree"
+},
+"360": {
+"asset": "dusk_willow",
+"solid": false,
+"above": false,
+"kind": "tree"
+},
+"361": {
+"asset": "vine_dusk",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"362": {
+"asset": "vine_dusk",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"363": {
+"asset": "mushrooms_violet",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"364": {
+"asset": "bramble",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"365": {
+"asset": "stump_dark",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"366": {
+"asset": "glowflowers",
+"solid": false,
+"above": false,
+"kind": "detail"
+},
+"367": {
+"asset": "log_dark",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"368": {
+"asset": "log_dark",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"369": {
+"asset": "trail_earth_ns",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"370": {
+"asset": "trail_earth_nes",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"371": {
+"asset": "trail_earth_ew",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"372": {
+"asset": "trail_earth_new",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"373": {
+"asset": "unknown_path_tile",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"374": {
+"asset": "trail_earth_nw",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"375": {
+"asset": "trail_earth_nesw",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"376": {
+"asset": "unknown_path_tile",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"377": {
+"asset": "unknown_path_tile",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"378": {
+"asset": "trail_earth_none",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"379": {
+"asset": "unknown_path_tile",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"380": {
+"asset": "cracked_earth",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"381": {
+"asset": "grass_earth_b",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"382": {
+"asset": "unknown_path_tile",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"383": {
+"asset": "grass_earth_tl",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"384": {
+"asset": "grass_earth_t",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"385": {
+"asset": "grass_earth_l",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"386": {
+"asset": "grass_earth_br",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"387": {
+"asset": "grass_earth_tr",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"388": {
+"asset": "grass_earth_r",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"389": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"390": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"391": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"392": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"393": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"394": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"395": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"396": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"397": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"398": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"399": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"400": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"401": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"402": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"403": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"404": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"405": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"406": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"407": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"408": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"409": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"410": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"411": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"412": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"413": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"414": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"415": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"416": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"417": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"418": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"419": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"420": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"421": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"422": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"423": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"424": {
+"asset": "bld_lantern_inn",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"425": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"426": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"427": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"428": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"429": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"430": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"431": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"432": {
+"asset": "watchtower",
+"solid": false,
+"above": true,
+"kind": "object"
+},
+"433": {
+"asset": "watchtower",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"434": {
+"asset": "watchtower",
+"solid": true,
+"above": false,
+"kind": "object"
+},
+"435": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"436": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"437": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"438": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"439": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"440": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"441": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"442": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"443": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"444": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"445": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"446": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"447": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"448": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"449": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"450": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"451": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"452": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"453": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"454": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"455": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"456": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"457": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"458": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"459": {
+"asset": "bld_apothecary",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"460": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"461": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"462": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"463": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"464": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"465": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"466": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"467": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"468": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"469": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"470": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"471": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"472": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"473": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"474": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"475": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"476": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"477": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"478": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"479": {
+"asset": "bld_stone_house",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"480": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"481": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"482": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"483": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"484": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"485": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"486": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"487": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"488": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"489": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"490": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"491": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"492": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"493": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"494": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"495": {
+"asset": "bld_fortune_teller",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"496": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"497": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"498": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"499": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"500": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"501": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"502": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"503": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"504": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"505": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"506": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"507": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"508": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"509": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"510": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"511": {
+"asset": "bld_crooked_cottage",
+"solid": true,
+"above": false,
+"kind": "building"
+},
+"512": {
+"asset": "dusk_grass_2",
+"solid": false,
+"above": false,
+"kind": "ground"
+},
+"513": {
+"asset": "bog_f1_r",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"514": {
+"asset": "bog_f1_in_br",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"515": {
+"asset": "bog_f1_in_tr",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"516": {
+"asset": "bog_f1_t",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"517": {
+"asset": "bog_f1_in_tl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"518": {
+"asset": "bog_f1_l",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"519": {
+"asset": "bog_f1_in_bl",
+"solid": true,
+"above": false,
+"kind": "water"
+},
+"520": {
+"asset": "bog_f1_b",
+"solid": true,
+"above": false,
+"kind": "water"
+}
+}
+}

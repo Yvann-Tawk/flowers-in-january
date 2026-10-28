@@ -14,7 +14,7 @@ function freshState() {
     swapped: {},        // two-state prop id → true (showing its `alt` image)
     whackRound: 0,      // whack-a-Phoebe rounds already won (progress is never lost)
     gateWrong: 0,       // wrong gate attempts
-    map: 'cabin', x: CABIN.spawn[0], y: CABIN.spawn[1], dir: CABIN.spawn[2],
+    map: 'interior:garden_cabin', x: 1, y: 5, dir: 'right',   // spawn_wake: by the bed
   };
 }
 

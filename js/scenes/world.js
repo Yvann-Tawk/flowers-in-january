@@ -1,10 +1,13 @@
 // ═══════════════════════════════════════════════════════════════
-//  WORLD SCENE — one scene for the cabin, garden, beach and forest
+//  WORLD SCENE — one scene for every map: outdoor areas, interiors, ending maps
 // ═══════════════════════════════════════════════════════════════
 class WorldScene extends Phaser.Scene {
   constructor() { super('World'); }
 
   init(data) {
+    // Phaser reuses this object when the scene restarts: clear everything a map may have left behind
+    Object.assign(this, { locked: false, ceremony: false, bouquet: null, ring: null, lighting: null, noteImg: null,
+      said: null, guests: [], gilmour: null, eevie: null, fixedCam: false, lastTile: null });
     this.mapKey = data.map;
     this.startPos = [data.x, data.y, data.dir || 'down'];
     this.from = data.from || null;
@@ -16,7 +19,7 @@ class WorldScene extends Phaser.Scene {
     this.handlers = Story.handlers[key] || {};
     this.wmap = new WorldMap(this, key);
     this.place = this.wmap.place;
-    this.cameras.main.setBackgroundColor(key === 'cabin' ? '#1a1008' : '#000000');
+    this.cameras.main.setBackgroundColor(this.wmap.kind === 'interior' ? '#120c0e' : '#000000');
 
     // NPCs (their tiles are solid)
     this.npcs = {};
@@ -28,28 +31,32 @@ class WorldScene extends Phaser.Scene {
 
     // Jana: never start inside something solid
     let [sx, sy, sd] = this.startPos;
-    if (this.wmap.blocked(sx, sy)) [sx, sy, sd] = this.fallbackStart();
+    if (this.wmap.blocked(sx, sy)) {
+      const near = this.nearestFree(sx, sy, 3);
+      if (near) [sx, sy] = near; else [sx, sy, sd] = this.fallbackStart();
+    }
     this.player = new Player(this, this.wmap, sx, sy, sd);
     G.beforeSave = () => {
       G.s.map = this.mapKey; G.s.x = this.player.tx; G.s.y = this.player.ty; G.s.dir = this.player.dir;
     };
 
-    // camera
+    // camera (rooms smaller than the screen are centred instead of followed)
     const cam = this.cameras.main;
     cam.setZoom(ZOOM).setRoundPixels(true);
-    cam.setBounds(0, 0, this.wmap.W * TILE, this.wmap.H * TILE);
-    cam.startFollow(this.player.spr, true, 1, 1, 0, -12);
+    this.layoutCamera();
+    this.scale.on('resize', this.layoutCamera, this);
+    this.events.once('shutdown', () => this.scale.off('resize', this.layoutCamera, this));
 
     // interaction targets + icon
     this.buildTargets();
     this.icon = this.add.image(0, 0, 'ui/interact_icon.png').setDepth(DEPTH.ICON).setVisible(false);
-    if (key === 'cabin') this.noteGlow = this.add.graphics().setDepth(DEPTH.GROUND_PROP + 1);
 
-    // music + HUD
-    if (key === 'cabin') { Snd.music('garden_theme', 0.15); Snd.setFire(true); }
-    else { Snd.music(AREAS[key].music, Snd.MUSIC_VOL); Snd.setFire(false); }
-    HUD.setArea(key === 'cabin' ? 'The Cabin' : AREAS[key].label);
+    // music (interiors keep their area's track) + fire loop + HUD
+    Snd.music(AREAS[areaOf(key)].music);
+    Snd.loop('fire', !!(this.place && this.place.audioLoop === 'fire'));
+    HUD.setArea(this.wmap.kind === 'interior' ? ROOM_LABELS[roomOf(key)] || '' : (AREAS[key] || {}).label || '');
     HUD.refresh();
+    if (this.handlers.setup) this.handlers.setup(this);
 
     Input.world = (name) => this.onKey(name);
     this.lastTile = this.player.tx + ',' + this.player.ty;
@@ -57,28 +64,43 @@ class WorldScene extends Phaser.Scene {
     if (Game._created) { const r = Game._created; Game._created = null; r(this); }
   }
 
-  fallbackStart() {
-    if (this.mapKey === 'cabin') return CABIN.spawn;
-    const a = this.place.arrivals;
-    return a.new_game || a.from_garden || Object.values(a)[0];
+  // closest walkable tile within r tiles (prefers the same row, then nearer columns)
+  nearestFree(x, y, r) {
+    for (let d = 1; d <= r; d++) for (const [dx, dy] of [[d, 0], [-d, 0], [0, d], [0, -d], [d, d], [-d, d], [d, -d], [-d, -d]])
+      if (!this.wmap.blocked(x + dx, y + dy)) return [x + dx, y + dy];
+    return null;
   }
 
-  // Gilmour asleep → sits up when he has the band-aid → asleep again after the race
+  fallbackStart() {
+    const a = this.place.arrivals;
+    return a.new_game || a.spawn_wake || a.arrive || a.from_garden || Object.values(a)[0];
+  }
+
+  layoutCamera() {
+    const cam = this.cameras.main, mw = this.wmap.W * TILE, mh = this.wmap.H * TILE;
+    const vw = this.scale.width / cam.zoom, vh = this.scale.height / cam.zoom;
+    cam.stopFollow();
+    cam.removeBounds();
+    if (mw <= vw && mh <= vh) { cam.centerOn(mw / 2, mh / 2); this.fixedCam = true; return; }
+    this.fixedCam = false;
+    cam.setBounds(0, 0, mw, mh);
+    cam.startFollow(this.player.spr, true, 1, 1, 0, -12);
+  }
+
+  // Gilmour asleep → sits up once he has the band-aid → asleep again after the race
   refreshNpcs() {
     const gil = this.npcs.gilmour;
-    if (gil) gil.setFrame(G.flag('gilmour_awake') && !G.flag('gilmour_won') ? 8 : 3);
-    const ph = this.npcs.phoebe;
-    if (ph && !ph.anims.isPlaying) ph.play('phoebe:idle');
+    if (gil) gil.setFrame(G.flag('gilmour_challenge') && !G.flag('fragment_28') ? 8 : 3);
+    ['phoebe', 'spike', 'calabar'].forEach(id => {
+      const a = this.npcs[id];
+      if (a && !a.anims.isPlaying) a.play(id + ':idle');
+    });
   }
 
   // ── interaction targets ─────────────────────────────────────
   buildTargets() {
     const T = this.targets = [];
     const P = this.place;
-    if (this.mapKey === 'cabin') {
-      T.push({ type: 'note', tile: [CABIN.note.x, CABIN.note.y] });
-      return;
-    }
     P.npcs.forEach(n => T.push({ type: 'npc', id: n.id, tile: [n.x, n.y], from: n.talk_from || null, spr: this.npcs[n.id] }));
     P.spots.concat(EXTRA_SPOTS[this.mapKey] || []).forEach(s => {
       if (s.kind === 'block') return;
@@ -101,7 +123,6 @@ class WorldScene extends Phaser.Scene {
   }
 
   isActive(t) {
-    if (t.type === 'note') return this.handlers.note.active();
     if (t.type === 'spot') {
       const h = this.spotHandler(t.id);
       if (!h) return false;
@@ -119,10 +140,7 @@ class WorldScene extends Phaser.Scene {
     for (const t of this.targets) {
       if (!this.isActive(t)) continue;
       let sc = 9;
-      if (t.type === 'note') {
-        const z = CABIN.note.zone;
-        if (jx >= z[0] && jx <= z[2] && jy >= z[1] && jy <= z[3]) sc = 1;
-      } else {
+      {
         const tiles = t.tiles || [t.tile];
         for (const tt of tiles) {
           if (tt[0] === jx && tt[1] === jy) sc = Math.min(sc, 0);
@@ -176,11 +194,8 @@ class WorldScene extends Phaser.Scene {
       } else if (t.type === 'prop') {
         await this.handlers.prop[t.id](this, t.def);
       } else if (t.type === 'exit') {
-        Snd.sfx('door', 0.5);
+        Snd.door();
         return Game.goto(t.def.to, t.def.arrive);
-      } else if (t.type === 'note') {
-        this.player.face('up');
-        await this.handlers.note.use(this);
       }
     } catch (e) { console.error(e); }
     finally {
@@ -193,6 +208,7 @@ class WorldScene extends Phaser.Scene {
 
   // If the speaker is out of view (the owl on her tower), pan so both are on screen above the box.
   frameSpeaker(spr) {
+    if (this.fixedCam) return false;
     const cam = this.cameras.main, wv = cam.worldView, b = spr.getBounds();
     const boxH = 150 / cam.zoom; // the dialogue box covers the bottom of the screen
     if (b.y >= wv.y + 20 && b.bottom <= wv.bottom - boxH) return false;
@@ -203,6 +219,7 @@ class WorldScene extends Phaser.Scene {
     return true;
   }
   followJana() {
+    if (this.fixedCam) return;
     const cam = this.cameras.main, s = this.player.spr;
     cam.pan(s.x, s.y + 12, 250, 'Sine.easeInOut', false, (c, k) => { if (k === 1) cam.startFollow(s, true, 1, 1, 0, -12); });
   }
@@ -214,19 +231,14 @@ class WorldScene extends Phaser.Scene {
       this.player.stop();
       this.scene.pause();
       HUD.show(false);
-      this.scene.launch(key, { done: r => { this.scene.resume(); HUD.show(true); Input.clearHeld(); res(r); } });
+      if (key !== 'Sled') Touch.show(false);   // tap-based minigames: keep the arrows out of the way
+      this.scene.launch(key, { done: r => { this.scene.resume(); HUD.show(true); Touch.show(true); Input.clearHeld(); res(r); } });
     });
   }
 
   // ── stepping onto tiles: exits, blocks ──────────────────────
   async onEnterTile(tx, ty) {
-    if (this.mapKey === 'cabin') {
-      if (ty >= this.wmap.door.y && Math.abs(tx - this.wmap.door.x) <= 1) {
-        Snd.sfx('door', 0.5);
-        return Game.goto('garden', 'from_cabin');
-      }
-      return;
-    }
+    if (this.handlers.step && await this.handlers.step(this, tx, ty)) return;
     for (const s of this.place.spots) {
       if (s.kind === 'block' && s.x === tx && s.y === ty && this.handlers.block) {
         this.locked = true; this.player.stop();
@@ -245,6 +257,7 @@ class WorldScene extends Phaser.Scene {
         } finally { this.locked = false; this.lastTile = this.player.tx + ',' + this.player.ty; }
         return;
       }
+      if (this.wmap.kind === 'interior') Snd.door();
       return Game.goto(e.to, e.arrive);
     }
   }
@@ -262,14 +275,7 @@ class WorldScene extends Phaser.Scene {
       const [ix, iy] = this.iconPos(t);
       this.icon.setVisible(true).setPosition(Math.round(ix), Math.round(iy - 8 + Math.sin(time / 220) * 2));
     } else this.icon.setVisible(false);
-    // the note on the table glows until it's read
-    if (this.noteGlow) {
-      this.noteGlow.clear();
-      if (!G.flag('note_read')) {
-        const a = Math.abs(Math.sin(time * 0.003)) * 0.25 + 0.15;
-        this.noteGlow.fillStyle(0xffe060, a).fillCircle((CABIN.note.x + 0.5) * TILE, (CABIN.note.y + 0.5) * TILE, TILE * 0.8);
-      }
-    }
+    if (this.handlers.update) this.handlers.update(this, time, delta);
     if (DEBUG) Debug.update(this);
   }
 }

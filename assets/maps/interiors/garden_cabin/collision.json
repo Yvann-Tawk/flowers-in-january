@@ -1,0 +1,42 @@
+{
+ "width": 11,
+ "height": 9,
+ "legend": "'#' blocked, '.' walkable",
+ "solid": [
+  "###########",
+  "###########",
+  "###########",
+  "###.##...##",
+  "##.####...#",
+  "#.........#",
+  "###....##.#",
+  "###......##",
+  "#####.#####"
+ ],
+ "markers": {
+  "spawn_wake": {
+   "x": 1,
+   "y": 5
+  },
+  "note": {
+   "x": 8,
+   "y": 6
+  },
+  "door": {
+   "x": 5,
+   "y": 8
+  },
+  "arrive": {
+   "x": 5,
+   "y": 7
+  }
+ },
+ "exit": {
+  "tile": [
+   5,
+   8
+  ],
+  "note": "stepping onto the door tile leaves the room"
+ },
+ "audio_loop": "fire"
+}

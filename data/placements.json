@@ -22,6 +22,11 @@
      5,
      41,
      "down"
+    ],
+    "from_blossom": [
+     2,
+     21,
+     "right"
     ]
    },
    "exits": [
@@ -56,9 +61,21 @@
        40
       ]
      ],
-     "to": "cabin",
+     "to": "interior:garden_cabin",
      "arrive": "from_garden",
      "interact": true
+    },
+    {
+     "id": "to_blossom",
+     "tiles": [
+      [
+       0,
+       21
+      ]
+     ],
+     "to": "blossom",
+     "arrive": "from_garden",
+     "requires": "fragment_gilmour"
     }
    ],
    "props": [
@@ -97,6 +114,13 @@
       11,
       40
      ]
+    },
+    {
+     "id": "blossom_path_hint",
+     "x": 1,
+     "y": 21,
+     "kind": "hint",
+     "active_until": "fragment_gilmour"
     }
    ],
    "start_area": {
@@ -108,6 +132,67 @@
      47
     ],
     "note": "Moated plot bottom-left; Jana's cabin (HOUSE layer) with its door at (5,40); bridge off the island at (12-14,40)."
+   },
+   "ending_home": {
+    "_readme": "After the vision: the garden, no longer empty. Show after the wedding fades.",
+    "props": [
+     {
+      "id": "bean_bag_a",
+      "png": "props/bean_bag_red_sat.png",
+      "x": 7,
+      "y": 43
+     },
+     {
+      "id": "bean_bag_b",
+      "png": "props/bean_bag_red_sat.png",
+      "x": 8,
+      "y": 43
+     }
+    ],
+    "npcs": [
+     {
+      "id": "eevie",
+      "sheet": "characters/eevie.png",
+      "x": 7,
+      "y": 44,
+      "face": "up",
+      "note": "beside the bean bags (no sitting sprite)"
+     },
+     {
+      "id": "phoebe",
+      "sheet": "animals/phoebe.png",
+      "x": 10,
+      "y": 42,
+      "face": "down"
+     },
+     {
+      "id": "gilmour",
+      "sheet": "animals/gilmour.png",
+      "x": 6,
+      "y": 42,
+      "asleep": true
+     },
+     {
+      "id": "spike",
+      "sheet": "animals/spike.png",
+      "x": 9,
+      "y": 44,
+      "face": "down"
+     },
+     {
+      "id": "calabar",
+      "sheet": "animals/calabar.png",
+      "x": 4,
+      "y": 38,
+      "face": "down",
+      "note": "watching from the cottage roof edge"
+     }
+    ],
+    "jana": [
+     8,
+     44,
+     "up"
+    ]
    }
   },
   "beach": {
@@ -116,6 +201,11 @@
      23,
      47,
      "up"
+    ],
+    "from_guardian_house": [
+     22,
+     33,
+     "down"
     ]
    },
    "exits": [
@@ -133,6 +223,18 @@
      ],
      "to": "garden",
      "arrive": "from_beach"
+    },
+    {
+     "id": "guardian_house",
+     "tiles": [
+      [
+       22,
+       32
+      ]
+     ],
+     "to": "interior:beach_hut",
+     "arrive": "arrive",
+     "interact": true
     }
    ],
    "props": [
@@ -230,14 +332,6 @@
      "x": 4,
      "y": 23,
      "face": "right"
-    },
-    {
-     "id": "phoebe",
-     "name": "Phoebe",
-     "sheet": "animals/phoebe.png",
-     "x": 25,
-     "y": 15,
-     "face": "down"
     }
    ],
    "spots": [
@@ -275,6 +369,11 @@
      4,
      27,
      "right"
+    ],
+    "from_guardian_house": [
+     7,
+     7,
+     "down"
     ]
    },
    "exits": [
@@ -288,6 +387,18 @@
      ],
      "to": "garden",
      "arrive": "from_forest"
+    },
+    {
+     "id": "guardian_house",
+     "tiles": [
+      [
+       7,
+       6
+      ]
+     ],
+     "to": "interior:snow_cabin",
+     "arrive": "arrive",
+     "interact": true
     }
    ],
    "props": [
@@ -407,15 +518,6 @@
      "x": 17,
      "y": 37,
      "face": "down"
-    },
-    {
-     "id": "gilmour",
-     "name": "Gilmour",
-     "sheet": "animals/gilmour.png",
-     "x": 30,
-     "y": 15,
-     "face": "down",
-     "asleep": true
     }
    ],
    "spots": [
@@ -439,6 +541,590 @@
      "kind": "lie"
     }
    ]
+  },
+  "blossom": {
+   "arrivals": {
+    "from_garden": [
+     8,
+     47,
+     "up"
+    ],
+    "from_plains": [
+     47,
+     24,
+     "left"
+    ]
+   },
+   "exits": [
+    {
+     "id": "to_garden",
+     "tiles": [
+      [
+       8,
+       49
+      ]
+     ],
+     "to": "garden",
+     "arrive": "from_blossom"
+    },
+    {
+     "id": "to_plains",
+     "tiles": [
+      [
+       50,
+       24
+      ]
+     ],
+     "to": "plains",
+     "arrive": "from_blossom",
+     "requires": "fragment_spike"
+    }
+   ],
+   "props": [
+    {
+     "id": "plot_done_1",
+     "png": "props/planting_plot_bloom.png",
+     "x": 21,
+     "y": 10,
+     "solid": true,
+     "tw": 2,
+     "th": 2
+    },
+    {
+     "id": "plot",
+     "png": "props/planting_plot_empty.png",
+     "alt_seeded": "props/planting_plot_seeded.png",
+     "alt": "props/planting_plot_bloom.png",
+     "x": 16,
+     "y": 10,
+     "solid": true,
+     "tw": 2,
+     "th": 2
+    },
+    {
+     "id": "tea_table",
+     "png": "props/tea_table_two_cups.png",
+     "x": 38,
+     "y": 9,
+     "solid": true,
+     "tw": 2,
+     "th": 1
+    },
+    {
+     "id": "flat_stone",
+     "png": "props/flat_stone.png",
+     "alt": "props/flat_stone_moved.png",
+     "x": 11,
+     "y": 13,
+     "solid": false,
+     "tw": 1,
+     "th": 1
+    },
+    {
+     "id": "record_stall",
+     "png": "props/record_stall.png",
+     "x": 30,
+     "y": 27,
+     "solid": true,
+     "tw": 3,
+     "th": 2
+    },
+    {
+     "id": "gramophone",
+     "png": "props/gramophone_broken.png",
+     "alt": "props/gramophone_fixed.png",
+     "x": 33,
+     "y": 27,
+     "solid": true,
+     "tw": 1,
+     "th": 2
+    }
+   ],
+   "npcs": [
+    {
+     "id": "blossoms_A",
+     "name": "Gardener",
+     "sheet": "characters/blossoms_A.png",
+     "x": 19,
+     "y": 10,
+     "face": "left"
+    },
+    {
+     "id": "blossoms_B",
+     "name": "Tea-house owner",
+     "sheet": "characters/blossoms_B.png",
+     "x": 40,
+     "y": 9,
+     "face": "left"
+    },
+    {
+     "id": "blossoms_C",
+     "name": "Musician",
+     "sheet": "characters/blossoms_C.png",
+     "x": 21,
+     "y": 28,
+     "face": "down"
+    },
+    {
+     "id": "blossoms_D",
+     "name": "Tortoise",
+     "sheet": "characters/blossoms_D.png",
+     "x": 18,
+     "y": 14,
+     "face": "down"
+    },
+    {
+     "id": "blossoms_E",
+     "name": "Record stall keeper",
+     "sheet": "characters/blossoms_E.png",
+     "x": 34,
+     "y": 27,
+     "face": "down"
+    }
+   ],
+   "spots": [
+    {
+     "id": "plant",
+     "x": 16,
+     "y": 11,
+     "kind": "plant",
+     "target_prop": "plot",
+     "note": "stand below the empty plot, press E with the Seed"
+    },
+    {
+     "id": "flat_stone",
+     "x": 11,
+     "y": 13,
+     "kind": "lift",
+     "hidden": true
+    },
+    {
+     "id": "gramophone",
+     "x": 33,
+     "y": 28,
+     "kind": "look"
+    },
+    {
+     "id": "tea_two_cups",
+     "x": 38,
+     "y": 10,
+     "kind": "look"
+    },
+    {
+     "id": "plains_path_hint",
+     "x": 48,
+     "y": 24,
+     "kind": "hint",
+     "active_until": "fragment_spike"
+    }
+   ]
+  },
+  "plains": {
+   "arrivals": {
+    "from_blossom": [
+     4,
+     22,
+     "right"
+    ]
+   },
+   "exits": [
+    {
+     "id": "to_blossom",
+     "tiles": [
+      [
+       0,
+       22
+      ]
+     ],
+     "to": "blossom",
+     "arrive": "from_plains"
+    }
+   ],
+   "props": [
+    {
+     "id": "lamp_1",
+     "png": "props/lamp_unlit.png",
+     "alt": "props/lamp_lit.png",
+     "x": 4,
+     "y": 19,
+     "solid": true,
+     "tw": 1,
+     "th": 2
+    },
+    {
+     "id": "lamp_2",
+     "png": "props/lamp_unlit.png",
+     "alt": "props/lamp_lit.png",
+     "x": 22,
+     "y": 24,
+     "solid": true,
+     "tw": 1,
+     "th": 2
+    },
+    {
+     "id": "lamp_3",
+     "png": "props/lamp_unlit.png",
+     "alt": "props/lamp_lit.png",
+     "x": 30,
+     "y": 18,
+     "solid": true,
+     "tw": 1,
+     "th": 2
+    },
+    {
+     "id": "lamp_4",
+     "png": "props/lamp_unlit.png",
+     "alt": "props/lamp_lit.png",
+     "x": 38,
+     "y": 38,
+     "solid": true,
+     "tw": 1,
+     "th": 2
+    },
+    {
+     "id": "lamp_5",
+     "png": "props/lamp_unlit.png",
+     "alt": "props/lamp_lit.png",
+     "x": 44,
+     "y": 21,
+     "solid": true,
+     "tw": 1,
+     "th": 2
+    },
+    {
+     "id": "kiln",
+     "png": "props/kiln_cold.png",
+     "alt": "props/kiln_lit.png",
+     "x": 24,
+     "y": 40,
+     "solid": true,
+     "tw": 2,
+     "th": 2
+    },
+    {
+     "id": "spring",
+     "png": "props/spring_hidden.png",
+     "alt": "props/spring.png",
+     "x": 33,
+     "y": 25,
+     "solid": true,
+     "tw": 2,
+     "th": 2
+    },
+    {
+     "id": "footprints_39",
+     "png": "props/footprints_h.png",
+     "x": 39,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_40",
+     "png": "props/footprints_h.png",
+     "x": 40,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_41",
+     "png": "props/footprints_h.png",
+     "x": 41,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_42",
+     "png": "props/footprints_h.png",
+     "x": 42,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_43",
+     "png": "props/footprints_h.png",
+     "x": 43,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_44",
+     "png": "props/footprints_h.png",
+     "x": 44,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_45",
+     "png": "props/footprints_h.png",
+     "x": 45,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    },
+    {
+     "id": "footprints_end",
+     "png": "props/footprints_h_end.png",
+     "x": 38,
+     "y": 24,
+     "solid": false,
+     "tw": 1,
+     "th": 1,
+     "hidden": true
+    }
+   ],
+   "npcs": [
+    {
+     "id": "plains_A",
+     "name": "Lamplighter",
+     "sheet": "characters/plains_A.png",
+     "x": 5,
+     "y": 23,
+     "face": "right"
+    },
+    {
+     "id": "plains_B",
+     "name": "Stargazer",
+     "sheet": "characters/plains_B.png",
+     "x": 21,
+     "y": 9,
+     "face": "up"
+    },
+    {
+     "id": "plains_C",
+     "name": "Butterfly",
+     "sheet": "characters/plains_C.png",
+     "x": 42,
+     "y": 29,
+     "face": "down",
+     "flutter": true
+    },
+    {
+     "id": "plains_D",
+     "name": "Fox",
+     "sheet": "characters/plains_D.png",
+     "x": 46,
+     "y": 24,
+     "face": "left",
+     "frame_size": 52,
+     "walk_to": [
+      37,
+      24
+     ],
+     "walk_reveals": [
+      "footprints_*",
+      "spring"
+     ]
+    },
+    {
+     "id": "plains_E",
+     "name": "Potter",
+     "sheet": "characters/plains_E.png",
+     "x": 26,
+     "y": 40,
+     "face": "left"
+    }
+   ],
+   "spots": [
+    {
+     "id": "lamp_1",
+     "x": 4,
+     "y": 20,
+     "kind": "light",
+     "note": "stand below the lamp, press E"
+    },
+    {
+     "id": "lamp_2",
+     "x": 22,
+     "y": 25,
+     "kind": "light",
+     "note": "stand below the lamp, press E"
+    },
+    {
+     "id": "lamp_3",
+     "x": 30,
+     "y": 19,
+     "kind": "light",
+     "note": "stand below the lamp, press E"
+    },
+    {
+     "id": "lamp_4",
+     "x": 38,
+     "y": 39,
+     "kind": "light",
+     "note": "stand below the lamp, press E"
+    },
+    {
+     "id": "lamp_5",
+     "x": 44,
+     "y": 22,
+     "kind": "light",
+     "note": "stand below the lamp, press E"
+    },
+    {
+     "id": "spring",
+     "x": 33,
+     "y": 26,
+     "kind": "fill",
+     "hidden": true,
+     "note": "stand below the spring"
+    },
+    {
+     "id": "kiln",
+     "x": 24,
+     "y": 41,
+     "kind": "look"
+    }
+   ],
+   "lighting": {
+    "dark_until": "plains_lit",
+    "note": "Before all 5 lamps are lit, draw a dark overlay (about 55% black) with soft light circles around Jana, the kiln once lit, and each lit lamp. Then fade the overlay to ~20%."
+   }
+  }
+ },
+ "guardian_cabins": {
+  "_readme": "Each guardian waits inside the biggest house on their map. Press E at 'door' (the building's door tile) to enter the interior; leaving puts Jana at 'arrive_outside' facing down.",
+  "garden": {
+   "building": "HOUSE layer cottage",
+   "door": [
+    5,
+    40
+   ],
+   "interior": "garden_cabin",
+   "arrive_outside": [
+    5,
+    41
+   ]
+  },
+  "beach": {
+   "building": "bld_harbour_inn",
+   "at": [
+    19,
+    32
+   ],
+   "door": [
+    22,
+    32
+   ],
+   "arrive_outside": [
+    22,
+    33
+   ],
+   "interior": "beach_hut",
+   "guardian": "phoebe"
+  },
+  "forest": {
+   "building": "bld_forest_lodge",
+   "at": [
+    4,
+    6
+   ],
+   "door": [
+    7,
+    6
+   ],
+   "arrive_outside": [
+    7,
+    7
+   ],
+   "interior": "snow_cabin",
+   "guardian": "gilmour"
+  },
+  "blossom": {
+   "building": "bld_inn",
+   "at": [
+    5,
+    44
+   ],
+   "door": [
+    8,
+    44
+   ],
+   "arrive_outside": [
+    8,
+    45
+   ],
+   "interior": "blossom_house",
+   "guardian": "spike"
+  },
+  "plains": {
+   "building": "bld_lantern_inn",
+   "at": [
+    34,
+    35
+   ],
+   "door": [
+    37,
+    35
+   ],
+   "arrive_outside": [
+    37,
+    36
+   ],
+   "interior": "plains_house",
+   "guardian": "calabar"
+  }
+ },
+ "interiors": {
+  "_readme": "Rooms in assets/maps/interiors/<room>. The guardian stands at the room's 'guardian' marker (collision.json markers).",
+  "garden_cabin": {
+   "exit_to": "garden",
+   "arrive": "from_cabin"
+  },
+  "beach_hut": {
+   "exit_to": "beach",
+   "arrive": "from_guardian_house",
+   "guardian": {
+    "id": "phoebe",
+    "sheet": "animals/phoebe.png",
+    "asleep": false
+   }
+  },
+  "snow_cabin": {
+   "exit_to": "forest",
+   "arrive": "from_guardian_house",
+   "guardian": {
+    "id": "gilmour",
+    "sheet": "animals/gilmour.png",
+    "asleep": true
+   }
+  },
+  "blossom_house": {
+   "exit_to": "blossom",
+   "arrive": "from_guardian_house",
+   "guardian": {
+    "id": "spike",
+    "sheet": "animals/spike.png",
+    "asleep": false
+   }
+  },
+  "plains_house": {
+   "exit_to": "plains",
+   "arrive": "from_guardian_house",
+   "guardian": {
+    "id": "calabar",
+    "sheet": "animals/calabar.png",
+    "asleep": false
+   }
   }
  }
 }
