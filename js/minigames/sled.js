@@ -36,10 +36,10 @@ class SledScene extends Phaser.Scene {
 
     this.jana = this.add.image(0, 0, 'minigames/sled_jana.png').setOrigin(0.5, 0.82);
     this.gil = this.add.image(0, 0, 'minigames/sled_gilmour.png').setOrigin(0.5, 0.8);
-    const style = { fontFamily: 'PixelAE', fontSize: '22px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 4 };
+    const style = { fontFamily: 'PixelAE', fontSize: '20px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 4 };
     this.ui = this.add.text(0, 0, '', style).setScrollFactor(0).setDepth(9999);
-    this.big = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '64px', strokeThickness: 6 })).setOrigin(0.5).setScrollFactor(0).setDepth(9999);
-    this.help = this.add.text(0, 0, Touch.enabled ? '▲ ▼ steer   Bag: quit' : '↑ ↓ steer   Esc: quit', Object.assign({}, style, { fontSize: '18px' }))
+    this.big = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '60px', strokeThickness: 6 })).setOrigin(0.5).setScrollFactor(0).setDepth(9999);
+    this.help = this.add.text(0, 0, Touch.enabled ? '▲ ▼ steer   Bag: quit' : '↑ ↓ steer   Esc: quit', Object.assign({}, style, { fontSize: '20px' }))
       .setOrigin(0.5, 1).setScrollFactor(0).setDepth(9999);
     this.zzz = [];
     this.time.addEvent({ delay: 700, loop: true, callback: () => this.spawnZ() });
@@ -110,7 +110,7 @@ class SledScene extends Phaser.Scene {
 
   spawnZ() {
     if (!this.gil) return;
-    const z = this.add.text(this.gil.x + 8, this.gil.y - 18, 'z', { fontFamily: 'PixelAE', fontSize: '14px', color: '#e6eefc', stroke: '#3b2230', strokeThickness: 2 }).setDepth(9000);
+    const z = this.add.text(this.gil.x + 8, this.gil.y - 18, 'z', { fontFamily: 'PixelAE', fontSize: '10px', color: '#e6eefc', stroke: '#3b2230', strokeThickness: 2 }).setDepth(9000);
     this.tweens.add({ targets: z, x: z.x + 10, y: z.y - 18, alpha: 0, duration: 1100, onComplete: () => z.destroy() });
   }
 

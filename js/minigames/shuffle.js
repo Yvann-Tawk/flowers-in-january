@@ -13,9 +13,9 @@ class ShuffleScene extends Phaser.Scene {
     this.round = Math.min(this.ROUNDS.length - 1, G.s.shuffleRound || 0);
     this.cameras.main.setBackgroundColor('#140d1c');
     this.glow = this.add.graphics();
-    const style = { fontFamily: 'PixelAE', fontSize: '26px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 5 };
+    const style = { fontFamily: 'PixelAE', fontSize: '30px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 5 };
     this.tRound = this.add.text(0, 0, '', style).setOrigin(0, 0);
-    this.help = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '18px', strokeThickness: 4 })).setOrigin(0.5, 1);
+    this.help = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '20px', strokeThickness: 4 })).setOrigin(0.5, 1);
     this.ember = this.add.image(0, 0, 'minigames/minigame_ember.png');
     this.pots = [0, 1, 2].map(i => {
       const p = this.add.image(0, 0, 'minigames/clay_pot.png').setOrigin(0.5, 1).setInteractive({ useHandCursor: true });

@@ -22,11 +22,11 @@ class WhackScene extends Phaser.Scene {
     this.phoebe.setInteractive({ useHandCursor: true });
     this.phoebe.on('pointerdown', () => this.hit());
     this.selBox = this.add.graphics();
-    const style = { fontFamily: 'PixelAE', fontSize: '28px', color: '#fff7ed', stroke: '#8e3a55', strokeThickness: 5 };
+    const style = { fontFamily: 'PixelAE', fontSize: '30px', color: '#fff7ed', stroke: '#8e3a55', strokeThickness: 5 };
     this.tRound = this.add.text(0, 0, '', style).setOrigin(0, 0);
     this.tHits = this.add.text(0, 0, '', style).setOrigin(0.5, 0);
     this.tTime = this.add.text(0, 0, '', style).setOrigin(1, 0);
-    this.banner = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '56px' })).setOrigin(0.5).setVisible(false);
+    this.banner = this.add.text(0, 0, '', Object.assign({}, style, { fontSize: '60px' })).setOrigin(0.5).setVisible(false);
     this.help = this.add.text(0, 0, Touch.enabled ? 'Tap Phoebe!   Bag: quit' : 'Click Phoebe, or arrows + E (or 1–9)   Esc: quit',
       Object.assign({}, style, { fontSize: '20px', strokeThickness: 4 })).setOrigin(0.5, 1);
     this.layout();

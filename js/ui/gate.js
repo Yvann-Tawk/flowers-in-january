@@ -15,6 +15,9 @@ const Gate = {
     const panel = document.getElementById('gate-panel');
     const g = Math.max(1, Math.min(2, (window.innerWidth * 0.94) / 320, (window.innerHeight * 0.94) / 200));
     panel.style.setProperty('--g', g);
+    // PixelAE stays crisp only at multiples of 10 px
+    panel.style.setProperty('--gfs-s', g >= 1.6 ? '20px' : '10px');
+    panel.style.setProperty('--gfs-m', g >= 1.6 ? '30px' : '20px');
     this.vals = { day: '', month: '', year: '' };
     this.f = 0;
     this.render();

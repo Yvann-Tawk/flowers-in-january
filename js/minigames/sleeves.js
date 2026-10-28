@@ -12,11 +12,11 @@ class SleevesScene extends Phaser.Scene {
     this.PAIRS = 6; this.COLS = 4; this.ROWS = 3; this.MAX_MISSES = 10; this.BACK = 8;
     this.cameras.main.setBackgroundColor('#f3d9e2');
     this.bg = this.add.graphics();
-    const style = { fontFamily: 'PixelAE', fontSize: '26px', color: '#fff7ed', stroke: '#8e3a55', strokeThickness: 5 };
+    const style = { fontFamily: 'PixelAE', fontSize: '30px', color: '#fff7ed', stroke: '#8e3a55', strokeThickness: 5 };
     this.tPairs = this.add.text(0, 0, '', style).setOrigin(0, 0);
     this.tMiss = this.add.text(0, 0, '', style).setOrigin(1, 0);
     this.help = this.add.text(0, 0, Touch.enabled ? 'Tap two sleeves   Bag: quit' : 'Click two sleeves, or arrows + E   Esc: quit',
-      Object.assign({}, style, { fontSize: '18px', strokeThickness: 4 })).setOrigin(0.5, 1);
+      Object.assign({}, style, { fontSize: '20px', strokeThickness: 4 })).setOrigin(0.5, 1);
     this.selBox = this.add.graphics().setDepth(5);
     this.cards = [];
     for (let i = 0; i < this.COLS * this.ROWS; i++) {

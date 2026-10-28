@@ -70,7 +70,7 @@
           const g = scene.wmap.props.gramophone;
           const x = g ? g.img.x + 18 : scene.player.x, y = g ? g.img.y - 52 : scene.player.y - 40;
           for (let i = 0; i < 8; i++) scene.time.delayedCall(i * 700, () => {
-            const n = scene.add.text(x + Phaser.Math.Between(-6, 6), y, i % 2 ? '♪' : '♫', { fontFamily: 'PixelAE, sans-serif', fontSize: '14px', color: '#8e3a55', stroke: '#fff7ed', strokeThickness: 3 }).setDepth(DEPTH.ABOVE + 5).setResolution(2);
+            const n = scene.add.text(x + Phaser.Math.Between(-6, 6), y, i % 2 ? '♪' : '♫', { fontFamily: 'PixelAE, sans-serif', fontSize: '10px', color: '#8e3a55', stroke: '#fff7ed', strokeThickness: 3 }).setDepth(DEPTH.ABOVE + 5).setResolution(2);
             scene.tweens.add({ targets: n, y: y - 34, x: n.x + Phaser.Math.Between(-14, 14), alpha: 0, duration: 1600, onComplete: () => n.destroy() });
           });
         },

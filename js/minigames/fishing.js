@@ -19,9 +19,9 @@ const Fishing = {
         return [p.x + d[0] * 12, p.y - 10 + d[1] * 6];
       };
       const g = scene.add.graphics().setDepth(DEPTH.ABOVE - 1);
-      const label = scene.add.text(p.x, p.y - 44, '', { fontFamily: 'PixelAE', fontSize: '14px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 3, align: 'center' })
+      const label = scene.add.text(p.x, p.y - 44, '', { fontFamily: 'PixelAE', fontSize: '10px', color: '#fff7ed', stroke: '#3b2230', strokeThickness: 3, align: 'center' })
         .setOrigin(0.5, 1).setDepth(DEPTH.ICON).setResolution(2);
-      const bang = scene.add.text(p.x, p.y - 40, '!', { fontFamily: 'PixelAE', fontSize: '28px', color: '#ffd97a', stroke: '#8e3a55', strokeThickness: 4 })
+      const bang = scene.add.text(p.x, p.y - 40, '!', { fontFamily: 'PixelAE', fontSize: '20px', color: '#ffd97a', stroke: '#8e3a55', strokeThickness: 4 })
         .setOrigin(0.5, 1).setDepth(DEPTH.ICON).setResolution(2).setVisible(false);
 
       let state = 'ready', timer = null, castT = 0, dip = 0;
