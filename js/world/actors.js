@@ -35,18 +35,22 @@ const ROD_FOOT = 95 / 128;  // feet line inside a 128×128 rod frame
 const FOOT_Y = 8;           // feet sit this far below the logical tile centre
 
 const Actors = {
+  done: {},
   // called once (Boot): fishing-rod frames + all animations
   setup(scene) {
     const A = scene.anims;
     // fishermen sheets are loaded as plain images; their rod frames live below the LPC block
-    ['characters/beach_A.png', 'characters/forest_A.png'].forEach(k => {
+    // runs after every pack load: only sheets that are loaded and not set up yet
+    const ready = k => scene.textures.exists(k) && !this.done[k];
+    ['characters/beach_A.png', 'characters/forest_A.png'].filter(ready).forEach(k => {
       const tex = scene.textures.get(k);
       // their plain standing frames (wedding guests): walk rows, column 0
       ['up', 'left', 'down', 'right'].forEach(d => tex.add('stand_' + d, 0, 0, LPC.walk[d] * 64, 64, 64));
       for (let r = 0; r < 4; r++) for (let c = 0; c < 13; c++)
         tex.add('rod_' + r + '_' + c, 0, c * 128, 3456 + r * 128, 128, 128);
     });
-    Object.keys(SHEETS).forEach(k => {
+    Object.keys(SHEETS).filter(ready).forEach(k => {
+      this.done[k] = true;
       const sh = SHEETS[k];
       if (sh.kind === 'lpc') {
         // Only Jana's idle rows are dressed. On the NPC sheets rows 22–25 are missing clothing
@@ -72,7 +76,7 @@ const Actors = {
       }
     });
     // animals: Phoebe idles facing down (row 2), Gilmour has still poses
-    ['phoebe', 'spike', 'calabar'].forEach(a =>
+    ['phoebe', 'spike', 'calabar'].filter(a => scene.textures.exists('animals/' + a + '.png') && !A.exists(a + ':idle')).forEach(a =>
       A.create({ key: a + ':idle', frames: A.generateFrameNumbers('animals/' + a + '.png', { frames: [8, 9, 10] }), frameRate: a === 'calabar' ? 1.2 : 2.5, repeat: -1 }));
   },
 

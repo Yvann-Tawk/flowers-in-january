@@ -17,6 +17,7 @@ const Debug = {
     (this.params.get('flags') || '').split(',').filter(Boolean).forEach(f => G.setFlag(f));
     (this.params.get('give') || '').split(',').filter(Boolean).forEach(i => G.give(i));
     window.bootReady.then(async () => {
+      await Game.ensure(map);
       HUD.show(true); Touch.show(true);
       let [x, y, dir] = Game.arrival(map, this.params.get('at') || 'new_game');
       if (this.params.get('x')) { x = +this.params.get('x'); y = +this.params.get('y'); dir = this.params.get('dir') || 'down'; }

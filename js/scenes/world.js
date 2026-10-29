@@ -63,6 +63,7 @@ class WorldScene extends Phaser.Scene {
     this.lastTile = this.player.tx + ',' + this.player.ty;
     if (DEBUG) Debug.attach(this);
     if (Game._created) { const r = Game._created; Game._created = null; r(this); }
+    setTimeout(() => Packs.prefetch(), 1500);
   }
 
   // ── fire nearby: the fire loop gets louder the closer Jana is ──

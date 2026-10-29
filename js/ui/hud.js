@@ -3,6 +3,9 @@
 // ═══════════════════════════════════════════════════════════════
 const HUD = {
   init() {
+    // fetch the UI frames right away, before the game's own files fill the connection
+    ['dialog_frame', 'panel_frame', 'note_page', 'dialog_next', 'slot', 'slot_selected', 'flower_icon', 'gate_panel', 'field_frame', 'signs']
+      .forEach(n => { const i = new Image(); i.src = 'assets/ui/' + n + '.png'; });
     document.getElementById('mus-btn').addEventListener('click', e => { e.currentTarget.blur(); Snd.start(); Snd.toggleMusic(); });
     document.getElementById('inv-btn').addEventListener('click', e => { e.currentTarget.blur(); if (!Input.busy()) Inventory.open(); });
     document.getElementById('mus-btn').innerHTML = '&#9835; Music';

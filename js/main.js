@@ -17,7 +17,17 @@ const Game = {
   },
 
   // start the World scene and wait for its create()
-  _start(data) {
+  // the area's assets (usually already fetched in the background); "loading…" if we have to wait
+  async ensure(map) {
+    if (Packs.loaded[Packs.areaOfMap(map)]) return;
+    const msg = document.getElementById('loadmsg');
+    const t = setTimeout(() => msg.classList.add('on'), 300);
+    await Packs.ensure(map);
+    clearTimeout(t); msg.classList.remove('on');
+  },
+
+  async _start(data) {
+    await this.ensure(data.map);
     return new Promise(res => {
       this._created = res;
       const sm = window.game.scene;
@@ -52,6 +62,7 @@ const Game = {
     G.beforeSave = null;
     const ms = opts.fade || 300;
     if (!opts.silentFade) await Fade.out(ms);
+    await this.ensure(map);
     const [x, y, dir] = opts.at || this.arrival(map, arriveName);
     G.s.map = map; G.s.x = x; G.s.y = y; G.s.dir = dir;
     G.save();

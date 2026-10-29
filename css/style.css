@@ -222,3 +222,7 @@ body.touch #dlg{left:calc(196px + env(safe-area-inset-left));right:calc(160px + 
 #title-load{position:absolute;left:50%;bottom:7vh;transform:translateX(-50%);width:min(320px,60vw);height:6px;background:rgba(59,34,48,.55);border:1px solid rgba(255,247,237,.45);transition:opacity .8s;}
 #title-load div{height:100%;width:0;background:#f6a6c1;transition:width .2s;}
 #title-load.done{opacity:0;}
+
+/* "loading…" over the fade while an area's files arrive */
+#loadmsg{position:fixed;left:50%;bottom:12vh;transform:translateX(-50%);z-index:61;color:rgba(255,247,237,.75);font-size:var(--fs-s);opacity:0;transition:opacity .3s;pointer-events:none;}
+#loadmsg.on{opacity:1;}
