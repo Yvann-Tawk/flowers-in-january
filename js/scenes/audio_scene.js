@@ -69,9 +69,24 @@ class AudioScene extends Phaser.Scene {
     const src = this.ctx.createBufferSource();
     src.buffer = buf;
     src.loop = true;
+    // MP3s carry a little encoder silence at both ends; loop only the real sound so it repeats seamlessly
+    const [a, b] = this.loopPoints(buf);
+    src.loopStart = a; src.loopEnd = b;
     src.connect(gain);
-    src.start();
+    src.start(0, a);
     return src;
+  }
+
+  loopPoints(buf) {
+    if (buf._loop) return buf._loop;
+    const sr = buf.sampleRate, n = buf.length, edge = Math.min(n, Math.floor(sr * 0.15)), th = 0.0012;
+    const chans = Array.from({ length: buf.numberOfChannels }, (_, c) => buf.getChannelData(c));
+    const loud = i => chans.some(d => Math.abs(d[i]) > th);
+    let first = 0; while (first < edge && !loud(first)) first++;
+    let last = n - 1; while (last > n - edge && !loud(last)) last--;
+    if (first >= edge) first = 0;
+    if (last <= n - edge) last = n - 1;
+    return (buf._loop = [first / sr, (last + 1) / sr]);
   }
 
   // crossfade to `key` (800 ms); the same key keeps playing without a restart
