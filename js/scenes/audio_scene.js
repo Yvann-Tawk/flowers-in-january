@@ -93,25 +93,50 @@ class AudioScene extends Phaser.Scene {
   playMusic(key, fade = 800) {
     if (key === this.currentKey) return;
     if (key && !this.cache.audio.exists(key)) {     // still downloading: fade out, start when it lands
-      if (this.current) { const o = this.current; this.ramp(o.gain.gain, 0, fade); setTimeout(() => { try { o.src.stop(); } catch (e) {} o.src.disconnect(); o.gain.disconnect(); }, fade + 50); this.current = null; }
-      this.currentKey = key; this.waiting = key;
+      if (this.current) this.stopTrack(this.current, fade);
+      this.current = null; this.currentKey = key; this.waiting = key;
       return;
     }
     this.waiting = null;
-    const old = this.current;
-    if (old) {
-      this.ramp(old.gain.gain, 0, fade);
-      setTimeout(() => { try { old.src.stop(); } catch (e) {} old.src.disconnect(); old.gain.disconnect(); }, fade + 50);
-    }
+    if (this.current) this.stopTrack(this.current, fade);
     this.currentKey = key; this.current = null;
     if (!key) return;
+    const buf = this.cache.audio.get(key);
+    if (!buf || !(buf instanceof AudioBuffer)) return;
     const gain = this.ctx.createGain();
     gain.gain.value = 0;
     gain.connect(this.musicBus);
-    const src = this.loopSource(key, gain);
-    if (!src) return;
-    this.current = { key, src, gain };
+    const t = { key, buf, gain, sources: [], timer: null };
+    this.current = t;
+    this.scheduleIteration(t, this.ctx.currentTime + 0.05, true);
     this.ramp(gain.gain, this.musicVol, fade);
+  }
+
+  // Music loops by overlapping: each play of the track starts XF seconds before the previous
+  // one ends, and the two crossfade, so the seam is smooth even when a track's end doesn't
+  // flow back into its start. Scheduled on the audio clock, a couple of seconds ahead.
+  scheduleIteration(t, when, first) {
+    if (this.current !== t) return;
+    const [a, b] = this.loopPoints(t.buf);
+    const len = b - a, XF = Math.min(0.75, len / 6);
+    const src = this.ctx.createBufferSource(), g = this.ctx.createGain();
+    src.buffer = t.buf;
+    src.connect(g); g.connect(t.gain);
+    g.gain.setValueAtTime(first ? 1 : 0, when);
+    if (!first) g.gain.linearRampToValueAtTime(1, when + XF);
+    g.gain.setValueAtTime(1, when + len - XF);
+    g.gain.linearRampToValueAtTime(0, when + len);
+    src.start(when, a, len);
+    src.onended = () => { src.disconnect(); g.disconnect(); t.sources = t.sources.filter(x => x !== src); };
+    t.sources.push(src);
+    const next = when + len - XF;
+    t.timer = setTimeout(() => this.scheduleIteration(t, next, false), Math.max(0, (next - this.ctx.currentTime - 2) * 1000));
+  }
+
+  stopTrack(t, fade) {
+    clearTimeout(t.timer);
+    this.ramp(t.gain.gain, 0, fade);
+    setTimeout(() => { t.sources.forEach(s => { try { s.stop(); } catch (e) {} }); t.gain.disconnect(); }, fade + 50);
   }
 
   setMusicOn(on) {
