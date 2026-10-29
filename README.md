@@ -20,6 +20,16 @@ Controller (Xbox / PlayStation / Switch Pro): d-pad or left stick to move, A / �
 B / ○ to go back, Y / △ or Start for the bag, X / □ for the flowers, Select / Share for music on/off.
 On touch screens: on-screen arrows, E and Bag buttons; tap the dialogue box to advance.
 
+## Mac app
+```
+bash mac/build.sh
+```
+builds `dist/Flowers in January.app` (Apple silicon + Intel, macOS 12+, works offline) and
+`dist/Flowers-in-January-mac.zip`. It needs only Apple's Command Line Tools. The app is a small
+Swift window (`mac/FlowersInJanuary.swift`) that plays the game files from inside the bundle.
+It isn't notarized: on another Mac, the first time, right-click the app → Open (or System Settings →
+Privacy & Security → Open Anyway).
+
 ## Dialogue
 Every line comes from `Flowers_in_January_Dialogue.xlsx` (tab `Dialogue`). After editing the sheet:
 ```
