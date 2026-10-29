@@ -14,7 +14,10 @@ python3 -m http.server 8765
 then open http://localhost:8765/ (add `?debug=1` for the debug tools).
 
 ## Controls
-Arrows / WASD to move · E, Space or Enter to talk / advance · I for the bag · Esc to leave a minigame.
+Arrows / WASD to move · E, Space or Enter to talk / advance · I for the bag · F for the flowers ·
+Esc to go back or leave a minigame.
+Controller (Xbox / PlayStation / Switch Pro): d-pad or left stick to move, A / ✕ to talk and confirm,
+B / ○ to go back, Y / △ or Start for the bag, X / □ for the flowers, Select / Share for music on/off.
 On touch screens: on-screen arrows, E and Bag buttons; tap the dialogue box to advance.
 
 ## Dialogue

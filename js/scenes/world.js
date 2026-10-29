@@ -198,6 +198,7 @@ class WorldScene extends Phaser.Scene {
     if (this.locked || Story.running) return;
     if (name === 'act') { const t = this.findTarget(); if (t) this.interact(t); }
     else if (name === 'inv') Inventory.open();
+    else if (name === 'flowers') FlowerBook.open();
     else if (DEBUG && /^f[1-4]$/.test(name)) Debug.fkey(name, this);
   }
 

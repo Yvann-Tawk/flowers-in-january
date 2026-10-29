@@ -15,6 +15,17 @@ const HUD = {
   setFlowers(n) { document.getElementById('hud-fn').textContent = n; },
   refresh() { this.setFlowers(G.s.flowers.length); },
 
+  // a short message in the same popup style ("Controller connected")
+  toast(text) {
+    const box = document.getElementById('popups');
+    const p = document.createElement('div');
+    p.className = 'popup nine';
+    p.textContent = text;
+    box.appendChild(p);
+    setTimeout(() => p.classList.add('out'), 1800);
+    setTimeout(() => p.remove(), 2300);
+  },
+
   // "Got: Old bottle" / "Gave: Big shell"
   popup(verb, item) {
     const it = ITEMS[item];

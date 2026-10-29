@@ -36,7 +36,7 @@ const FlowerBook = {
   cols() { return getComputedStyle(document.getElementById('flw-grid')).gridTemplateColumns.split(' ').length || 6; },
   key(name) {
     const n = this.TOTAL, c = this.cols();
-    if (name === 'back' || name === 'inv') return this.close();
+    if (name === 'back' || name === 'inv' || name === 'flowers') return this.close();
     if (name === 'left') this.sel = (this.sel + n - 1) % n;
     else if (name === 'right') this.sel = (this.sel + 1) % n;
     else if (name === 'up') this.sel = (this.sel + n - c) % n;
