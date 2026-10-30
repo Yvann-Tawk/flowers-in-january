@@ -45,6 +45,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKUIDelegate {
         config.mediaTypesRequiringUserActionForPlayback = []          // music can start right away
         config.websiteDataStore = .default()                          // the save (localStorage) persists
         config.preferences.setValue(true, forKey: "developerExtrasEnabled")
+        // collect page errors (read by the self-test)
+        config.userContentController.addUserScript(WKUserScript(source: "window.__errs=[];addEventListener('error',e=>__errs.push(String(e.message)+' @'+e.filename+':'+e.lineno));addEventListener('unhandledrejection',e=>__errs.push('rej '+String(e.reason&&e.reason.stack||e.reason)));", injectionTime: .atDocumentStart, forMainFrameOnly: true))
 
         web = WKWebView(frame: .zero, configuration: config)
         web.uiDelegate = self
@@ -75,13 +77,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKUIDelegate {
         (async () => {
           const t0 = Date.now();
           while (!window.bootDone && Date.now() - t0 < 20000) await new Promise(r => setTimeout(r, 200));
+          let started = null;
+          if (window.FIJ_NEWGAME !== false) {
+            G.reset(); Title.hide(); Snd.start();
+            Game.startNew().catch(e => __errs.push('startNew ' + e));
+            const t1 = Date.now();
+            while (Date.now() - t1 < 15000) { const w = game.scene.getScene('World'); if (w && w.player) { started = w.mapKey; break; } await new Promise(r => setTimeout(r, 200)); }
+          }
           let ls = 'no'; try { localStorage.setItem('fij-test', '1'); ls = localStorage.getItem('fij-test'); } catch (e) { ls = 'error ' + e; }
           return JSON.stringify({ title: document.title, boot: !!window.bootDone, font: document.fonts.check('20px PixelAE'),
             phaser: window.Phaser && Phaser.VERSION, audio: game.sound.context && game.sound.context.state,
-            localStorage: ls, gamepadApi: !!navigator.getGamepads, size: [innerWidth, innerHeight] });
+            localStorage: ls, gamepadApi: !!navigator.getGamepads, size: [innerWidth, innerHeight], started,
+            fade: document.getElementById('fade').style.opacity, errs: window.__errs });
         })()
         """
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.web.callAsyncJavaScript("return await " + js, arguments: [:], in: nil, in: .page) { result in
                 var text = ""
                 switch result { case .success(let v): text = "\(v)"; case .failure(let e): text = "ERROR \(e)" }

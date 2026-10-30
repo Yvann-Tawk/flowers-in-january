@@ -30,7 +30,7 @@ echo "Copying the game…"
 G="$APP/Contents/Resources/game"
 cp "$ROOT/index.html" "$G/"
 cp -R "$ROOT/css" "$ROOT/js" "$ROOT/data" "$G/"
-rsync -a --exclude 'interiors/' --exclude '.DS_Store' "$ROOT/assets/" "$G/assets/"
+rsync -a --exclude '/interiors/' --exclude '.DS_Store' "$ROOT/assets/" "$G/assets/"
 mkdir -p "$G/assets/interiors"   # raw interior tilesets aren't used by the game
 
 # 3. Phaser inside the app (so it works offline); cached in mac/vendor
