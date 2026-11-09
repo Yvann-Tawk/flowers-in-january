@@ -50,14 +50,15 @@ const HUD = {
       const f = document.createElement('div');
       f.className = 'fly-flower';
       f.style.backgroundImage = 'url(assets/' + flowerSprite(n) + ')';
-      f.style.left = (window.innerWidth / 2 - 24) + 'px';
-      f.style.top = (window.innerHeight / 2 - 60) + 'px';
+      const v = Handheld.view(), o = Handheld.offset();   // the game area (the console screen on the handheld)
+      f.style.left = (v.w / 2 - 24) + 'px';
+      f.style.top = (v.h / 2 - 60) + 'px';
       f.style.transform = 'scale(2)';
-      document.body.appendChild(f);
+      document.getElementById('stage').appendChild(f);
       const tgt = document.querySelector('#hud-flowers .flower-icon').getBoundingClientRect();
       setTimeout(() => {
-        f.style.left = (tgt.left + tgt.width / 2 - 24) + 'px';
-        f.style.top = (tgt.top + tgt.height / 2 - 24) + 'px';
+        f.style.left = (tgt.left - o.x + tgt.width / 2 - 24) + 'px';
+        f.style.top = (tgt.top - o.y + tgt.height / 2 - 24) + 'px';
         f.style.transform = 'scale(.5)';
         f.style.opacity = '0';
       }, 450);

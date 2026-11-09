@@ -74,8 +74,9 @@ function holdBouquet(scene) {
   const fly = document.createElement('div');
   fly.className = 'fly-flower';
   fly.style.backgroundImage = 'url(assets/items/bouquet_2x.png)';
-  fly.style.left = r.left + 'px'; fly.style.top = r.top + 'px';
-  document.body.appendChild(fly);
+  const o = Handheld.offset();
+  fly.style.left = (r.left - o.x) + 'px'; fly.style.top = (r.top - o.y) + 'px';
+  document.getElementById('stage').appendChild(fly);
   hud.style.transition = 'opacity .6s'; hud.style.opacity = 0;
   const cam = scene.cameras.main, p = scene.player;
   setTimeout(() => {

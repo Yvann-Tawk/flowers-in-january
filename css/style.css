@@ -170,19 +170,6 @@ button{font-family:inherit;}
 .iline.sm{font-size:var(--fs-s);letter-spacing:3px;text-transform:uppercase;font-family:"PixelAE",monospace;}
 .iline.sm.on{color:rgba(170,215,130,0.45)!important;}
 
-/* ── Touch controls ──────────────────────────────────────────── */
-#touch{position:fixed;inset:0;z-index:35;pointer-events:none;}
-.tbtn{pointer-events:all;position:absolute;width:56px;height:56px;border-radius:50%;background:rgba(255,247,237,.22);border:2px solid rgba(255,247,237,.45);
-  color:rgba(255,247,237,.9);font-size:20px;display:flex;align-items:center;justify-content:center;touch-action:none;}
-.tbtn.on{background:rgba(255,247,237,.5);}
-#dpad{position:absolute;left:calc(14px + env(safe-area-inset-left));bottom:calc(14px + env(safe-area-inset-bottom));width:168px;height:168px;}
-.t-up{left:56px;top:0;} .t-down{left:56px;bottom:0;} .t-left{left:0;top:56px;} .t-right{right:0;top:56px;}
-#tact{position:absolute;right:calc(14px + env(safe-area-inset-right));bottom:calc(14px + env(safe-area-inset-bottom));width:140px;height:130px;}
-.t-act{right:0;bottom:20px;width:70px;height:70px;font-size:30px;}
-.t-inv{left:0;top:0;font-size:20px;}
-body.touch #dlg{left:calc(196px + env(safe-area-inset-left));right:calc(160px + env(safe-area-inset-right));width:auto;transform:none;}
-@media (max-width:640px){ body.touch #dlg{left:8px;right:8px;bottom:190px;} }
-
 /* ── Debug ───────────────────────────────────────────────────── */
 #debug-panel{position:fixed;left:6px;bottom:6px;z-index:80;background:rgba(0,0,0,.75);color:#9f9;font:13px/1.35 monospace;padding:6px 8px;max-width:340px;}
 #debug-panel button{font:12px monospace;margin:2px;padding:1px 5px;cursor:pointer;}
@@ -226,3 +213,115 @@ body.touch #dlg{left:calc(196px + env(safe-area-inset-left));right:calc(160px + 
 /* "loading…" over the fade while an area's files arrive */
 #loadmsg{position:fixed;left:50%;bottom:12vh;transform:translateX(-50%);z-index:61;color:rgba(255,247,237,.75);font-size:var(--fs-s);opacity:0;transition:opacity .3s;pointer-events:none;}
 #loadmsg.on{opacity:1;}
+
+/* ═══════════════════════════════════════════════════════════════
+   HANDHELD — "Pocket Play" console shell on touch devices (body.handheld).
+   Desktop never gets this class, so nothing below applies there.
+   ═══════════════════════════════════════════════════════════════ */
+#shell,#pause{display:none;}
+body.handheld{
+  --hh-cream:#F7E8D5; --hh-brown:#4A2B22; --hh-lpink:#F6B3C8; --hh-rose:#A83A63; --hh-hot:#E2558A; --hh-ab:#EE8FB2;
+  --hh-font:"Press Start 2P",monospace;
+  height:100dvh;background-color:#F09BBF;background-image:radial-gradient(#F8C9DC 2px,transparent 2px);background-size:12px 12px;
+  overscroll-behavior:none;}
+body.handheld #shell{display:flex;flex-direction:column;position:fixed;inset:0;font-family:var(--hh-font);color:var(--hh-brown);
+  padding:max(8px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));gap:10px;}
+body.handheld #shell button{font-family:var(--hh-font);color:var(--hh-brown);-webkit-tap-highlight-color:transparent;touch-action:none;}
+body.handheld svg.px{shape-rendering:crispEdges;fill:currentColor;}
+
+/* top bar */
+body.handheld #sh-top{display:flex;gap:8px;align-items:stretch;flex:0 0 auto;}
+body.handheld .sh-pill{background:var(--hh-cream);border:3px solid var(--hh-brown);box-shadow:3px 3px 0 var(--hh-brown);font-size:9px;
+  display:flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;min-height:40px;}
+body.handheld #sh-exit svg{width:6px;height:8px;}
+body.handheld #sh-title{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.handheld #sh-pause{background:var(--hh-hot);color:#fff;width:44px;padding:0;}
+body.handheld #sh-pause svg{width:4px;height:16px;}
+body.handheld .sh-pill:active,body.handheld .sh-pill.on{transform:translate(2px,2px);box-shadow:none;}
+
+/* console body: cream, double border (light pink + rose outline), hard shadow */
+body.handheld #sh-body{flex:1 1 auto;min-height:0;background:var(--hh-cream);border:4px solid var(--hh-lpink);outline:4px solid var(--hh-rose);
+  box-shadow:8px 8px 0 var(--hh-brown);margin:4px 8px 8px 4px;padding:12px;display:grid;
+  grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto auto;grid-template-areas:"bezel" "word" "controls";gap:8px;}
+body.handheld #sh-bezel{grid-area:bezel;min-height:0;background:var(--hh-brown);padding:6px 12px 12px;display:flex;flex-direction:column;}
+body.handheld #sh-bezel-top{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--hh-cream);padding:2px 0 6px;}
+body.handheld #sh-led{width:8px;height:8px;background:var(--hh-hot);box-shadow:0 0 0 1px #000 inset;}
+body.handheld #sh-sys{margin-left:auto;opacity:.8;}
+body.handheld #sh-screen{flex:1;min-height:0;background-color:#F6C6D6;border:3px solid var(--hh-lpink);}
+body.handheld #sh-word{grid-area:word;font-size:12px;color:var(--hh-brown);padding-left:2px;}
+body.handheld #sh-word i{font-style:italic;color:var(--hh-rose);}
+
+/* controls: D-pad left, A/B right, Select/Start centred, grille bottom-right */
+body.handheld #sh-controls{grid-area:controls;position:relative;display:grid;grid-template-columns:auto 1fr auto;
+  grid-template-areas:"dpad . ab" "ss ss ss";align-items:center;padding:4px 0 2px;}
+body.handheld #sh-dpad{grid-area:dpad;position:relative;width:clamp(132px,36vw,168px);aspect-ratio:1;touch-action:none;}
+body.handheld .dp-arm,body.handheld .dp-mid{position:absolute;width:33.4%;height:33.4%;background:var(--hh-brown);color:var(--hh-lpink);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--hh-rose);}
+body.handheld .dp-up{left:33.3%;top:0;} body.handheld .dp-down{left:33.3%;bottom:0;}
+body.handheld .dp-left{left:0;top:33.3%;} body.handheld .dp-right{right:0;top:33.3%;}
+body.handheld .dp-mid{left:33.3%;top:33.3%;box-shadow:none;}
+body.handheld .dp-mid span{width:28%;height:28%;border-radius:50%;background:#2c1914;}
+body.handheld .dp-arm svg{width:28%;height:auto;}
+body.handheld #sh-dpad[data-dir="up"] .dp-up,body.handheld #sh-dpad[data-dir="down"] .dp-down,
+body.handheld #sh-dpad[data-dir="left"] .dp-left,body.handheld #sh-dpad[data-dir="right"] .dp-right{transform:translate(2px,2px);box-shadow:none;color:var(--hh-hot);}
+body.handheld #sh-ab{grid-area:ab;position:relative;width:150px;height:120px;transform:rotate(-22deg);}
+body.handheld .sh-round{position:absolute;width:60px;height:60px;border-radius:50%;background:var(--hh-ab);border:3px solid var(--hh-brown);
+  box-shadow:4px 4px 0 var(--hh-brown);font-size:12px;display:flex;align-items:center;justify-content:center;}
+body.handheld .sh-round::before{content:"";position:absolute;inset:-12px;border-radius:50%;}   /* hit area bigger than the drawn button */
+body.handheld #sh-a{right:2px;top:12px;} body.handheld #sh-b{left:2px;top:46px;}
+body.handheld .sh-round.on{transform:translate(2px,2px);box-shadow:none;background:var(--hh-hot);}
+body.handheld #sh-ss{grid-area:ss;display:flex;justify-content:center;gap:22px;padding-top:6px;}
+body.handheld .sh-small{position:relative;background:none;border:0;font-size:9px;color:var(--hh-rose);display:flex;flex-direction:column;align-items:center;gap:6px;min-width:64px;min-height:44px;}
+body.handheld .sh-small span{width:46px;height:12px;background:var(--hh-brown);border-radius:6px;transform:rotate(-22deg);box-shadow:2px 2px 0 var(--hh-rose);}
+body.handheld .sh-small.on span{transform:rotate(-22deg) translate(2px,2px);box-shadow:none;background:var(--hh-hot);}
+body.handheld #sh-grille{position:absolute;right:0;bottom:0;display:flex;gap:5px;transform:rotate(-22deg);pointer-events:none;}
+body.handheld #sh-grille i{display:block;width:5px;height:30px;background:var(--hh-lpink);border-radius:3px;}
+
+/* landscape: D-pad left, screen centre (Select/Start under it), A/B right */
+@media (orientation:landscape){
+  body.handheld #shell{gap:6px;}
+  body.handheld #sh-top{position:absolute;left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:max(6px,env(safe-area-inset-top));z-index:2;pointer-events:none;}
+  body.handheld #sh-top>*{pointer-events:auto;}
+  body.handheld #sh-title{visibility:hidden;}
+  body.handheld #sh-body{margin-top:52px;padding:8px 10px;grid-template-columns:minmax(150px,1fr) auto minmax(150px,1fr);
+    grid-template-rows:minmax(0,1fr) auto;grid-template-areas:"dpad bezel ab" "dpad ss ab";}
+  body.handheld #sh-controls{display:contents;}
+  body.handheld #sh-word,body.handheld #sh-grille{display:none;}
+  body.handheld #sh-bezel{aspect-ratio:3/2;height:100%;max-width:100%;justify-self:center;}
+  body.handheld #sh-dpad{justify-self:center;align-self:center;width:clamp(120px,19vw,160px);}
+  body.handheld #sh-ab{justify-self:center;align-self:center;}
+  body.handheld #sh-ss{padding-top:0;}
+}
+
+/* the game sits inside the screen: #stage is placed over #sh-screen by handheld.js */
+body.handheld #stage{position:fixed;overflow:hidden;transform:translateZ(0);z-index:5;}
+body.handheld #game{position:absolute;inset:0;}
+body.handheld #hud-right{display:none;}                         /* Bag = B, music = the pause menu */
+body.handheld #dlg{left:6px;right:6px;bottom:6px;width:auto;transform:none;}
+body.handheld #inv-panel,body.handheld #flw-panel{min-width:0;max-width:calc(100% - 12px);max-height:calc(100% - 12px);}
+body.handheld #poem-ov{padding:6px;}
+body.handheld #poem-card{width:calc(100% - 4px);max-height:calc(100% - 4px);}
+body.handheld #note-bk{--nh:calc(var(--sh,640px) * .96);max-width:98%;}
+body.handheld #title-plaque{width:calc(var(--sw,320px) * .86);}
+body.handheld #popups{top:40px;}
+
+/* pause menu */
+body.handheld #pause{display:flex;position:fixed;inset:0;z-index:90;align-items:center;justify-content:center;background:rgba(74,43,34,.45);font-family:var(--hh-font);}
+body.handheld #pause.hidden{display:none;}
+body.handheld #pause-box{width:min(320px,86vw);background:var(--hh-cream);border:4px solid var(--hh-lpink);outline:4px solid var(--hh-rose);box-shadow:8px 8px 0 var(--hh-brown);}
+body.handheld #pause-head{font-size:14px;text-align:center;padding:16px 0;color:var(--hh-brown);background-color:#F6C6D6;
+  background-image:linear-gradient(#fff 2px,transparent 2px),linear-gradient(90deg,#fff 2px,transparent 2px);background-size:14px 14px;border-bottom:4px solid var(--hh-brown);}
+body.handheld #pause-list,body.handheld #pause-controls{display:flex;flex-direction:column;gap:8px;padding:14px;}
+body.handheld #pause-list.hidden,body.handheld #pause-controls.hidden{display:none;}
+body.handheld #pause button{font-family:var(--hh-font);font-size:10px;text-align:left;padding:12px 12px;min-height:44px;background:#fff;color:var(--hh-brown);
+  border:3px solid var(--hh-brown);box-shadow:3px 3px 0 var(--hh-brown);}
+body.handheld #pause button b{color:var(--hh-rose);font-weight:normal;}
+body.handheld #pause button.sel{background:var(--hh-lpink);}
+body.handheld #pause button:active{transform:translate(2px,2px);box-shadow:none;}
+body.handheld #pause-controls div{font-size:9px;line-height:1.6;color:var(--hh-brown);}
+body.handheld #pause-box{max-height:calc(100dvh - 24px);overflow-y:auto;}
+@media (orientation:landscape){
+  body.handheld #pause-box{width:min(520px,70vw);}
+  body.handheld #pause-head{padding:10px 0;}
+  body.handheld #pause-list{display:grid;grid-template-columns:1fr 1fr;}
+}

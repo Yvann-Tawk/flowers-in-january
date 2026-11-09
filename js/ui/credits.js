@@ -25,7 +25,7 @@ const Credits = {
       el = document.createElement('div');
       el.id = 'credits';
       el.innerHTML = '<div id="credits-roll"></div>';
-      document.body.appendChild(el);
+      document.getElementById('stage').appendChild(el);
     }
     const roll = el.querySelector('#credits-roll');
     roll.innerHTML = '';
@@ -37,7 +37,7 @@ const Credits = {
     el.classList.add('open');
     Fade.in(800);
     return new Promise(resolve => {
-      const h = roll.scrollHeight + window.innerHeight;
+      const h = roll.scrollHeight + Handheld.view().h;
       const ms = Math.max(22000, h * 18);
       roll.style.transition = 'none';
       roll.style.transform = 'translateY(0)';

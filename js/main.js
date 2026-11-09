@@ -91,9 +91,11 @@ HUD.init();
 FlowerBook.init();
 Dialog.init();
 Touch.init();
+Handheld.init();
 document.getElementById('fade').style.opacity = 1; // the first map fades in
-window.addEventListener('pagehide', () => { if (G.beforeSave) G.save(); });
-document.addEventListener('visibilitychange', () => { if (document.hidden && G.beforeSave) G.save(); });
+window.addEventListener('pagehide', () => { if (G.beforeSave && !Game.noSaveOnExit) G.save(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden && G.beforeSave && !Game.noSaveOnExit) G.save(); });
 
 if (DEBUG && Debug.autostart()) { /* debug URL params jump straight into a map */ }
+else if (Handheld.takeContinue()) { document.getElementById('title').classList.add('hidden'); Title.cont(); }   // Restart from the last save
 else Title.start();

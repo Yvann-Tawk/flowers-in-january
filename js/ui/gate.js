@@ -13,7 +13,8 @@ const Gate = {
   open() {
     const ov = document.getElementById('gate-ov');
     const panel = document.getElementById('gate-panel');
-    const g = Math.max(1, Math.min(2, (window.innerWidth * 0.94) / 320, (window.innerHeight * 0.94) / 200));
+    const v = Handheld.view();
+    const g = Math.max(0.6, Math.min(2, (v.w * 0.94) / 320, (v.h * 0.94) / 200));
     panel.style.setProperty('--g', g);
     // PixelAE stays crisp only at multiples of 10 px
     panel.style.setProperty('--gfs-s', g >= 1.6 ? '20px' : '10px');

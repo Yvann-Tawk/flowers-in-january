@@ -8,12 +8,68 @@
 <title>Flowers in January</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Amiri&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/ui/PixelAE-Regular.ttf?v=3" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=7">
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
 </head>
 <body>
+<!-- Handheld console shell (touch devices only; hidden on desktop) -->
+<div id="shell" aria-hidden="false">
+  <div id="sh-top">
+    <button class="sh-pill" id="sh-exit" aria-label="Exit to the title screen"><svg viewBox="0 0 6 8" class="px"><path d="M4 0h1v1H4zM3 1h1v1H3zM2 2h1v1H2zM1 3h1v2H1zM2 5h1v1H2zM3 6h1v1H3zM4 7h1v1H4z"/></svg>EXIT</button>
+    <div class="sh-pill" id="sh-title">FLOWERS IN JANUARY</div>
+    <button class="sh-pill" id="sh-pause" aria-label="Pause"><svg viewBox="0 0 2 8" class="px"><path d="M0 0h2v5H0zM0 6h2v2H0z"/></svg></button>
+  </div>
+  <div id="sh-body">
+    <div id="sh-bezel">
+      <div id="sh-bezel-top"><span id="sh-led"></span>POWER<span id="sh-sys">HTML GAME SYSTEM</span></div>
+      <div id="sh-screen"></div>
+    </div>
+    <div id="sh-word"><i>Pocket</i> PLAY</div>
+    <div id="sh-controls">
+      <div id="sh-dpad" aria-label="D-pad">
+        <div class="dp-arm dp-up"><svg viewBox="0 0 7 4" class="px"><path d="M3 0h1v1h1v1h1v1h1v1H0V3h1V2h1V1h1z"/></svg></div>
+        <div class="dp-arm dp-left"><svg viewBox="0 0 4 7" class="px"><path d="M0 3h1V2h1V1h1V0h1v7H3V6H2V5H1V4H0z"/></svg></div>
+        <div class="dp-arm dp-right"><svg viewBox="0 0 4 7" class="px"><path d="M4 3H3V2H2V1H1V0H0v7h1V6h1V5h1V4h1z"/></svg></div>
+        <div class="dp-arm dp-down"><svg viewBox="0 0 7 4" class="px"><path d="M3 4h1V3h1V2h1V1h1V0H0v1h1v1h1v1h1z"/></svg></div>
+        <div class="dp-mid"><span></span></div>
+      </div>
+      <div id="sh-ab">
+        <button class="sh-round" id="sh-b" data-k="inv" aria-label="B: bag">B</button>
+        <button class="sh-round" id="sh-a" data-k="act" aria-label="A: interact">A</button>
+      </div>
+      <div id="sh-ss">
+        <button class="sh-small" id="sh-select" data-k="flowers" aria-label="Select: flower book"><span></span>SELECT</button>
+        <button class="sh-small" id="sh-start" data-k="pause" aria-label="Start: pause"><span></span>START</button>
+      </div>
+      <div id="sh-grille"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</div>
+
+<!-- Pause menu (handheld) -->
+<div id="pause" class="hidden" role="dialog" aria-label="Paused">
+  <div id="pause-box">
+    <div id="pause-head">PAUSED</div>
+    <div id="pause-list">
+      <button data-p="resume">Resume</button>
+      <button data-p="restart">Restart</button>
+      <button data-p="sound">Sound: <b>ON</b></button>
+      <button data-p="haptics">Haptics: <b>ON</b></button>
+      <button data-p="controls">Controls</button>
+      <button data-p="quit">Quit Game</button>
+    </div>
+    <div id="pause-controls" class="hidden">
+      <div>D-PAD &nbsp; move</div><div>A &nbsp; talk / confirm</div><div>B &nbsp; bag</div>
+      <div>SELECT &nbsp; flowers</div><div>START &nbsp; pause</div><div>Tap the text box to read on</div>
+      <button data-p="back">Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- Everything the game draws. On desktop this is just a wrapper; on the handheld it sits inside the console screen. -->
+<div id="stage">
 <div id="game"></div>
 
 <!-- Title -->
@@ -111,64 +167,52 @@
 <!-- Fade layer -->
 <div id="fade"></div>
 <div id="loadmsg">loading…</div>
-
-<!-- Touch controls -->
-<div id="touch" class="hidden">
-  <div id="dpad">
-    <button data-k="up" class="tbtn t-up">&#9650;</button>
-    <button data-k="left" class="tbtn t-left">&#9664;</button>
-    <button data-k="right" class="tbtn t-right">&#9654;</button>
-    <button data-k="down" class="tbtn t-down">&#9660;</button>
-  </div>
-  <div id="tact">
-    <button data-k="inv" class="tbtn t-inv">Bag</button>
-    <button data-k="act" class="tbtn t-act">E</button>
-  </div>
 </div>
 
 <div id="debug-panel" class="hidden"></div>
 
-<script src="js/data.js"></script>
-<script src="js/dialogue.js"></script>
-<script src="js/config.js"></script>
-<script src="js/state.js"></script>
-<script src="js/audio.js"></script>
-<script src="js/input.js"></script>
-<script src="js/ui/fade.js"></script>
-<script src="js/ui/hud.js"></script>
-<script src="js/ui/dialogue_box.js"></script>
-<script src="js/ui/poem.js"></script>
-<script src="js/ui/note.js"></script>
-<script src="js/ui/inventory.js"></script>
-<script src="js/ui/flowers.js"></script>
-<script src="js/ui/gate.js"></script>
-<script src="js/ui/title.js"></script>
-<script src="js/ui/touch.js"></script>
-<script src="js/ui/credits.js"></script>
-<script src="js/world/mapbuilder.js"></script>
-<script src="js/world/actors.js"></script>
-<script src="js/world/player.js"></script>
-<script src="js/world/lighting.js"></script>
-<script src="js/world/digmarks.js"></script>
-<script src="js/story/lines.js"></script>
-<script src="js/story/runner.js"></script>
-<script src="js/story/garden.js"></script>
-<script src="js/story/guardian.js"></script>
-<script src="js/story/beach.js"></script>
-<script src="js/story/forest.js"></script>
-<script src="js/story/blossom.js"></script>
-<script src="js/story/plains.js"></script>
-<script src="js/story/ending.js"></script>
-<script src="js/minigames/fishing.js"></script>
-<script src="js/minigames/dig.js"></script>
-<script src="js/minigames/whack.js"></script>
-<script src="js/minigames/sled.js"></script>
-<script src="js/minigames/sleeves.js"></script>
-<script src="js/minigames/shuffle.js"></script>
-<script src="js/scenes/audio_scene.js"></script>
-<script src="js/scenes/boot.js"></script>
-<script src="js/scenes/world.js"></script>
-<script src="js/debug.js"></script>
-<script src="js/main.js"></script>
+<script src="js/data.js?v=7"></script>
+<script src="js/dialogue.js?v=7"></script>
+<script src="js/config.js?v=7"></script>
+<script src="js/state.js?v=7"></script>
+<script src="js/audio.js?v=7"></script>
+<script src="js/input.js?v=7"></script>
+<script src="js/ui/fade.js?v=7"></script>
+<script src="js/ui/hud.js?v=7"></script>
+<script src="js/ui/dialogue_box.js?v=7"></script>
+<script src="js/ui/poem.js?v=7"></script>
+<script src="js/ui/note.js?v=7"></script>
+<script src="js/ui/inventory.js?v=7"></script>
+<script src="js/ui/flowers.js?v=7"></script>
+<script src="js/ui/gate.js?v=7"></script>
+<script src="js/ui/title.js?v=7"></script>
+<script src="js/ui/touch.js?v=7"></script>
+<script src="js/ui/handheld.js?v=7"></script>
+<script src="js/ui/credits.js?v=7"></script>
+<script src="js/world/mapbuilder.js?v=7"></script>
+<script src="js/world/actors.js?v=7"></script>
+<script src="js/world/player.js?v=7"></script>
+<script src="js/world/lighting.js?v=7"></script>
+<script src="js/world/digmarks.js?v=7"></script>
+<script src="js/story/lines.js?v=7"></script>
+<script src="js/story/runner.js?v=7"></script>
+<script src="js/story/garden.js?v=7"></script>
+<script src="js/story/guardian.js?v=7"></script>
+<script src="js/story/beach.js?v=7"></script>
+<script src="js/story/forest.js?v=7"></script>
+<script src="js/story/blossom.js?v=7"></script>
+<script src="js/story/plains.js?v=7"></script>
+<script src="js/story/ending.js?v=7"></script>
+<script src="js/minigames/fishing.js?v=7"></script>
+<script src="js/minigames/dig.js?v=7"></script>
+<script src="js/minigames/whack.js?v=7"></script>
+<script src="js/minigames/sled.js?v=7"></script>
+<script src="js/minigames/sleeves.js?v=7"></script>
+<script src="js/minigames/shuffle.js?v=7"></script>
+<script src="js/scenes/audio_scene.js?v=7"></script>
+<script src="js/scenes/boot.js?v=7"></script>
+<script src="js/scenes/world.js?v=7"></script>
+<script src="js/debug.js?v=7"></script>
+<script src="js/main.js?v=7"></script>
 </body>
 </html>
